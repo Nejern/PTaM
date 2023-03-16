@@ -1,11 +1,10 @@
-#include <QCoreApplication>
 #include "mytcpserver.h"
+#include <QCoreApplication>
 
-int main(int argc, char *argv[])
-{
-    QCoreApplication a(argc, argv);
+int main(int argc, char *argv[]) {
+  QCoreApplication a(argc, argv);
 
-    MyTcpServer server;
+  MyTcpServer server;
 
-    return a.exec();
+  return a.exec();
 }
