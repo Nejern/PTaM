@@ -1,5 +1,5 @@
-#ifndef MYTCPSERVER_H
-#define MYTCPSERVER_H
+#ifndef TCPSERVER_H
+#define TCPSERVER_H
 #include <QByteArray>
 #include <QDebug>
 #include <QList>
@@ -24,4 +24,4 @@ class MyTcpServer : public QObject {
   QMap<int, QTcpSocket*> mTcpSocket;
   int server_status;
 };
-#endif  // MYTCPSERVER_H
+#endif
