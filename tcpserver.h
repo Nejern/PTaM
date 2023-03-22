@@ -2,7 +2,7 @@
 #define TCPSERVER_H
 #include <QByteArray>
 #include <QDebug>
-#include <QList>
+#include <QVector>
 #include <QObject>
 #include <QTcpServer>
 #include <QTcpSocket>
@@ -20,8 +20,8 @@ class MyTcpServer : public QObject {
   void slotServerRead();
   // void slotReadClient();
  private:
-  QTcpServer *mTcpServer;
-  QMap<int, QTcpSocket*> mTcpSocket;
+  QTcpServer *tcpServer;
+  QVector<QTcpSocket*> tcpSockets;
   int server_status;
 };
 #endif

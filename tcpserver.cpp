@@ -5,15 +5,15 @@
 
 MyTcpServer::~MyTcpServer() {
   // mTcpSocket->close();
-  mTcpServer->close();
+  tcpServer->close();
   server_status = 0;
 }
 MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent) {
-  mTcpServer = new QTcpServer(this);
-  connect(mTcpServer, &QTcpServer::newConnection, this,
+  tcpServer = new QTcpServer(this);
+  connect(tcpServer, &QTcpServer::newConnection, this,
           &MyTcpServer::slotNewConnection);
 
-  if (!mTcpServer->listen(QHostAddress::Any, 33333)) {
+  if (!tcpServer->listen(QHostAddress::Any, 33333)) {
     qDebug() << "server is not started";
   } else {
     server_status = 1;
@@ -23,27 +23,27 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent) {
 
 void MyTcpServer::slotNewConnection() {
   if (server_status == 1) {
-    QTcpSocket *current_mTcpSocket;
-    current_mTcpSocket = mTcpServer->nextPendingConnection();
-    mTcpSocket[current_mTcpSocket->socketDescriptor()] = current_mTcpSocket;
-    current_mTcpSocket->write("Hello, World!!! I am echo server!\r\n");
-    connect(current_mTcpSocket, &QTcpSocket::readyRead, this,
+    QTcpSocket *currTcpSocket;
+    currTcpSocket = tcpServer->nextPendingConnection();
+    currTcpSocket->write("Hello, World!!! I am echo server!\r\n");
+    connect(currTcpSocket, &QTcpSocket::readyRead, this,
             &MyTcpServer::slotServerRead);
-    connect(current_mTcpSocket, &QTcpSocket::disconnected, this,
+    connect(currTcpSocket, &QTcpSocket::disconnected, this,
             &MyTcpServer::slotClientDisconnected);
+    tcpSockets.push_back(currTcpSocket);
   }
 }
 
 void MyTcpServer::slotServerRead() {
-  QTcpSocket *current_mTcpSocket;
-  current_mTcpSocket = mTcpSocket[mTcpServer->socketDescriptor()];
-  while (current_mTcpSocket->bytesAvailable() > 0) {
-    QByteArray array = current_mTcpSocket->readAll();
-    current_mTcpSocket->write(array);
+  QTcpSocket *currTcpSocket;
+  currTcpSocket = (QTcpSocket*)sender();
+  while (currTcpSocket->bytesAvailable() > 0) {
+    QByteArray array = currTcpSocket->readAll();
+    currTcpSocket->write(array);
   }
 }
 
 void MyTcpServer::slotClientDisconnected() {
-  QTcpSocket *current_mTcpSocket = mTcpSocket[mTcpServer->socketDescriptor()];
-  current_mTcpSocket->close();
+  QTcpSocket *currTcpSocket = (QTcpSocket*)sender();
+  currTcpSocket->close();
 }
