@@ -19,6 +19,8 @@ set (SRCS
     main.cpp
     tcpserver.cpp
     tcpserver.h
+    functions.cpp
+    functions.h
 )
 
 

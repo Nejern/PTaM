@@ -1,5 +1,5 @@
 #include "tcpserver.h"
-
+#include <functions.h>
 #include <QCoreApplication>
 #include <QDebug>
 
@@ -35,15 +35,17 @@ void MyTcpServer::slotNewConnection() {
 }
 
 void MyTcpServer::slotServerRead() {
-  QTcpSocket *currTcpSocket;
-  currTcpSocket = (QTcpSocket*)sender();
+  QByteArray array;
+  QTcpSocket *currTcpSocket = (QTcpSocket *)sender();
   while (currTcpSocket->bytesAvailable() > 0) {
-    QByteArray array = currTcpSocket->readAll();
-    currTcpSocket->write(array);
+    array.append(currTcpSocket->readAll());
+  }
+  if (array.right(1) == "\n") {
+    currTcpSocket->write(parse(array));
   }
 }
 
 void MyTcpServer::slotClientDisconnected() {
-  QTcpSocket *currTcpSocket = (QTcpSocket*)sender();
+  QTcpSocket *currTcpSocket = (QTcpSocket *)sender();
   currTcpSocket->close();
 }
