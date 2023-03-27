@@ -1,6 +1,7 @@
 build
 .vscode
 CMakeCache.txt
+CMakeLists.txt.user
 CMakeFiles/
 Makefile
 TcpServer
