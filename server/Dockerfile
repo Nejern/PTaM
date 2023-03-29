@@ -11,12 +11,15 @@ RUN apt-get install build-essential -y
 WORKDIR /root/
 RUN mkdir server
 WORKDIR /root/server/
-COPY *.cpp /root/server/
-COPY *.h /root/server/
-COPY *.pro /root/server/
+RUN mkdir src
+COPY src/*.cpp /root/server/src
+COPY src/*.h /root/server/src
+COPY src/*.pro /root/server/src
 COPY CMakeLists.txt /root/server/
 
-RUN cmake .
+RUN mkdir build
+WORKDIR /root/server/build
+RUN cmake ..
 RUN make
 
 ENTRYPOINT ["./TcpServer"]
