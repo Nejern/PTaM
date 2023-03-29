@@ -1,5 +1,5 @@
 #include "tcpserver.h"
-#include <functions.h>
+#include "functions.h"
 #include <QCoreApplication>
 #include <QDebug>
 

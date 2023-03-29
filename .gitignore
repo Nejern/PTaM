@@ -1,9 +1,2 @@
-src/build
+build
 .vscode
-src/CMakeCache.txt
-src/CMakeLists.txt.user
-src/CMakeFiles/
-src/Makefile
-src/TcpServer
-src/TcpServer_autogen/
-src/cmake_install.cmake
