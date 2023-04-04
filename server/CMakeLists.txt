@@ -12,18 +12,15 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # QT stuff
-find_package(Qt5 COMPONENTS Core Network REQUIRED)
-
+find_package(Qt5 COMPONENTS Core Network Sql REQUIRED)
 # ???
 include_directories(
     .
 )
 
-# ??? src/* ???
-set (SRCS src/main.cpp src/tcpserver.cpp src/tcpserver.h src/functions.cpp src/functions.h)
-
+file (GLOB SRCS CONFIGURE_DEPENDS src/*.cpp src/*.h  )
 # ???
 add_executable(${CMAKE_PROJECT_NAME} ${SRCS})
 
 # ???
-target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE Qt5::Core Qt5::Network)
+target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE Qt5::Core Qt5::Network Qt5::Sql)
