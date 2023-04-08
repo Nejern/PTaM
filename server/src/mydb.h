@@ -35,6 +35,7 @@ class MyDB : public Singleton {
   static void createDB() {
     Singleton::getInstance();
     openDB();
+    createTables();
   }
   // Функция для закрытия базы данных
   static void close() {
@@ -46,7 +47,7 @@ class MyDB : public Singleton {
   static bool insertData(const QString& queryString) {
     openDB();
     QSqlQuery query(db);
-
+    query.exec("PRAGMA foreign_keys = ON");
     // Выполнение запроса
     if (!query.exec(queryString)) {
       qDebug() << "Failed to execute query:" << query.lastError().text();
@@ -109,8 +110,47 @@ class MyDB : public Singleton {
       qDebug() << "Error";
     }
   }
-};
 
+  // Функция для создания таблиц
+  static void createTables() {
+    QSqlQuery query(db);
+    query.exec("PRAGMA foreign_keys = ON");
+    MyDB::insertData(
+        "CREATE TABLE IF NOT EXISTS roles ("
+        "role_id INT PRIMARY KEY,"
+        "role TEXT"
+        ");");
+    MyDB::insertData(
+        "CREATE TABLE IF NOT EXISTS users ("
+        "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+        "username TEXT,"
+        "password TEXT,"
+        "role_id INT"
+        ");");
+
+    MyDB::insertData(
+        "CREATE TABLE IF NOT EXISTS grades ("
+        "student_id INT,"
+        "excercise INT,"
+        "grade INT"
+        ");");
+    MyDB::insertData(
+        "CREATE TABLE IF NOT EXISTS students ("
+        "id INT,"
+        "firstname TEXT,"
+        "surname TEXT,"
+        "patronymic TEXT,"
+        "studygroup TEXT"
+        ");");
+  }
+  // Функция для удаления таблиц
+  static void dropTables() {
+    MyDB::insertData("DROP TABLE IF EXISTS users;");
+    MyDB::insertData("DROP TABLE IF EXISTS roles;");
+    MyDB::insertData("DROP TABLE IF EXISTS students;");
+    MyDB::insertData("DROP TABLE IF EXISTS grades;");
+  }
+};
 QSqlDatabase MyDB::db = QSqlDatabase();
 
 #endif  // MyDB_H
