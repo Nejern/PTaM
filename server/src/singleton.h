@@ -4,7 +4,6 @@
 #include <QDebug>
 
 class Singleton;
-
 class SingletonDestroyer {
  private:
   Singleton* p_instance;
@@ -14,7 +13,7 @@ class SingletonDestroyer {
     delete p_instance;
     qDebug() << "~SingletonDestroyer";
   }
-  void initialize(Singleton* p) { p_instance = p; };
+  void initialize(Singleton* p) { p_instance = p; }
 };
 
 class Singleton {
@@ -39,7 +38,5 @@ class Singleton {
   }
 };
 
-Singleton* Singleton::p_instance = nullptr;
-SingletonDestroyer Singleton::destroyer;
 
 #endif  // SINGLETON_H

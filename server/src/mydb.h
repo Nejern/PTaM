@@ -85,19 +85,21 @@ class MyDB : public Singleton {
     return resultMap;
   }
   // Функция для составления запроса на вставку данных в таблицу
-  static bool buildInsertQuery(
-      const QMap<QString, QMap<QString, QString>>& data) {
+  static bool makeInsertQuery(
+      const QMap<QString, QMap<QString, QVariant>>& data) {
     QString table = data.firstKey();
-    QMap<QString, QString> columnData = data.value(table);
+    QMap<QString, QVariant> columnData = data.value(table);
 
     QString query = QString("INSERT INTO %1 (").arg(table);
 
     QStringList columns;
-    QStringList values;
+    QList<QString> values;
 
     for (auto it = columnData.constBegin(); it != columnData.constEnd(); ++it) {
-      columns << it.key();
-      values << it.value();
+      if (it.key() != "command") {
+        columns.append(it.key());
+        values.append(it.value().toString());
+      }
     }
 
     query += columns.join(", ");
@@ -108,6 +110,7 @@ class MyDB : public Singleton {
       return true;
     } else {
       qDebug() << "Error";
+      return false;
     }
   }
 
@@ -123,7 +126,7 @@ class MyDB : public Singleton {
     MyDB::insertData(
         "CREATE TABLE IF NOT EXISTS users ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-        "username TEXT,"
+        "login TEXT,"
         "password TEXT,"
         "role_id INT"
         ");");
@@ -151,6 +154,5 @@ class MyDB : public Singleton {
     MyDB::insertData("DROP TABLE IF EXISTS grades;");
   }
 };
-QSqlDatabase MyDB::db = QSqlDatabase();
 
 #endif  // MyDB_H
