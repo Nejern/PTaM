@@ -2,25 +2,22 @@
 #define FUNCTIONS_H
 
 #include <QByteArray>
+#include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonValue>
 #include <QMap>
 #include <QString>
 #include <QStringList>
 
-QByteArray log_in(QString username, QString password);
+class ServerFunctions {
+ public:
+  static QByteArray parse(QString message);
 
-QByteArray log_out();
-
-QByteArray give_a_role(QString username, QString new_role);
-
-QByteArray change_role(QString username, QString new_role);
-
-QByteArray change_pass(QString old_pass, QString new_pass1, QString new_pass2);
-
-QByteArray add_user(QString username, QString new_role);
-
-QByteArray show_pass(QString account);
-
-QByteArray invalidRequest();
-
-QByteArray parse(QString message);
+ private:
+  static QByteArray selectCommand(QJsonDocument json);
+  static QByteArray registerUser(QJsonObject json);
+  static QByteArray loginUser(QJsonObject json);
+};
 #endif

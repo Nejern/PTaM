@@ -1,67 +1,66 @@
 #include "functions.h"
 
-
-QByteArray log_in(QString username, QString password){
-    return QByteArray("Авторизация\n");
+#include "mydb.h"
+QByteArray ServerFunctions::parse(QString message) {
+  QJsonDocument json = QJsonDocument::fromJson(message.toUtf8());
+  if (json.isNull() || !json.isObject()) {
+    return "Invalid JSON\n";
+  } else {
+    return ServerFunctions::selectCommand(json);
+  }
+  return "Invalid JSON\n";
 }
 
-QByteArray log_out(){
-    return QByteArray("Выход\n");
-}
-
-QByteArray give_a_role(QString username, QString new_role){
-    QString message = "Выдана роль " + new_role + " пользователю " + username + "\n";
-    return QByteArray(message.toUtf8());
-}
-
-QByteArray change_role(QString username, QString new_role){
-    QString message = "Роль пользователя " + username + " изменена на " + new_role + "\n";
-    return QByteArray(message.toUtf8());
-}
-
-QByteArray change_pass(QString old_pass, QString new_pass1,  QString new_pass2){
-    QString message = "Пароль пользователя изменён на " + new_pass1 + "\n";
-    return QByteArray(message.toUtf8());
-}
-
-QByteArray add_user(QString username, QString new_role){
-    QString message = "Пользователь " + username + " добавлен с ролью " + new_role + "\n";
-    return QByteArray(message.toUtf8());
-}
-
-QByteArray show_pass(QString account){
-    QString message = "Пароль от аккаунта " + account + "\n";
-    return QByteArray(message.toUtf8());
-}
-QByteArray invalidRequest(){
-    return QByteArray("Неверная команда или неверное количесво параметров.\n");
-};
-
-
-QByteArray parse(QString message){
-    QStringList parts = message.left(message.length() - 2).split(" ");
-
-    switch(parts.size()){
-        case 1:
-            if(parts[0] == "logout")
-                return log_out();
-        case 2:
-            if(parts[0] == "showpass")
-                return show_pass(parts[1]);
-            break;
-        case 3:
-            if (parts[0] == "login")
-                return log_in(parts[1],parts[2]);
-            if (parts[0] == "giverole")
-                return give_a_role(parts[1],parts[2]);
-            if (parts[0] == "chrole")
-                return change_role(parts[1],parts[2]);
-            if (parts[0] == "adduser")
-                return add_user(parts[1],parts[2]);
-            break;
-        case 4:
-            if (parts[0] == "chpass")
-                return change_pass(parts[1],parts[2],parts[3]);
+QByteArray ServerFunctions::selectCommand(QJsonDocument json) {
+  QJsonObject obj = json.object();
+  if (obj.contains("command") && obj["command"].isString()) {
+    QString command = obj["command"].toString();
+    if (command == "register") {
+      return ServerFunctions::registerUser(obj);
+    } else if (command == "login") {
+      return ServerFunctions::loginUser(obj);
+    } else {
+      return "Invalid command\n";
     }
-    return invalidRequest();
+  } else {
+    return "Invalid command\n";
+  }
+}
+
+QByteArray ServerFunctions::registerUser(QJsonObject json) {
+  if (json.contains("login") && json["login"].isString() &&
+      json.contains("password") && json["password"].isString() &&
+      json.contains("role_id")) {
+    QMap<QString, QVariant> userdata = json.toVariantMap();
+    QMap<QString, QMap<QString, QVariant>> data;
+    data.insert("users", userdata);
+
+    if (MyDB::makeInsertQuery(data)) {
+      return "Registration success\n";
+    } else {
+      return "Registration failed\n";
+    }
+  } else {
+    return "Invalid JSON\n";
+  }
+}
+
+QByteArray ServerFunctions::loginUser(QJsonObject json) {
+  if (json.contains("login") && json["login"].isString() &&
+      json.contains("password") && json["password"].isString()) {
+    QMap<QString, QVariant> userdata = json.toVariantMap();
+    QMap<QString, QMap<QString, QVariant>> data;
+    data.insert("users", userdata);
+    QString query = "SELECT * FROM users WHERE login = '" +
+                    userdata["login"].toString() + "' AND password = '" +
+                    userdata["password"].toString() + "'";
+    QMap<QString, QVariant> result = MyDB::getData(query);
+    if (result.isEmpty()) {
+      return "Login failed\n";
+    } else {
+      QJsonDocument resultJson = QJsonDocument::fromVariant(result);
+      return resultJson.toJson() + "\n";
+    }
+  }
+  return "Login Invalid JSON\n";
 }

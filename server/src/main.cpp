@@ -11,9 +11,7 @@
 
 int main(int argc, char *argv[]) {
   QCoreApplication serverApp(argc, argv);
-  MyDB::db;
   MyDB::createDB();
-
   MyTcpServer server;
 
   return serverApp.exec();

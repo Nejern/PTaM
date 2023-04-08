@@ -41,7 +41,7 @@ void MyTcpServer::slotServerRead() {
     array.append(currTcpSocket->readAll());
   }
   if (array.right(1) == "\n") {
-    currTcpSocket->write(parse(array));
+    currTcpSocket->write(ServerFunctions::parse(array));
   }
 }
 
