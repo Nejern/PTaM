@@ -1,56 +1,58 @@
-#ifndef MyDB
-#define MyDB
+#ifndef MyDB_H
+#define MyDB_H
 
 #include <QCoreApplication>
-
-#include <QVariant>
 #include <QDebug>
 #include <QSqlDatabase>
-#include <QSqlQuery>
 #include <QSqlError>
+#include <QSqlQuery>
 #include <QSqlRecord>
+#include <QVariant>
+
 #include "singleton.h"
 
-class MyDB : public Singleton
-{
-private:
-    MyDB() = delete;
-    MyDB(const MyDB &Db) = delete;
-     QSqlDatabase db;
+// Класс для работы с базой данных SQLite
+class MyDB : public Singleton {
+ private:
+  MyDB() = delete;
+  MyDB(const MyDB &Db) = delete;
+  static void openDB() {
+    qDebug() << "MyDB()\n";
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("Test");
+    if (!db.open()) qDebug() << db.lastError().text();
+  }
 
-     void openDB(){
-        qDebug()<<"MyDB()\n";
-        db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName("Test");
-        if(!db.open())
-            qDebug()<<db.lastError().text();
-    }
-public:
-     QString query_select(){
-         QSqlQuery query = QSqlQuery(db);
-        query.exec("SELECT * FROM User");
-        if (query.next()) {
-            QSqlRecord rec = query.record();
-            const int loginIndex = rec.indexOf("login");//номер "столбца"
-            const int passwordIndex = rec.indexOf("password");
-            return query.value(loginIndex).toString()+" "+query.value(passwordIndex).toString();
-        } else
-            return "Sorry, something went wrong";
-    }
+ public:
+  static QSqlDatabase db;
 
-     void createDB(){
-        Singleton::getInstance();
-        if (!db.isOpen())
-        {
-            openDB();
-        }
+  static QString query_select() {
+    static QSqlQuery query = QSqlQuery(db);
+    query.exec("SELECT * FROM User");
+    if (query.next()) {
+      QSqlRecord rec = query.record();
+      const int loginIndex = rec.indexOf("login");  // номер "столбца"
+      const int passwordIndex = rec.indexOf("password");
+      return query.value(loginIndex).toString() + " " +
+             query.value(passwordIndex).toString();
+    } else
+      return "Sorry, something went wrong";
+  }
 
+  static void createDB() {
+    Singleton::getInstance();
+    if (!db.isOpen()) {
+      openDB();
     }
-     void close(){
-        if(db.isOpen())
-            db.close();
+  }
+
+  static void close() {
+    if (db.isOpen()) {
+      db.close();
     }
+  }
 };
-QSqlDatabase MyDB::db;
 
-#endif
+QSqlDatabase MyDB::db = QSqlDatabase();
+
+#endif  // MyDB_H

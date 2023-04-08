@@ -11,12 +11,12 @@
 
 int main(int argc, char *argv[]) {
   QCoreApplication serverApp(argc, argv);
-
+  MyDB::db;
   MyDB::createDB();
-  // qDebug() << MyDB::query_select();
-  // MyDB::close();
-  // qDebug() << MyDB::query_select();
-  // exit(0);
+  qDebug() << MyDB::query_select();
+  MyDB::close();
+  qDebug() << MyDB::query_select();
+  exit(0);
 
   MyTcpServer server;
 
