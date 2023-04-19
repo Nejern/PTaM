@@ -1,5 +1,6 @@
 build
 bin
+*.sql
 docs/html
 docs/latex
 .vscode
