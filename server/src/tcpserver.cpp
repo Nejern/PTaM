@@ -4,16 +4,15 @@
 #include <QDebug>
 
 MyTcpServer::~MyTcpServer() {
-  // mTcpSocket->close();
-  tcpServer->close();
+  this->close();
   server_status = 0;
 }
-MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent) {
-  tcpServer = new QTcpServer(this);
-  connect(tcpServer, &QTcpServer::newConnection, this,
+
+MyTcpServer::MyTcpServer(QObject *parent) : QTcpServer(parent) {
+  connect(this, &QTcpServer::newConnection, this,
           &MyTcpServer::slotNewConnection);
 
-  if (!tcpServer->listen(QHostAddress::Any, 33333)) {
+  if (!this->listen(QHostAddress::Any, 33333)) {
     qDebug() << "server is not started";
   } else {
     server_status = 1;
@@ -24,7 +23,7 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent) {
 void MyTcpServer::slotNewConnection() {
   if (server_status == 1) {
     QTcpSocket *currTcpSocket;
-    currTcpSocket = tcpServer->nextPendingConnection();
+    currTcpSocket = this->nextPendingConnection();
     currTcpSocket->write("Hello, World!!! I am echo server!\r\n");
     connect(currTcpSocket, &QTcpSocket::readyRead, this,
             &MyTcpServer::slotServerRead);

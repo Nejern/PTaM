@@ -1,5 +1,4 @@
-#ifndef TCPSERVER_H
-#define TCPSERVER_H
+#pragma once
 #include <QByteArray>
 #include <QDebug>
 #include <QObject>
@@ -8,15 +7,14 @@
 #include <QVector>
 #include <QtNetwork>
 
-
 /**
  * @brief Класс для работы с TCP сервером.
  *
  * Данный класс предоставляет методы для установки соединения с клиентами,
  * чтения и записи данных в сеть.
  */
-class MyTcpServer : public QObject {
-  Q_OBJECT
+class MyTcpServer : public QTcpServer {
+  // Q_OBJECT
 
 public:
   /**
@@ -29,7 +27,7 @@ public:
   /**
    * @brief Деструктор класса.
    */
-  ~MyTcpServer();
+  ~MyTcpServer() override;
 
 public slots:
   /**
@@ -63,4 +61,3 @@ private:
                                     ///< для хранения подключенных клиентов.
   int server_status; ///< Статус сервера.
 };
-#endif

@@ -1,26 +1,50 @@
-# CMake version
-cmake_minimum_required(VERSION 3.5)
-# Project name
-project(TcpServer)
+# Версия CMake
+cmake_minimum_required(VERSION 3.15)
 
-# ???
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-# C++ Standart
-set(CMAKE_CXX_STANDARD 11)
+# Название проекта
+project(TcpServer VERSION 1.0)
+
+# Стандарт C++
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-# QT stuff
-find_package(Qt5 COMPONENTS Core Network Sql REQUIRED)
-# ???
-include_directories(
-    .
+# Настройки директорий
+set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
+set(INC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set(BIN_DIR ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+
+# Настройки для исполняемого файла
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BIN_DIR})
+
+# Опции компиляции
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -Wpedantic -Werror -pthread")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall -Wextra -Wpedantic -pthread")
+
+# Сбор исходных файлов
+set(SRCS
+    ${SRC_DIR}/main.cpp
+    ${SRC_DIR}/tcpserver.cpp
+    ${SRC_DIR}/functions.cpp
+    ${SRC_DIR}/mydb.cpp
 )
 
-file (GLOB SRCS CONFIGURE_DEPENDS src/*.cpp src/*.h  )
-# ???
-add_executable(${CMAKE_PROJECT_NAME} ${SRCS})
+# Поиск необходимых компонентов Qt
+find_package(Qt5 REQUIRED COMPONENTS Core Network Sql)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
 
-# ???
-target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE Qt5::Core Qt5::Network Qt5::Sql)
+# Проверка версии Qt
+if(Qt5_VERSION VERSION_LESS "5.12")
+  message(FATAL_ERROR "Qt5 version must be at least 5.12")
+endif()
+
+# Создание исполняемого файла
+add_executable(${PROJECT_NAME} ${SRCS})
+
+# Линковка библиотек Qt и папки include
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Network Qt5::Sql)
+target_include_directories(${PROJECT_NAME} PRIVATE ${INC_DIR})
+

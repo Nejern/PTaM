@@ -1,4 +1,5 @@
-server/build
-server/docs/html
-server/docs/latex
+build
+bin
+docs/html
+docs/latex
 .vscode
