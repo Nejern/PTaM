@@ -17,6 +17,9 @@ set(BIN_DIR ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 # Настройки для исполняемого файла
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BIN_DIR})
 
+# Генерация compile_commands.json
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # Опции компиляции
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -Wpedantic -Werror -pthread")

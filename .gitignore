@@ -1,6 +1,16 @@
+# Build end bin dirs
 build
 bin
+
+# DB files
 *.sql
+
+# Clangd
+.cache
+
+# Docs gen
 docs/html
 docs/latex
+
+# VScode
 .vscode
