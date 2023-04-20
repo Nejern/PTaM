@@ -1,5 +1,5 @@
 #include "functions.h"
-#include "mydb.h"
+#include "db.h"
 
 QByteArray ServerFunctions::parse(QString message) {
   QJsonDocument json = QJsonDocument::fromJson(message.toUtf8());
@@ -35,7 +35,7 @@ QByteArray ServerFunctions::registerUser(QJsonObject json) {
     QMap<QString, QMap<QString, QVariant>> data;
     data.insert("users", userdata);
 
-    if (MyDB::makeInsertQuery(data)) {
+    if (DB::makeInsertQuery(data)) {
       return "Registration success\n";
     } else {
       return "Registration failed\n";
@@ -54,7 +54,7 @@ QByteArray ServerFunctions::loginUser(QJsonObject json) {
     QString query = "SELECT * FROM users WHERE login = '" +
                     userdata["login"].toString() + "' AND password = '" +
                     userdata["password"].toString() + "'";
-    QMap<QString, QVariant> result = MyDB::getData(query);
+    QMap<QString, QVariant> result = DB::getData(query);
     if (result.isEmpty()) {
       return "Login failed\n";
     } else {

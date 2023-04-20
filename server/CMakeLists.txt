@@ -30,7 +30,7 @@ set(SRCS
     ${SRC_DIR}/main.cpp
     ${SRC_DIR}/tcpserver.cpp
     ${SRC_DIR}/functions.cpp
-    ${SRC_DIR}/mydb.cpp
+    ${SRC_DIR}/db.cpp
 )
 
 # Поиск необходимых компонентов Qt
