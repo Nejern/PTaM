@@ -1,6 +1,6 @@
 #include "functions.h"
-
 #include "mydb.h"
+
 QByteArray ServerFunctions::parse(QString message) {
   QJsonDocument json = QJsonDocument::fromJson(message.toUtf8());
   if (json.isNull() || !json.isObject()) {

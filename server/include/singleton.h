@@ -1,5 +1,4 @@
-#ifndef SINGLETON_H
-#define SINGLETON_H
+#pragma once
 
 class Singleton {
 public:
@@ -27,5 +26,3 @@ private:
 
   friend class SingletonDestroyer;
 };
-
-#endif // SINGLETON_H

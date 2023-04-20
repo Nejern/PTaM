@@ -1,14 +1,11 @@
-#ifndef MyDB_H
-#define MyDB_H
+#pragma once
 
-#include <QCoreApplication>
-#include <QDebug>
-#include <QMap>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QSqlRecord>
-#include <QVariant>
+
+#include <QDebug>
 
 #include "singleton.h"
 
@@ -154,5 +151,3 @@ class MyDB : public Singleton {
     MyDB::insertData("DROP TABLE IF EXISTS grades;");
   }
 };
-
-#endif  // MyDB_H

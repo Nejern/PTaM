@@ -1,11 +1,7 @@
 #pragma once
-#include <QByteArray>
-#include <QDebug>
-#include <QObject>
+
 #include <QTcpServer>
 #include <QTcpSocket>
-#include <QVector>
-#include <QtNetwork>
 
 /**
  * @brief Класс для работы с TCP сервером.

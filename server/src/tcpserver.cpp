@@ -1,6 +1,6 @@
 #include "tcpserver.h"
 #include "functions.h"
-#include <QCoreApplication>
+
 #include <QDebug>
 
 MyTcpServer::~MyTcpServer() {
