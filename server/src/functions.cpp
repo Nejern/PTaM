@@ -1,13 +1,17 @@
 #include "functions.h"
 #include "db.h"
+#include<QDebug>
 
 QByteArray ServerFunctions::parse(QString message) {
   QJsonDocument json = QJsonDocument::fromJson(message.toUtf8());
   if (json.isNull() || !json.isObject()) {
+    qDebug() << "QWEOQWPE";
     return "Invalid JSON\n";
+    
   } else {
     return ServerFunctions::selectCommand(json);
   }
+  qDebug() << "QWEOQWPE";
   return "Invalid JSON\n";
 }
 

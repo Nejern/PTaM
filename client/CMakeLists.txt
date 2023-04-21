@@ -27,7 +27,7 @@ set(BIN_DIR ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BIN_DIR})
 
 # Поиск и линковка Qt библиотек
-find_package(Qt5 REQUIRED COMPONENTS UiTools Widgets)
+find_package(Qt5 REQUIRED COMPONENTS UiTools Widgets Network)
 set(CMAKE_AUTOUIC_SEARCH_PATHS ${UI_DIR})
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
@@ -40,6 +40,9 @@ set(SOURCES
     ${SRC_DIR}/mainwindow.cpp
     ${INC_DIR}/mainwindow.h
 
+    ${SRC_DIR}/client.cpp
+    ${INC_DIR}/client.h
+
     ${RES_DIR}/resources.qrc
 )
 
@@ -47,5 +50,5 @@ set(SOURCES
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 # Линковка библиотек Qt и папки include
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Widgets)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Widgets Qt5::Network)
 target_include_directories(${PROJECT_NAME} PRIVATE ${INC_DIR})
