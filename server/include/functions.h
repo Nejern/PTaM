@@ -5,10 +5,10 @@
 
 class ServerFunctions {
 public:
-  static QByteArray parse(QString message);
+  static QByteArray parse(const QString &message);
 
 private:
-  static QByteArray selectCommand(QJsonDocument json);
-  static QByteArray registerUser(QJsonObject json);
-  static QByteArray loginUser(QJsonObject json);
+  static QByteArray selectCommand(const QJsonDocument &json);
+  static QByteArray registerUser(const QJsonObject &json);
+  static QByteArray loginUser(const QJsonObject &json);
 };
