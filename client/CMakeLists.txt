@@ -12,7 +12,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Настройки компиляции и линковки
-set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -Wpedantic -Werror -pthread")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall -Wextra -Wpedantic -pthread")
 
@@ -27,7 +26,7 @@ set(BIN_DIR ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BIN_DIR})
 
 # Поиск и линковка Qt библиотек
-find_package(Qt5 REQUIRED COMPONENTS UiTools Widgets Network)
+find_package(Qt5 REQUIRED COMPONENTS Widgets Network)
 set(CMAKE_AUTOUIC_SEARCH_PATHS ${UI_DIR})
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
