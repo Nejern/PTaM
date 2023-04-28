@@ -9,8 +9,8 @@ bin
 .cache
 
 # Docs gen
-docs/html
-docs/latex
+html
+latex
 
 # VScode
 .vscode
