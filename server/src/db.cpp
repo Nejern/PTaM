@@ -1,8 +1,8 @@
 #include <db.h>
 
-DB::DBDestroyer::DBDestroyer(DB *p_instance) { this->p_instance = p_instance; };
+DBDestroyer::DBDestroyer(DB *p_instance) { this->p_instance = p_instance; };
 
-DB::DBDestroyer::~DBDestroyer() { delete p_instance; };
+DBDestroyer::~DBDestroyer() { delete p_instance; };
 
 void DB::open() {
   if (db.isOpen()) {

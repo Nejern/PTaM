@@ -39,16 +39,16 @@ protected:
   //~DB();
 
 private:
-  class DBDestroyer {
-  public:
-    DBDestroyer(DB *p_instance);
-    ~DBDestroyer();
-
-  private:
-    DB *p_instance;
-  };
-
   friend class DBDestroyer;
 
   static void open();
+};
+
+class DBDestroyer {
+public:
+  DBDestroyer(DB *p_instance);
+  ~DBDestroyer();
+
+private:
+  DB *p_instance;
 };
