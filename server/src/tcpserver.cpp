@@ -1,11 +1,9 @@
-#include "tcpserver.h"
-#include "functions.h"
-
-#include <QDebug>
+#include <functions.h>
+#include <tcpserver.h>
 
 MyTcpServer::~MyTcpServer() {
   this->close();
-  server_status = 0;
+  server_status = false;
 }
 
 MyTcpServer::MyTcpServer(QObject *parent) : QTcpServer(parent) {
@@ -15,7 +13,7 @@ MyTcpServer::MyTcpServer(QObject *parent) : QTcpServer(parent) {
   if (!this->listen(QHostAddress::Any, 33333)) {
     qDebug() << "server is not started";
   } else {
-    server_status = 1;
+    server_status = true;
     qDebug() << "server is started";
   }
 }

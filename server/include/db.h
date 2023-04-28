@@ -1,11 +1,9 @@
 #pragma once
-
+#include <QDebug>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QSqlRecord>
-
-#include <QDebug>
 
 class DB {
 public:
@@ -37,7 +35,7 @@ public:
   static void dropTables();
 
 protected:
-  //DB();
+  // DB();
   //~DB();
 
 private:

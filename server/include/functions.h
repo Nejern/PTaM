@@ -1,13 +1,13 @@
 #pragma once
 
-#include <QJsonObject>
 #include <QJsonDocument>
+#include <QJsonObject>
 
 class ServerFunctions {
- public:
+public:
   static QByteArray parse(QString message);
 
- private:
+private:
   static QByteArray selectCommand(QJsonDocument json);
   static QByteArray registerUser(QJsonObject json);
   static QByteArray loginUser(QJsonObject json);
