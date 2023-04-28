@@ -9,7 +9,6 @@
  * чтения и записи данных в сеть.
  */
 class MyTcpServer : public QTcpServer {
-  // Q_OBJECT
 
 public:
   /**
