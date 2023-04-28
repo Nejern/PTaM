@@ -1,7 +1,8 @@
-#pragma once
-
 #include <QMainWindow>
 
+#include "admintablewindow.h"
+#include "exercicestablewindow.h"
+#include "registerwindow.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Login;
@@ -12,12 +13,21 @@ QT_END_NAMESPACE
 class Login : public QMainWindow {
   Q_OBJECT
 
-public:
-  Login(QWidget *parent = nullptr); // Конструктор класса
-  ~Login();                         // Деструктор класса
+ public:
+  Login(QWidget* parent = nullptr);  // Конструктор класса
+  ~Login();                          // Деструктор класса
 
-// private slots:
+ private slots:
+  void onLogInbuttonClicked();  // Обработчик нажатия кнопки "Войти"
 
-private:
-  Ui::Login *ui; // Создание указателя типа Login
+  void onGoToRegisterButtonsClicked();  // Обработчик нажатия кнопки
+                                        // "Зарегистрироваться"
+
+ private:
+  RegisterWindow* registerWindow;  // Создание объекта окна регистрации
+  ExercicesTableWindow*
+      exercicesTableWindow;  // Создание объекта окна таблицы упражнений
+  AdminTableWindow*
+      adminTableWindow;  // Создание объекта окна таблицы администратора
+  Ui::Login* ui;         // Создание указателя типа Login
 };

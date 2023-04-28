@@ -3,20 +3,23 @@
 
 #include <QMainWindow>
 
+#include "exercicewindow.h"
 namespace Ui {
 class ExercicesTableWindow;
 }
 
-class ExercicesTableWindow : public QMainWindow
-{
-    Q_OBJECT
+class ExercicesTableWindow : public QMainWindow {
+  Q_OBJECT
 
-public:
-    explicit ExercicesTableWindow(QWidget *parent = nullptr);
-    ~ExercicesTableWindow();
+ public:
+  explicit ExercicesTableWindow(QWidget *parent = nullptr);
+  ~ExercicesTableWindow();
+ private slots:
+  void onSolveButtonClick();
 
-private:
-    Ui::ExercicesTableWindow *ui;
+ private:
+  ExerciceWindow *exerciceWindow;  // Создание указателя на окно с упражнением
+  Ui::ExercicesTableWindow *ui;
 };
 
-#endif // EXERCICESTABLEWINDOW_H
+#endif  // EXERCICESTABLEWINDOW_H

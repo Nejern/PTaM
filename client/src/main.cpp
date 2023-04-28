@@ -3,6 +3,7 @@
 
 #include "client.h"
 #include "login.h"
+#include "registerwindow.h"
 
 int main(int argc, char* argv[]) {
   QApplication a(argc, argv);  // Создание объекта приложения
