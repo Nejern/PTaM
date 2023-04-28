@@ -34,16 +34,11 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOMOC ON)
 
 # Сбор исходных файлов
-set(SOURCES
-    ${SRC_DIR}/main.cpp
-
-    ${SRC_DIR}/mainwindow.cpp
-    ${INC_DIR}/mainwindow.h
-
-    ${SRC_DIR}/client.cpp
-    ${INC_DIR}/client.h
-
-    ${RES_DIR}/resources.qrc
+file(GLOB SOURCES
+    ${SRC_DIR}/*.cpp
+    ${INC_DIR}/*.h
+    ${UI_DIR}/*.ui
+    ${RES_DIR}/*.qrc
 )
 
 # Создание исполняемого файла
