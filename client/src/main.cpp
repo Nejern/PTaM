@@ -2,13 +2,13 @@
 #include <QTimer>
 
 #include "client.h"
-#include "mainwindow.h"
+#include "login.h"
 
 int main(int argc, char* argv[]) {
   QApplication a(argc, argv);  // Создание объекта приложения
   Client::getInstance();
   Client::getInstance()->sendData("{}\n");
-  MainWindow w;  // Создание объекта главного окна
+  Login w;  // Создание объекта главного окна
   w.show();
   return a.exec();  // Выход из приложения при закрытии главного окна
 }
