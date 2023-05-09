@@ -8,9 +8,5 @@ bin
 # Clangd
 .cache
 
-# Docs gen
-docs/html
-docs/latex
-
 # VScode
 .vscode
