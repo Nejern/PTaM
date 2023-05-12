@@ -46,6 +46,7 @@ void Login::loginResponse(QString response) {
         } else {
           exercicesTableWindow = new ExercicesTableWindow(this);
           exercicesTableWindow->show();
+          this->close();
         }
       }
     }
