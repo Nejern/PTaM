@@ -1,5 +1,5 @@
-#include "db.h"
-#include "tcpserver.h"
+#include <db.h>
+#include <tcpserver.h>
 
 #include <QCoreApplication>
 

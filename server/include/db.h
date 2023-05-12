@@ -1,56 +1,95 @@
 #pragma once
-
+#include <QDebug>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QSqlRecord>
 
-#include <QDebug>
-
+/**
+ * @brief Класс DB предоставляет функции для работы с базой данных.
+ */
 class DB {
 public:
+  /**
+   * @brief Возвращает экземпляр класса DB (singleton).
+   * @return Экземпляр класса DB.
+   */
   static DB &getInstance();
 
   // Переменная для хранения базы данных
   static QSqlDatabase db;
 
-  // Функция для создания базы данных
+  /**
+   * @brief Инициализирует базу данных, открывает соединение и создает таблицы.
+   */
   static void init();
 
-  // Функция для закрытия базы данных
+  /**
+   * @brief Закрывает соединение с базой данных.
+   */
   static void close();
 
-  // Функция для выполнения запроса на вставку данных в таблицу
+  /**
+   * @brief Выполняет запрос на вставку данных в таблицу.
+   * @param queryString Строка с SQL-запросом для вставки данных.
+   * @return true, если запрос выполнен успешно, иначе false.
+   */
   static bool insertData(const QString &queryString);
 
-  // Функция для выполнения запроса и получения результатов в виде QMap
+  /**
+   * @brief Выполняет запрос и возвращает результаты в виде QMap.
+   * @param request Строка с SQL-запросом для получения данных.
+   * @return Результаты запроса в виде QMap.
+   */
   static QMap<QString, QVariant> getData(const QString &request);
 
-  // Функция для составления запроса на вставку данных в таблицу
+  /**
+   * @brief Создает запрос на вставку данных в таблицу.
+   * @param data QMap с данными для вставки.
+   * @return true, если запрос выполнен успешно, иначе false.
+   */
   static bool
   makeInsertQuery(const QMap<QString, QMap<QString, QVariant>> &data);
 
-  // Функция для создания таблиц
+  /**
+   * @brief Создает таблицы в базе данных.
+   */
   static void createTables();
 
-  // Функция для удаления таблиц
+  /**
+   * @brief Удаляет таблицы из базы данных.
+   */
   static void dropTables();
 
 protected:
-  //DB();
+  // DB();
   //~DB();
 
 private:
-  class DBDestroyer {
-  public:
-    DBDestroyer(DB *p_instance);
-    ~DBDestroyer();
-
-  private:
-    DB *p_instance;
-  };
-
   friend class DBDestroyer;
 
+  /**
+   * @brief Открывает соединение с базой данных, если оно еще не открыто.
+   */
   static void open();
+};
+
+/**
+ * @brief Класс DBDestroyer управляет удалением экземпляра класса DB.
+ */
+class DBDestroyer {
+public:
+  /**
+   * @brief Конструктор класса DBDestroyer.
+   * @param p_instance Указатель на экземпляр класса DB.
+   */
+  DBDestroyer(DB *p_instance);
+
+  /**
+   * @brief Деструктор класса DBDestroyer. Удаляет экземпляр класса DB.
+   */
+  ~DBDestroyer();
+
+private:
+  DB *p_instance;
 };

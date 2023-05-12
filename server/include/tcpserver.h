@@ -1,5 +1,4 @@
 #pragma once
-
 #include <QTcpServer>
 #include <QTcpSocket>
 
@@ -10,7 +9,6 @@
  * чтения и записи данных в сеть.
  */
 class MyTcpServer : public QTcpServer {
-  // Q_OBJECT
 
 public:
   /**
@@ -55,5 +53,5 @@ private:
   QTcpServer *tcpServer; ///< Указатель на объект QTcpServer.
   QVector<QTcpSocket *> tcpSockets; ///< Вектор указателей на объекты QTcpSocket
                                     ///< для хранения подключенных клиентов.
-  int server_status; ///< Статус сервера.
+  bool server_status; ///< Статус сервера.
 };

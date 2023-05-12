@@ -1,62 +1,65 @@
-#include "db.h"
+#include <db.h>
 
-DB::DBDestroyer::DBDestroyer(DB *p_instance) { this->p_instance = p_instance; };
+DBDestroyer::DBDestroyer(DB *p_instance) { this->p_instance = p_instance; }
 
-DB::DBDestroyer::~DBDestroyer() { delete p_instance; };
+DBDestroyer::~DBDestroyer() { delete p_instance; }
 
 void DB::open() {
   if (db.isOpen()) {
     return;
   }
-  qDebug() << "MyDB()\n";
+
+  qDebug() << "Opening database\n";
+
   db = QSqlDatabase::addDatabase("QSQLITE");
   db.setDatabaseName("Test.sql");
-  if (!db.open())
-    qDebug() << db.lastError().text();
-};
+
+  if (!db.open()) {
+    qDebug() << "Error opening database: " << db.lastError().text();
+  }
+}
 
 DB &DB::getInstance() {
   static DB instance;
   return instance;
-};
+}
 
 void DB::init() {
   getInstance();
   open();
   createTables();
-};
+}
 
 void DB::close() {
   if (db.isOpen()) {
     db.close();
   }
-};
+}
 
 bool DB::insertData(const QString &queryString) {
   open();
   QSqlQuery query(db);
   query.exec("PRAGMA foreign_keys = ON");
-  // Выполнение запроса
+
   if (!query.exec(queryString)) {
-    qDebug() << "Failed to execute query:" << query.lastError().text();
+    qDebug() << "Error executing query:" << query.lastError().text();
     return false;
   }
+
   return true;
-};
+}
 
 QMap<QString, QVariant> DB::getData(const QString &request) {
   QMap<QString, QVariant> resultMap;
 
-  // Открытие базы данных
   open();
 
-  // Выполнение запроса
   QSqlQuery query(db);
   if (!query.exec(request)) {
     qDebug() << "Error executing query:" << query.lastError().text();
     return resultMap;
   }
-  // Обработка результатов
+
   while (query.next()) {
     QSqlRecord record = query.record();
     for (int i = 0; i < record.count(); i++) {
@@ -64,11 +67,10 @@ QMap<QString, QVariant> DB::getData(const QString &request) {
     }
   }
 
-  // Закрытие базы данных
   db.close();
 
   return resultMap;
-};
+}
 
 bool DB::makeInsertQuery(const QMap<QString, QMap<QString, QVariant>> &data) {
   QString table = data.firstKey();
@@ -90,47 +92,52 @@ bool DB::makeInsertQuery(const QMap<QString, QMap<QString, QVariant>> &data) {
   query += QString(") VALUES ('%1')").arg(values.join("', '"));
 
   if (insertData(query)) {
-    qDebug() << "OK";
+    qDebug() << "Query executed successfully";
     return true;
   } else {
-    qDebug() << "Error";
+    qDebug() << "Error executing query";
     return false;
   }
-};
+}
 
 void DB::createTables() {
   QSqlQuery query(db);
   query.exec("PRAGMA foreign_keys = ON");
-  insertData("CREATE TABLE IF NOT EXISTS roles ("
-             "role_id INT PRIMARY KEY,"
+
+  insertData("CREATE TABLE IF NOT EXISTS role ("
+             "id INTEGER PRIMARY KEY AUTOINCREMENT,"
              "role TEXT"
              ");");
-  insertData("CREATE TABLE IF NOT EXISTS users ("
+
+  insertData("CREATE TABLE IF NOT EXISTS user ("
              "id INTEGER PRIMARY KEY AUTOINCREMENT,"
              "login TEXT,"
              "password TEXT,"
-             "role_id INT"
+             "role_id INTEGER,"
+             "FOREIGN KEY(role_id) REFERENCES role(id)"
              ");");
 
-  insertData("CREATE TABLE IF NOT EXISTS grades ("
-             "student_id INT,"
-             "excercise INT,"
-             "grade INT"
+  insertData("CREATE TABLE IF NOT EXISTS grade ("
+             "student_id INTEGER,"
+             "excercise INTEGER,"
+             "grade INTEGER,"
+             "FOREIGN KEY(student_id) REFERENCES student(id)"
              ");");
-  insertData("CREATE TABLE IF NOT EXISTS students ("
-             "id INT,"
+
+  insertData("CREATE TABLE IF NOT EXISTS student ("
+             "id INTEGER PRIMARY KEY AUTOINCREMENT,"
              "firstname TEXT,"
              "surname TEXT,"
              "patronymic TEXT,"
              "studygroup TEXT"
              ");");
-};
+}
 
 void DB::dropTables() {
-  insertData("DROP TABLE IF EXISTS users;");
-  insertData("DROP TABLE IF EXISTS roles;");
-  insertData("DROP TABLE IF EXISTS students;");
-  insertData("DROP TABLE IF EXISTS grades;");
-};
+  insertData("DROP TABLE IF EXISTS grade;");
+  insertData("DROP TABLE IF EXISTS user;");
+  insertData("DROP TABLE IF EXISTS role;");
+  insertData("DROP TABLE IF EXISTS student;");
+}
 
 QSqlDatabase DB::db;
