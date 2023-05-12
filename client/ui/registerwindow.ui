@@ -36,7 +36,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_5">
+         <widget class="QLineEdit" name="loginField">
           <property name="placeholderText">
            <string>Логин</string>
           </property>
@@ -92,7 +92,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_2">
+         <widget class="QLineEdit" name="surnameField">
           <property name="placeholderText">
            <string>Фамилия</string>
           </property>
@@ -135,7 +135,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_6">
+         <widget class="QLineEdit" name="passwordField">
           <property name="placeholderText">
            <string>Пароль</string>
           </property>
@@ -178,7 +178,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="registerButton">
           <property name="text">
            <string>Зарегистрироваться</string>
           </property>
@@ -247,7 +247,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit">
+         <widget class="QLineEdit" name="patronymicField">
           <property name="placeholderText">
            <string>Отчество</string>
           </property>
@@ -303,7 +303,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_4">
+         <widget class="QLineEdit" name="studygroupField">
           <property name="placeholderText">
            <string>Номер группы</string>
           </property>
@@ -346,7 +346,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_3">
+         <widget class="QLineEdit" name="firstnameField">
           <property name="placeholderText">
            <string>Имя</string>
           </property>
