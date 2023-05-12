@@ -33,3 +33,19 @@ Client::~Client() {
   mTcpSocket->close();
   delete mTcpSocket;
 }
+
+void Client::setId(int id) { userId = id; }
+
+int Client::getId() { return userId; }
+
+void Client::login(QString login, QString password) {
+  QString query = "{\"command\":\"login\",\"login\":\"" + login +
+                  "\",\"password\":\"" + password + "\"}\n";
+  sendData(query);
+}
+
+void Client::registerUser(QString login, QString password) {
+  QString query = "{\"command\":\"register\",\"login\":\"" + login +
+                  "\",\"password\":\"" + password + "\"}\n";
+  sendData(query);
+}

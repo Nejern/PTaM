@@ -1,6 +1,7 @@
 #include <QMainWindow>
 
 #include "admintablewindow.h"
+#include "client.h"
 #include "exercicestablewindow.h"
 #include "registerwindow.h"
 QT_BEGIN_NAMESPACE
@@ -23,6 +24,9 @@ class Login : public QMainWindow {
   void onGoToRegisterButtonsClicked();  // Обработчик нажатия кнопки
                                         // "Зарегистрироваться"
 
+  void loginResponse(QString response);  // Обработчик ответа сервера на запрос
+                                         // авторизации
+
  private:
   RegisterWindow* registerWindow;  // Создание объекта окна регистрации
   ExercicesTableWindow*
@@ -30,4 +34,5 @@ class Login : public QMainWindow {
   AdminTableWindow*
       adminTableWindow;  // Создание объекта окна таблицы администратора
   Ui::Login* ui;         // Создание указателя типа Login
+  Client* client;        // Создание указателя типа Client
 };

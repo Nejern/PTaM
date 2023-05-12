@@ -13,6 +13,10 @@ class Client : public QObject {
   static Client* getInstance();
   void sendData(QString query);
   ~Client();
+  void login(QString login, QString password);
+  void registerUser(QString login, QString password);
+  void setId(int id);
+  int getId();
  signals:
   void handleMessage(QString message);
 
@@ -20,6 +24,7 @@ class Client : public QObject {
   void slotServerRead();
 
  private:
+  int userId;
   explicit Client(QObject* parent = nullptr);
   static Client* p_instance;
   static QScopedPointer<SingletonDestroyer> destroyer;
