@@ -100,6 +100,16 @@ bool DB::makeInsertQuery(const QMap<QString, QMap<QString, QVariant>> &data) {
   }
 }
 
+int DB::getLastInsertId()
+{
+    QSqlQuery query;
+    query.exec("SELECT last_insert_rowid();");
+    if (query.next()) {
+        return query.value(0).toInt();
+    }
+    return -1;  // Возвращаем -1 в случае ошибки или отсутствия вставки
+}
+
 void DB::createTables() {
   QSqlQuery query(db);
   query.exec("PRAGMA foreign_keys = ON");
@@ -118,16 +128,17 @@ void DB::createTables() {
       "student_id INTEGER,"
       "excercise INTEGER,"
       "grade INTEGER,"
-      "FOREIGN KEY(student_id) REFERENCES student(id)"
+      "FOREIGN KEY(student_id) REFERENCES user(id)"
       ");");
 
   insertData(
       "CREATE TABLE IF NOT EXISTS student ("
-      "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+      "id INTEGER,"
       "firstname TEXT,"
       "surname TEXT,"
       "patronymic TEXT,"
-      "studygroup TEXT"
+      "studygroup TEXT,"
+      "FOREIGN KEY(id) REFERENCES user(id)"
       ");");
   // Администратор
   insertData(

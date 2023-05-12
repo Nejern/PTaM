@@ -51,6 +51,8 @@ public:
   static bool
   makeInsertQuery(const QMap<QString, QMap<QString, QVariant>> &data);
 
+  static int getLastInsertId();
+
   /**
    * @brief Создает таблицы в базе данных.
    */

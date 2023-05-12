@@ -37,12 +37,29 @@ QByteArray ServerFunctions::registerUser(const QJsonObject &json) {
       {"password", password},
       {"role_id", 1},
   };
-  const QMap<QString, QMap<QString, QVariant>> data{
+  const QMap<QString, QMap<QString, QVariant>> inUserData{
       {"user", userdata},
   };
 
-  if (DB::makeInsertQuery(data)) {
-    return "Registration success\n";
+  if (DB::makeInsertQuery(inUserData)) {
+  } else {
+    return "Registration failed\n";
+  }
+
+  const QMap<QString, QVariant> studentdata{
+      {"user_id", DB::getLastInsertId()},
+      {"firstname", json.value("name").toString()},
+      {"surname", json.value("surname").toString()},
+      {"patronymic", json.value("patronymic").toString()},
+      {"studygroup", json.value("studygroup").toInt()},
+  };
+
+  const QMap<QString, QMap<QString, QVariant>> inStudentData{
+      {"student", studentdata},
+  };
+
+  if (DB::makeInsertQuery(inStudentData)) {
+    return "Registration successful\n";
   } else {
     return "Registration failed\n";
   }
