@@ -1,6 +1,8 @@
 
 #include "client.h"
 
+#include <QJsonDocument>
+#include <QJsonObject>
 Client* Client::p_instance = nullptr;
 QScopedPointer<SingletonDestroyer> Client::destroyer;
 
@@ -39,13 +41,30 @@ void Client::setId(int id) { userId = id; }
 int Client::getId() { return userId; }
 
 void Client::login(QString login, QString password) {
-  QString query = "{\"command\":\"login\",\"login\":\"" + login +
-                  "\",\"password\":\"" + password + "\"}\n";
+  QJsonObject json;
+  json["command"] = "login";
+  json["login"] = login;
+  json["password"] = password;
+
+  QJsonDocument jsonDocument(json);
+  QString query =
+      QString::fromUtf8(jsonDocument.toJson(QJsonDocument::Compact)) + "\n";
   sendData(query);
 }
 
-void Client::registerUser(QString login, QString password) {
-  QString query = "{\"command\":\"register\",\"login\":\"" + login +
-                  "\",\"password\":\"" + password + "\"}\n";
+void Client::registerUser(QString login, QString password, QString firstname,
+                          QString surname, QString patronymic, QString studygroup) {
+  QJsonObject json;
+  json["command"] = "register";
+  json["login"] = login;
+  json["password"] = password;
+  json["firstname"] = firstname;
+  json["surname"] = surname;
+  json["patronymic"] = patronymic;
+  json["studygroup"] = studygroup;
+
+  QJsonDocument jsonDocument(json);
+  QString query =
+      QString::fromUtf8(jsonDocument.toJson(QJsonDocument::Compact)) + "\n";
   sendData(query);
 }
