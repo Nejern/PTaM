@@ -71,6 +71,18 @@ QMap<QString, QVariant> DB::getData(const QString &request) {
 
   return resultMap;
 }
+QSqlQuery DB::getQsqlData(const QString &request) {
+  open();
+
+  QSqlQuery query(db);
+  if (!query.exec(request)) {
+    qDebug() << "Error executing query:" << query.lastError().text();
+  }
+
+  db.close();
+
+  return query;
+}
 
 bool DB::makeInsertQuery(const QMap<QString, QMap<QString, QVariant>> &data) {
   QString table = data.firstKey();

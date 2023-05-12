@@ -1,6 +1,8 @@
 #include <db.h>
 #include <functions.h>
 
+#include <QJsonArray>
+
 QByteArray ServerFunctions::selectCommand(const QJsonDocument &json) {
   const QJsonObject obj = json.object();
   if (!obj.contains("command") || !obj["command"].isString()) {
@@ -92,11 +94,24 @@ QByteArray ServerFunctions::getGrades() {
       "SELECT student.firstname, student.surname, student.patronymic, "
       "student.studygroup, grade.excercise, grade.grade FROM student JOIN "
       "grade ON student.user_id = grade.student_id;");
-  const QMap<QString, QVariant> result = DB::getData(query);
-  if (result.isEmpty()) {
+  QSqlQuery result = DB::getQsqlData(query);
+
+  QJsonArray jsonArray;
+  while (result.next()) {
+    QJsonObject jsonObject;
+    jsonObject["firstname"] = result.value("firstname").toString();
+    jsonObject["surname"] = result.value("surname").toString();
+    jsonObject["patronymic"] = result.value("patronymic").toString();
+    jsonObject["studygroup"] = result.value("studygroup").toString();
+    jsonObject["excercise"] = result.value("excercise").toString();
+    jsonObject["grade"] = result.value("grade").toString();
+    jsonArray.append(jsonObject);
+  }
+
+  if (jsonArray.isEmpty()) {
     return "No grades\n";
   } else {
-    const QJsonDocument resultJson = QJsonDocument::fromVariant(result);
-    return resultJson.toJson(QJsonDocument::Compact) + "\n";
+    QJsonDocument resultJson(jsonArray);
+    return resultJson.toJson(QJsonDocument::Compact);
   }
 }
