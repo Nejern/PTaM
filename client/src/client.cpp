@@ -53,7 +53,8 @@ void Client::login(QString login, QString password) {
 }
 
 void Client::registerUser(QString login, QString password, QString firstname,
-                          QString surname, QString patronymic, QString studygroup) {
+                          QString surname, QString patronymic,
+                          QString studygroup) {
   QJsonObject json;
   json["command"] = "register";
   json["login"] = login;
@@ -63,6 +64,15 @@ void Client::registerUser(QString login, QString password, QString firstname,
   json["patronymic"] = patronymic;
   json["studygroup"] = studygroup;
 
+  QJsonDocument jsonDocument(json);
+  QString query =
+      QString::fromUtf8(jsonDocument.toJson(QJsonDocument::Compact)) + "\n";
+  sendData(query);
+}
+
+void Client::getGrades() {
+  QJsonObject json;
+  json["command"] = "getGrades";
   QJsonDocument jsonDocument(json);
   QString query =
       QString::fromUtf8(jsonDocument.toJson(QJsonDocument::Compact)) + "\n";
