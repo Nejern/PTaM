@@ -100,14 +100,13 @@ bool DB::makeInsertQuery(const QMap<QString, QMap<QString, QVariant>> &data) {
   }
 }
 
-int DB::getLastInsertId()
-{
-    QSqlQuery query;
-    query.exec("SELECT last_insert_rowid();");
-    if (query.next()) {
-        return query.value(0).toInt();
-    }
-    return -1;  // Возвращаем -1 в случае ошибки или отсутствия вставки
+int DB::getLastInsertId() {
+  QSqlQuery query;
+  query.exec("SELECT last_insert_rowid();");
+  if (query.next()) {
+    return query.value(0).toInt();
+  }
+  return -1;  // Возвращаем -1 в случае ошибки или отсутствия вставки
 }
 
 void DB::createTables() {
@@ -144,6 +143,16 @@ void DB::createTables() {
   insertData(
       "INSERT INTO user (login, password, role_id) VALUES "
       "('admin', 'admin', 0);");
+
+  // Тест студент с оценками
+  insertData(
+      "INSERT INTO student (user_id, firstname, surname, patronymic, "
+      "studygroup) VALUES "
+      "(1, 'Тест', 'Тест', 'Тест', 'Тест');");
+
+  insertData(
+      "INSERT INTO grade (student_id, excercise, grade) VALUES "
+      "(1, 1, 5);");
 }
 
 void DB::dropTables() {

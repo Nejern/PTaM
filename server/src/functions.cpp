@@ -11,6 +11,8 @@ QByteArray ServerFunctions::selectCommand(const QJsonDocument &json) {
     return registerUser(obj);
   } else if (command == "login") {
     return loginUser(obj);
+  } else if (command == "getGrades") {
+    return getGrades();
   } else {
     return "Invalid command\n";
   }
@@ -79,6 +81,20 @@ QByteArray ServerFunctions::loginUser(const QJsonObject &json) {
   const QMap<QString, QVariant> result = DB::getData(query);
   if (result.isEmpty()) {
     return "Login failed\n";
+  } else {
+    const QJsonDocument resultJson = QJsonDocument::fromVariant(result);
+    return resultJson.toJson(QJsonDocument::Compact) + "\n";
+  }
+}
+
+QByteArray ServerFunctions::getGrades() {
+  const QString query = QString(
+      "SELECT student.firstname, student.surname, student.patronymic, "
+      "student.studygroup, grade.excercise, grade.grade FROM student JOIN "
+      "grade ON student.user_id = grade.student_id;");
+  const QMap<QString, QVariant> result = DB::getData(query);
+  if (result.isEmpty()) {
+    return "No grades\n";
   } else {
     const QJsonDocument resultJson = QJsonDocument::fromVariant(result);
     return resultJson.toJson(QJsonDocument::Compact) + "\n";
