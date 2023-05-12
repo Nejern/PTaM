@@ -133,12 +133,12 @@ void DB::createTables() {
 
   insertData(
       "CREATE TABLE IF NOT EXISTS student ("
-      "id INTEGER,"
+      "user_id INTEGER,"
       "firstname TEXT,"
       "surname TEXT,"
       "patronymic TEXT,"
       "studygroup TEXT,"
-      "FOREIGN KEY(id) REFERENCES user(id)"
+      "FOREIGN KEY(user_id) REFERENCES user(id)"
       ");");
   // Администратор
   insertData(

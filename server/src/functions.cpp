@@ -48,10 +48,10 @@ QByteArray ServerFunctions::registerUser(const QJsonObject &json) {
 
   const QMap<QString, QVariant> studentdata{
       {"user_id", DB::getLastInsertId()},
-      {"firstname", json.value("name").toString()},
+      {"firstname", json.value("firstname").toString()},
       {"surname", json.value("surname").toString()},
       {"patronymic", json.value("patronymic").toString()},
-      {"studygroup", json.value("studygroup").toInt()},
+      {"studygroup", json.value("studygroup").toString()},
   };
 
   const QMap<QString, QMap<QString, QVariant>> inStudentData{
