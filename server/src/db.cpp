@@ -12,7 +12,7 @@ void DB::open() {
   qDebug() << "Opening database\n";
 
   db = QSqlDatabase::addDatabase("QSQLITE");
-  db.setDatabaseName("Test.sql");
+  db.setDatabaseName("Test.db");
 
   if (!db.open()) {
     qDebug() << "Error opening database: " << db.lastError().text();
@@ -104,33 +104,35 @@ void DB::createTables() {
   QSqlQuery query(db);
   query.exec("PRAGMA foreign_keys = ON");
 
-  insertData("CREATE TABLE IF NOT EXISTS role ("
-             "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-             "role TEXT"
-             ");");
+  insertData(
+      "CREATE TABLE IF NOT EXISTS user ("
+      "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+      "login TEXT UNIQUE,"
+      "password TEXT,"
+      "role_id INTEGER"
+      ");");
+  ;
 
-  insertData("CREATE TABLE IF NOT EXISTS user ("
-             "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-             "login TEXT,"
-             "password TEXT,"
-             "role_id INTEGER,"
-             "FOREIGN KEY(role_id) REFERENCES role(id)"
-             ");");
+  insertData(
+      "CREATE TABLE IF NOT EXISTS grade ("
+      "student_id INTEGER,"
+      "excercise INTEGER,"
+      "grade INTEGER,"
+      "FOREIGN KEY(student_id) REFERENCES student(id)"
+      ");");
 
-  insertData("CREATE TABLE IF NOT EXISTS grade ("
-             "student_id INTEGER,"
-             "excercise INTEGER,"
-             "grade INTEGER,"
-             "FOREIGN KEY(student_id) REFERENCES student(id)"
-             ");");
-
-  insertData("CREATE TABLE IF NOT EXISTS student ("
-             "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-             "firstname TEXT,"
-             "surname TEXT,"
-             "patronymic TEXT,"
-             "studygroup TEXT"
-             ");");
+  insertData(
+      "CREATE TABLE IF NOT EXISTS student ("
+      "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+      "firstname TEXT,"
+      "surname TEXT,"
+      "patronymic TEXT,"
+      "studygroup TEXT"
+      ");");
+  // Администратор
+  insertData(
+      "INSERT INTO user (login, password, role_id) VALUES "
+      "('admin', 'admin', 0);");
 }
 
 void DB::dropTables() {
