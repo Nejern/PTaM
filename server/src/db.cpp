@@ -137,9 +137,8 @@ void DB::createTables() {
   insertData(
       "CREATE TABLE IF NOT EXISTS grade ("
       "student_id INTEGER,"
-      "excercise INTEGER,"
-      "grade INTEGER,"
-      "FOREIGN KEY(student_id) REFERENCES user(id)"
+      "exercise INTEGER,"
+      "grade INTEGER"
       ");");
 
   insertData(
@@ -163,7 +162,7 @@ void DB::createTables() {
       "(1, 'Тест', 'Тест', 'Тест', 'Тест');");
 
   insertData(
-      "INSERT INTO grade (student_id, excercise, grade) VALUES "
+      "INSERT INTO grade (student_id, exercise, grade) VALUES "
       "(1, 1, 5);");
 }
 

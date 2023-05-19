@@ -120,12 +120,12 @@ QByteArray ServerFunctions::getGrades() {
 }
 
 QByteArray ServerFunctions::checkExercise(const QJsonObject &json) {
-  if (!json.contains("student_id") || !json.contains("excercise") ||
+  if (!json.contains("student_id") || !json.contains("exercise") ||
       !json.contains("answer")) {
-    return "Missing 'student_id' field in JSON\n";
+    return "Missing field in JSON\n";
   }
   const QString student_id = json.value("student_id").toString();
-  const int excercise = json.value("excercise").toInt();
+  const int excercise = json.value("exercise").toInt();
   const QString answer = json.value("answer").toString();
   bool result = false;
   switch (excercise) {
@@ -149,11 +149,12 @@ QByteArray ServerFunctions::checkExercise(const QJsonObject &json) {
 
   const QMap<QString, QVariant> userdata{
       {"student_id", student_id},
-      {"excercise", excercise},
-      {"grade", result},
+      {"exercise", excercise},
+      {"grade", static_cast<int>(result)},
   };
   const QMap<QString, QMap<QString, QVariant>> inUserData{{"grade", userdata}};
-  if (DB::makeInsertQuery(inUserData) & result) {
+  DB::makeInsertQuery(inUserData);
+  if (result) {
     return "Correct answer\n";
   } else {
     return "Incorrect answer\n";
