@@ -17,6 +17,7 @@ class Client : public QObject {
   void registerUser(QString login, QString password, QString firstname,
                     QString surname, QString patronymic, QString studygroup);
   void getGrades();
+  void checkExercise(int exercise, QString answer);
   void setId(int id);
   int getId();
  signals:

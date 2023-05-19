@@ -78,3 +78,15 @@ void Client::getGrades() {
       QString::fromUtf8(jsonDocument.toJson(QJsonDocument::Compact)) + "\n";
   sendData(query);
 }
+
+void Client::checkExercise(int exercise, QString answer) {
+  QJsonObject json;
+  json["command"] = "checkExercise";
+  json["exercise"] = exercise;
+  json["answer"] = answer;
+  json["student_id"] = this->userId;
+  QJsonDocument jsonDocument(json);
+  QString query =
+      QString::fromUtf8(jsonDocument.toJson(QJsonDocument::Compact)) + "\n";
+  sendData(query);
+}

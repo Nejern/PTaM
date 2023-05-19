@@ -53,7 +53,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="makeExcerciseButton2">
+         <widget class="QPushButton" name="makeExcerciseButton1">
           <property name="text">
            <string>Решить</string>
           </property>
@@ -110,7 +110,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="makeExcerciseButton3">
+         <widget class="QPushButton" name="makeExcerciseButton2">
           <property name="text">
            <string>Решить</string>
           </property>
@@ -167,7 +167,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="makeExcerciseButton4">
+         <widget class="QPushButton" name="makeExcerciseButton3">
           <property name="text">
            <string>Решить</string>
           </property>
@@ -224,7 +224,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="makeExcerciseButton5">
+         <widget class="QPushButton" name="makeExcerciseButton4">
           <property name="text">
            <string>Решить</string>
           </property>
@@ -281,7 +281,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="makeExcerciseButton1">
+         <widget class="QPushButton" name="makeExcerciseButton5">
           <property name="text">
            <string>Решить</string>
           </property>

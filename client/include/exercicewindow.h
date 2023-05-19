@@ -2,21 +2,28 @@
 #define EXERCICEWINDOW_H
 
 #include <QMainWindow>
-
+#include "client.h"
 namespace Ui {
 class ExerciceWindow;
 }
 
-class ExerciceWindow : public QMainWindow
-{
-    Q_OBJECT
+class ExerciceWindow : public QMainWindow {
+  Q_OBJECT
 
-public:
-    explicit ExerciceWindow(QWidget *parent = nullptr);
-    ~ExerciceWindow();
+ public:
+  explicit ExerciceWindow(QWidget *parent = nullptr, int excerciseId = 0);
+  ~ExerciceWindow();
 
-private:
-    Ui::ExerciceWindow *ui;
+  void setExcercise();
+
+ private slots:
+  void onAnswerButtonClick();
+
+ private:
+  Ui::ExerciceWindow *ui;
+  int excerciseId;
+  Client *client;
+  
 };
 
-#endif // EXERCICEWINDOW_H
+#endif  // EXERCICEWINDOW_H

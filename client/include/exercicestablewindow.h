@@ -15,7 +15,11 @@ class ExercicesTableWindow : public QMainWindow {
   explicit ExercicesTableWindow(QWidget *parent = nullptr);
   ~ExercicesTableWindow();
  private slots:
-  void onSolveButtonClick();
+  void onExerciseButton1clicked();
+  void onExerciseButton2clicked();
+  void onExerciseButton3clicked();
+  void onExerciseButton4clicked();
+  void onExerciseButton5clicked();
 
  private:
   ExerciceWindow *exerciceWindow;  // Создание указателя на окно с упражнением

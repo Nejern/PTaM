@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="excerciseText">
         <property name="text">
          <string>Задача</string>
         </property>
@@ -45,7 +45,7 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <widget class="QLineEdit" name="lineEdit">
+           <widget class="QLineEdit" name="answerLineEdit">
             <property name="placeholderText">
              <string>Ответ</string>
             </property>
@@ -68,7 +68,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="answerButton">
             <property name="text">
              <string>Ответить</string>
             </property>
