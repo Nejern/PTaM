@@ -1,4 +1,5 @@
 #include <db.h>
+#include <excercises.h>
 #include <functions.h>
 
 #include <QJsonArray>
@@ -15,6 +16,8 @@ QByteArray ServerFunctions::selectCommand(const QJsonDocument &json) {
     return loginUser(obj);
   } else if (command == "getGrades") {
     return getGrades();
+  } else if (command == "checkExercise") {
+    return checkExercise(obj);
   } else {
     return "Invalid command\n";
   }
@@ -113,5 +116,46 @@ QByteArray ServerFunctions::getGrades() {
   } else {
     QJsonDocument resultJson(jsonArray);
     return resultJson.toJson(QJsonDocument::Compact);
+  }
+}
+
+QByteArray ServerFunctions::checkExercise(const QJsonObject &json) {
+  if (!json.contains("student_id") || !json.contains("excercise") ||
+      !json.contains("answer")) {
+    return "Missing 'student_id' field in JSON\n";
+  }
+  const QString student_id = json.value("student_id").toString();
+  const int excercise = json.value("excercise").toInt();
+  const QString answer = json.value("answer").toString();
+  bool result = false;
+  switch (excercise) {
+    case 1:
+      result = Excercises::task1(answer);
+      break;
+    case 2:
+      result = Excercises::task2(answer);
+      break;
+    case 3:
+      result = Excercises::task3(answer);
+      break;
+    case 4:
+
+      result = Excercises::task4(answer);
+      break;
+    case 5:
+      result = Excercises::task5(answer);
+      break;
+  }
+
+  const QMap<QString, QVariant> userdata{
+      {"student_id", student_id},
+      {"excercise", excercise},
+      {"grade", result},
+  };
+  const QMap<QString, QMap<QString, QVariant>> inUserData{{"grade", userdata}};
+  if (DB::makeInsertQuery(inUserData) & result) {
+    return "Correct answer\n";
+  } else {
+    return "Incorrect answer\n";
   }
 }

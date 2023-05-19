@@ -38,4 +38,5 @@ class ServerFunctions {
    */
   static QByteArray loginUser(const QJsonObject &json);
   static QByteArray getGrades();
+  static QByteArray checkExercise(const QJsonObject &json);
 };
