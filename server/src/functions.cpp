@@ -95,8 +95,9 @@ QByteArray ServerFunctions::loginUser(const QJsonObject &json) {
 QByteArray ServerFunctions::getGrades() {
   const QString query = QString(
       "SELECT student.firstname, student.surname, student.patronymic, "
-      "student.studygroup, grade.exercise, grade.grade FROM student, grade "
-      "WHERE student.user_id = grade.student_id;");
+      "student.studygroup, grade.exercise, AVG(grade.grade) * 100 AS "
+      "grade FROM student, grade WHERE student.user_id = "
+      "grade.student_id GROUP BY grade.exercise;");
   QSqlQuery result = DB::getQsqlData(query);
 
   QJsonArray jsonArray;
@@ -128,7 +129,7 @@ QByteArray ServerFunctions::checkExercise(const QJsonObject &json) {
   const int student_id = json.value("student_id").toInt();
   const int excercise = json.value("exercise").toInt();
   const QString answer = json.value("answer").toString();
-  const QString exercise_data= json.value("exercise_data").toString();
+  const QString exercise_data = json.value("exercise_data").toString();
   bool result = false;
   switch (excercise) {
     case 1:

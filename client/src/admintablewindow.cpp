@@ -38,7 +38,7 @@ void AdminTableWindow::createTable(QString response) {
   model->setHeaderData(2, Qt::Horizontal, "Отчество");
   model->setHeaderData(3, Qt::Horizontal, "Учебная группа");
   model->setHeaderData(4, Qt::Horizontal, "Задание");
-  model->setHeaderData(5, Qt::Horizontal, "Оценка");
+  model->setHeaderData(5, Qt::Horizontal, "% корретных ответов");
 
   // Заполнение модели данными из JSON
   for (int i = 0; i < rowCount; ++i) {
@@ -60,4 +60,5 @@ void AdminTableWindow::createTable(QString response) {
   }
 
   ui->tableView->setModel(model);
+  ui->tableView->resizeColumnsToContents();
 }
