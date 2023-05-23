@@ -48,7 +48,7 @@ void AdminTableWindow::createTable(QString response) {
     QString surname = jsonObject.value("surname").toString();
     QString patronymic = jsonObject.value("patronymic").toString();
     QString studyGroup = jsonObject.value("studygroup").toString();
-    QString exercise = jsonObject.value("excercise").toString();
+    QString exercise = jsonObject.value("exercise").toString();
     QString grade = jsonObject.value("grade").toString();
 
     model->setData(model->index(i, 0), firstname);

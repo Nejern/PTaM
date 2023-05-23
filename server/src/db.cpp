@@ -79,7 +79,7 @@ QSqlQuery DB::getQsqlData(const QString &request) {
     qDebug() << "Error executing query:" << query.lastError().text();
   }
 
-  db.close();
+  // close(); // TODO: Почему-то не работает с этой строкой
 
   return query;
 }
@@ -154,16 +154,6 @@ void DB::createTables() {
   insertData(
       "INSERT INTO user (login, password, role_id) VALUES "
       "('admin', 'admin', 0);");
-
-  // Тест студент с оценками
-  insertData(
-      "INSERT INTO student (user_id, firstname, surname, patronymic, "
-      "studygroup) VALUES "
-      "(1, 'Тест', 'Тест', 'Тест', 'Тест');");
-
-  insertData(
-      "INSERT INTO grade (student_id, exercise, grade) VALUES "
-      "(1, 1, 5);");
 }
 
 void DB::dropTables() {

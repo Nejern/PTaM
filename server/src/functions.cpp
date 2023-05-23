@@ -95,8 +95,8 @@ QByteArray ServerFunctions::loginUser(const QJsonObject &json) {
 QByteArray ServerFunctions::getGrades() {
   const QString query = QString(
       "SELECT student.firstname, student.surname, student.patronymic, "
-      "student.studygroup, grade.excercise, grade.grade FROM student JOIN "
-      "grade ON student.user_id = grade.student_id;");
+      "student.studygroup, grade.exercise, grade.grade FROM student, grade "
+      "WHERE student.user_id = grade.student_id;");
   QSqlQuery result = DB::getQsqlData(query);
 
   QJsonArray jsonArray;
@@ -106,7 +106,7 @@ QByteArray ServerFunctions::getGrades() {
     jsonObject["surname"] = result.value("surname").toString();
     jsonObject["patronymic"] = result.value("patronymic").toString();
     jsonObject["studygroup"] = result.value("studygroup").toString();
-    jsonObject["excercise"] = result.value("excercise").toString();
+    jsonObject["exercise"] = result.value("exercise").toString();
     jsonObject["grade"] = result.value("grade").toString();
     jsonArray.append(jsonObject);
   }
@@ -124,7 +124,8 @@ QByteArray ServerFunctions::checkExercise(const QJsonObject &json) {
       !json.contains("answer")) {
     return "Missing field in JSON\n";
   }
-  const QString student_id = json.value("student_id").toString();
+  qDebug() << json;
+  const int student_id = json.value("student_id").toInt();
   const int excercise = json.value("exercise").toInt();
   const QString answer = json.value("answer").toString();
   bool result = false;
@@ -148,7 +149,7 @@ QByteArray ServerFunctions::checkExercise(const QJsonObject &json) {
   }
 
   const QMap<QString, QVariant> userdata{
-      {"student_id", student_id},
+      {"student_id", static_cast<int>(student_id)},
       {"exercise", excercise},
       {"grade", static_cast<int>(result)},
   };
