@@ -128,23 +128,23 @@ QByteArray ServerFunctions::checkExercise(const QJsonObject &json) {
   const int student_id = json.value("student_id").toInt();
   const int excercise = json.value("exercise").toInt();
   const QString answer = json.value("answer").toString();
+  const QString exercise_data= json.value("exercise_data").toString();
   bool result = false;
   switch (excercise) {
     case 1:
-      result = Excercises::task1(answer);
+      result = Excercises::task1(answer, exercise_data);
       break;
     case 2:
-      result = Excercises::task2(answer);
+      result = Excercises::task2(answer, exercise_data);
       break;
     case 3:
-      result = Excercises::task3(answer);
+      result = Excercises::task3(answer, exercise_data);
       break;
     case 4:
-
-      result = Excercises::task4(answer);
+      result = Excercises::task4(answer, exercise_data);
       break;
     case 5:
-      result = Excercises::task5(answer);
+      result = Excercises::task5(answer, exercise_data);
       break;
   }
 

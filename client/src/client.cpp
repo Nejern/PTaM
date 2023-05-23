@@ -79,10 +79,11 @@ void Client::getGrades() {
   sendData(query);
 }
 
-void Client::checkExercise(int exercise, QString answer) {
+void Client::checkExercise(int exercise, QString answer, QString exercise_data) {
   QJsonObject json;
   json["command"] = "checkExercise";
   json["exercise"] = exercise;
+  json["exercise_data"] = exercise_data;
   json["answer"] = answer;
   json["student_id"] = this->userId;
   QJsonDocument jsonDocument(json);

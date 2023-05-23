@@ -37,5 +37,5 @@ void ExerciceWindow::setExcercise() {
 
 void ExerciceWindow::onAnswerButtonClick() {
   QString answer = ui->answerLineEdit->text();
-  client->checkExercise(excerciseId, answer);
+  client->checkExercise(excerciseId, answer,ui->excerciseText->text());
 }
