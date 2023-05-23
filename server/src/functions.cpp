@@ -15,7 +15,7 @@ QByteArray ServerFunctions::selectCommand(const QJsonDocument &json) {
   } else if (command == "login") {
     return loginUser(obj);
   } else if (command == "getGrades") {
-    return getGrades();
+    return getGrades(obj);
   } else if (command == "checkExercise") {
     return checkExercise(obj);
   } else {
@@ -92,12 +92,16 @@ QByteArray ServerFunctions::loginUser(const QJsonObject &json) {
   }
 }
 
-QByteArray ServerFunctions::getGrades() {
-  const QString query = QString(
-      "SELECT student.firstname, student.surname, student.patronymic, "
-      "student.studygroup, grade.exercise, AVG(grade.grade) * 100 AS "
-      "grade FROM student, grade WHERE student.user_id = "
-      "grade.student_id GROUP BY grade.exercise;");
+QByteArray ServerFunctions::getGrades(const QJsonObject &json) {
+  const QString filter = json.value("filter").toString();
+  QString query;
+  if (filter == "default") {
+    query = QString(
+        "SELECT student.firstname, student.surname, student.patronymic, "
+        "student.studygroup, grade.exercise, AVG(grade.grade) * 100 AS "
+        "grade FROM student, grade WHERE student.user_id = "
+        "grade.student_id GROUP BY grade.exercise;");
+  }
   QSqlQuery result = DB::getQsqlData(query);
 
   QJsonArray jsonArray;

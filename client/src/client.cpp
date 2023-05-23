@@ -70,9 +70,10 @@ void Client::registerUser(QString login, QString password, QString firstname,
   sendData(query);
 }
 
-void Client::getGrades() {
+void Client::getGrades(QString filter) {
   QJsonObject json;
   json["command"] = "getGrades";
+  json["filter"] = filter; 
   QJsonDocument jsonDocument(json);
   QString query =
       QString::fromUtf8(jsonDocument.toJson(QJsonDocument::Compact)) + "\n";

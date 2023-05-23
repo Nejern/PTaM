@@ -12,7 +12,7 @@ AdminTableWindow::AdminTableWindow(QWidget *parent)
   client = Client::getInstance();
   connect(client, SIGNAL(handleMessage(QString)), this,
           SLOT(createTable(QString)));
-  client->getGrades();
+  client->getGrades("default");
 }
 
 AdminTableWindow::~AdminTableWindow() { delete ui; }
