@@ -20,6 +20,13 @@
       <item>
        <widget class="QLabel" name="excerciseText">
         <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="excerciseData">
+        <property name="text">
          <string>Задача</string>
         </property>
        </widget>

@@ -23,6 +23,7 @@ class ExerciceWindow : public QMainWindow {
   Ui::ExerciceWindow *ui;
   int excerciseId;
   Client *client;
+  QString excerciseRawData;
   
 };
 
