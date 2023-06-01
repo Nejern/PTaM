@@ -104,7 +104,7 @@ void ExerciceWindow::setExcercise() {
       }
 
       prueferCodeData.chop(1);
-
+      excerciseRawData = prueferCodeData;
       ui->excerciseText->setText("Декодируйте код Прюффера");
       ui->excerciseData->setText(prueferCodeData.trimmed() + ", где первое число - количество вершин, а после идут номера вершин через пробел. Ответ запишите в формате \"x y, z w, ... \" ");
       break;
