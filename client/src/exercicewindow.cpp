@@ -1,6 +1,8 @@
 #include "exercicewindow.h"
 
 #include <QRandomGenerator>
+#include <qstringliteral.h>
+#include <random>
 
 #include "ui_exercicewindow.h"
 
@@ -80,7 +82,31 @@ void ExerciceWindow::setExcercise() {
       ui->excerciseData->setText(formattedExcerciseData.trimmed());
     } break;
     case 4:
-      ui->excerciseText->setText("4");
+      std::random_device rd;
+      std::mt19937 gen(rd());
+      std::uniform_int_distribution<> dis(5, 15);
+
+      int vertexesNum = dis(gen);
+      QList<int> prueferCode;
+
+      for (int num = 1; num <= vertexesNum; num++){
+        prueferCode.append(num);
+      }
+      std::shuffle(prueferCode.begin(), prueferCode.end(), gen);
+      prueferCode.removeLast();
+      prueferCode.removeLast();
+
+      QString prueferCodeData;
+      prueferCodeData = QString::number(vertexesNum) + " ";
+
+      for (int value : prueferCode){
+        prueferCodeData += QString::number(value) + " ";
+      }
+
+      prueferCodeData.chop(1);
+
+      ui->excerciseText->setText("Декодируйте код Прюффера");
+      ui->excerciseData->setText(prueferCodeData.trimmed() + ", где первое число - количество вершин, а после идут номера вершин через пробел. Ответ запишите в формате \"x y, z w, ... \" ");
       break;
     case 5:
       ui->excerciseText->setText("5");

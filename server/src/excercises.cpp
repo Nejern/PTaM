@@ -74,10 +74,35 @@ bool Excercises::task3(QString answer, QString exercise_data) {
 }
 
 bool Excercises::task4(QString answer, QString exercise_data) {
-  if (answer == exercise_data) {
-    return true;
+  QStringList prueferCodeSplited = exercise_data.split(" ");
+  QList<int> prueferValues;
+  QList<int> vertexes;
+  QString prueferDecoded;
+
+  for (QString num : prueferCodeSplited){
+    int value = num.toInt();
+    prueferValues.append(value);
   }
-  return false;
+
+  for (int number = 0; number < prueferValues.size() + 2; number++){
+    if (!prueferValues.contains(number)){
+      vertexes.append(number);
+    }
+  }
+
+  for (int vertex_1 : prueferValues){
+    int vertex_2 = -1;
+    int dn = -1;
+    for (int n = 0; n < vertexes.size() && vertex_1 > vertex_2; n++){
+      vertex_2 = vertexes[n];
+      dn = n;
+    }
+    vertexes.removeAt(dn);
+    prueferDecoded += QString::number(vertex_1) + " " + QString::number(vertex_2) + ", ";
+  }
+  prueferDecoded = prueferDecoded.left(-2);
+  
+  return prueferDecoded == answer;
 }
 
 bool Excercises::task5(QString answer, QString exercise_data) {
