@@ -1,6 +1,9 @@
 #include "exercicewindow.h"
 
+#include <QPair>
 #include <QRandomGenerator>
+#include <QVector>
+#include <algorithm>
 
 #include "ui_exercicewindow.h"
 
@@ -117,15 +120,62 @@ void ExerciceWindow::setExcercise() {
       }
     }
 
-    // установка данных для задачи в ui
-    ui->excerciseData->setText(formattedExcerciseData.trimmed());
-  } break;
-  case 4:
-    ui->excerciseText->setText("4");
-    break;
-  case 5:
-    ui->excerciseText->setText("5");
-    break;
+      // установка данных для задачи в ui
+      ui->excerciseData->setText(formattedExcerciseData.trimmed());
+    } break;
+    case 4:
+      ui->excerciseText->setText("4");
+      break;
+    case 5:
+      ui->excerciseText->setText("Найдите максимальный поток в графе:");
+      int numVertices = QRandomGenerator::global()->bounded(
+          4, 7);  // Количество вершин в графе
+      QVector<int> data;
+
+      // Генерация случайных ребер и их пропускных способностей
+      for (int from = 0; from < numVertices; ++from) {
+        for (int to = from + 1; to < numVertices; ++to) {
+          if (to != numVertices - 1 && from != 0 &&
+              QRandomGenerator::global()->bounded(0, 2) == 0)
+            continue;  // 50%
+          int capacity = QRandomGenerator::global()->bounded(4, 10);
+          data.append(from);
+          data.append(to);
+          data.append(capacity);
+        }
+      }
+
+      // Формирование строки в требуемом формате
+      QString inputString;
+      inputString.append(QString::number(numVertices));
+
+      for (int i = 0; i < data.size(); ++i) {
+        inputString.append(" ");
+        inputString.append(QString::number(data[i]));
+      }
+
+      excerciseRawData = inputString;
+
+      QStringList tokens = excerciseRawData.split(' ');
+
+      QString formattedData;
+      formattedData = tokens[0] + " ";
+      for (int i = 1; i < tokens.size(); i += 3) {
+        QString from = tokens[i];
+        QString to = tokens[i + 1];
+        QString capacity = tokens[i + 2];
+
+        QString edge = "(" + from + ", " + to + ", " + capacity + ")";
+        formattedData.append(edge);
+
+        if (i != tokens.size() - 3) {
+          formattedData.append(" ");
+        }
+      }
+
+      ui->excerciseData->setText(formattedData);
+
+      break;
   }
 }
 
