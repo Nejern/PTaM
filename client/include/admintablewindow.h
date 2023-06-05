@@ -17,11 +17,22 @@ class AdminTableWindow : public QMainWindow {
   ~AdminTableWindow();
 
  private slots:
+  void on_filtersBox_currentIndexChanged(int index);
+  void on_directionBox_currentIndexChanged(int index);
   void createTable(QString response);
 
  private:
+  void init();
   Ui::AdminTableWindow *ui;
   Client *client;
+  bool filterDirection = false;
+  int filterIndex = 0;
+
+  const QMap<int, QString> filters = {{0, "default"},
+                                      {1, "surname"},
+                                      {2, "studygroup"},
+                                      {3, "exercise"},
+                                      {4, "grades"}};
 };
 
 #endif  // ADMINTABLEWINDOW_H

@@ -26,7 +26,8 @@ QByteArray ServerFunctions::selectCommand(const QJsonDocument &json) {
 QByteArray ServerFunctions::parse(const QString &message) {
   const QJsonDocument json = QJsonDocument::fromJson(message.toUtf8());
   if (json.isNull() || !json.isObject()) {
-    return "Invalid JSON\n";
+    qDebug() << message;
+    return "Invalid JSON string\n";
   }
   return selectCommand(json);
 }
@@ -93,17 +94,110 @@ QByteArray ServerFunctions::loginUser(const QJsonObject &json) {
 }
 
 QByteArray ServerFunctions::getGrades(const QJsonObject &json) {
+  qDebug() << json;
   const QString filter = json.value("filter").toString();
+  bool filterDirection;
+  if (json.contains("filter_direction")) {
+    filterDirection = json.value("filter_direction").toBool();
+  }
+
   QString query;
   if (filter == "default") {
     query = QString(
         "SELECT student.firstname, student.surname, student.patronymic, "
-        "student.studygroup, grade.exercise, AVG(grade.grade) * 100 AS "
+        "student.studygroup, grade.exercise, ROUND(AVG(grade.grade) * 100, 2) "
+        "AS "
         "grade FROM student, grade WHERE student.user_id = "
-        "grade.student_id GROUP BY grade.exercise;");
+        "grade.student_id GROUP BY student.firstname, student.surname, "
+        "student.patronymic, student.studygroup, grade.exercise;");
+  } else if (filter == "surname") {
+    if (filterDirection) {
+      query = QString(
+          "SELECT student.firstname, student.surname, student.patronymic, "
+          "student.studygroup, grade.exercise, ROUND(AVG(grade.grade) * 100, "
+          "2) AS "
+          "grade FROM student, grade WHERE student.user_id = "
+          "grade.student_id GROUP BY student.firstname, student.surname, "
+          "student.patronymic, student.studygroup, grade.exercise ORDER BY "
+          "student.surname;");
+    } else {
+      query = QString(
+          "SELECT student.firstname, student.surname, student.patronymic, "
+          "student.studygroup, grade.exercise, ROUND(AVG(grade.grade) * 100, "
+          "2) AS "
+          "grade FROM student, grade WHERE student.user_id = "
+          "grade.student_id GROUP BY student.firstname, student.surname, "
+          "student.patronymic, student.studygroup, grade.exercise ORDER BY "
+          "student.surname "
+          "DESC;");
+    }
+  } else if (filter == "grades") {
+    if (filterDirection) {
+      query = QString(
+          "SELECT student.firstname, student.surname, student.patronymic, "
+          "student.studygroup, grade.exercise, ROUND(AVG(grade.grade) * 100, "
+          "2) AS "
+          "grade FROM student, grade WHERE student.user_id = "
+          "grade.student_id GROUP BY student.firstname, student.surname, "
+          "student.patronymic, student.studygroup, grade.exercise ORDER BY "
+          "grade;");
+    } else {
+      query = QString(
+          "SELECT student.firstname, student.surname, student.patronymic, "
+          "student.studygroup, grade.exercise, ROUND(AVG(grade.grade) * 100, "
+          "2) AS "
+          "grade FROM student, grade WHERE student.user_id = "
+          "grade.student_id GROUP BY student.firstname, student.surname, "
+          "student.patronymic, student.studygroup, grade.exercise ORDER BY "
+          "grade "
+          "DESC;");
+    }
+  } else if (filter == "studygroup") {
+    if (filterDirection) {
+      query = QString(
+          "SELECT student.firstname, student.surname, student.patronymic, "
+          "student.studygroup, grade.exercise, ROUND(AVG(grade.grade) * 100, "
+          "2) AS "
+          "grade FROM student, grade WHERE student.user_id = "
+          "grade.student_id GROUP BY student.firstname, student.surname, "
+          "student.patronymic, student.studygroup, grade.exercise ORDER BY "
+          "student.studygroup;");
+    } else {
+      query = QString(
+          "SELECT student.firstname, student.surname, student.patronymic, "
+          "student.studygroup, grade.exercise, ROUND(AVG(grade.grade) * 100, "
+          "2) AS "
+          "grade FROM student, grade WHERE student.user_id = "
+          "grade.student_id GROUP BY student.firstname, student.surname, "
+          "student.patronymic, student.studygroup, grade.exercise ORDER BY "
+          "student.studygroup DESC;");
+    }
+  } else if (filter == "exercise") {
+    if (filterDirection) {
+      query = QString(
+          "SELECT student.firstname, student.surname, student.patronymic, "
+          "student.studygroup, grade.exercise, ROUND(AVG(grade.grade) * 100, "
+          "2) AS "
+          "grade FROM student, grade WHERE student.user_id = "
+          "grade.student_id GROUP BY student.firstname, student.surname, "
+          "student.patronymic, student.studygroup, grade.exercise ORDER BY "
+          "grade.exercise;");
+    } else {
+      query = QString(
+          "SELECT student.firstname, student.surname, student.patronymic, "
+          "student.studygroup, grade.exercise, ROUND(AVG(grade.grade) * 100, "
+          "2) AS "
+          "grade FROM student, grade WHERE student.user_id = "
+          "grade.student_id GROUP BY student.firstname, student.surname, "
+          "student.patronymic, student.studygroup, grade.exercise ORDER BY "
+          "grade.exercise "
+          "DESC;");
+    }
+  } else {
+    return "Invalid filter\n";
   }
   QSqlQuery result = DB::getQsqlData(query);
-
+  // result.setForwardOnly(true);
   QJsonArray jsonArray;
   while (result.next()) {
     QJsonObject jsonObject;
@@ -115,12 +209,12 @@ QByteArray ServerFunctions::getGrades(const QJsonObject &json) {
     jsonObject["grade"] = result.value("grade").toString();
     jsonArray.append(jsonObject);
   }
-
+  // qDebug() << jsonArray;
   if (jsonArray.isEmpty()) {
     return "No grades\n";
   } else {
     QJsonDocument resultJson(jsonArray);
-    return resultJson.toJson(QJsonDocument::Compact);
+    return resultJson.toJson(QJsonDocument::Compact) + "\n";
   }
 }
 

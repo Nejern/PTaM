@@ -1,5 +1,8 @@
 #include "admintablewindow.h"
 
+#include <qdebug.h>
+#include <qnamespace.h>
+
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -12,10 +15,37 @@ AdminTableWindow::AdminTableWindow(QWidget *parent)
   client = Client::getInstance();
   connect(client, SIGNAL(handleMessage(QString)), this,
           SLOT(createTable(QString)));
-  client->getGrades("default");
+  ui->filtersBox->addItem("Все");
+  ui->filtersBox->addItem("Фамилия");
+  ui->filtersBox->addItem("Учебная группа");
+  ui->filtersBox->addItem("Задание");
+  ui->filtersBox->addItem("% корректных ответов");
+  ui->directionBox->addItem("По убыванию");
+  ui->directionBox->addItem("По возрастанию");
+  connect(ui->filtersBox, SIGNAL(currentIndexChanged(int index)), this,
+          SLOT(on_filtersBox_currentIndexChanged(int index)));
+  connect(ui->directionBox, SIGNAL(currentIndexChanged(int index)), this,
+          SLOT(on_directionBox_currentIndexChanged(int index)));
+
+  client->getGrades(filters[filterIndex], filterDirection);
 }
 
 AdminTableWindow::~AdminTableWindow() { delete ui; }
+
+void AdminTableWindow::init() {
+  client->getGrades(filters[filterIndex], filterDirection);
+}
+
+void AdminTableWindow::on_filtersBox_currentIndexChanged(int index) {
+  filterIndex = index;
+  qDebug() << filters[filterIndex];
+  client->getGrades(filters[filterIndex], filterDirection);
+}
+
+void AdminTableWindow::on_directionBox_currentIndexChanged(int index) {
+  filterDirection = index;
+  client->getGrades(filters[filterIndex], filterDirection);
+}
 
 void AdminTableWindow::createTable(QString response) {
   QJsonDocument jsonDoc = QJsonDocument::fromJson(response.toUtf8());
