@@ -27,6 +27,7 @@ class AdminTableWindow : public QMainWindow {
   Client *client;
   bool filterDirection = false;
   int filterIndex = 0;
+  bool initialized = false;
 
   const QMap<int, QString> filters = {{0, "default"},
                                       {1, "surname"},

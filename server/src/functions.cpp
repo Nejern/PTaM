@@ -24,9 +24,10 @@ QByteArray ServerFunctions::selectCommand(const QJsonDocument &json) {
 }
 
 QByteArray ServerFunctions::parse(const QString &message) {
-  const QJsonDocument json = QJsonDocument::fromJson(message.toUtf8());
+  QJsonDocument json = QJsonDocument::fromJson(message.toUtf8());
+  qDebug() << message;
+  qDebug() << json;
   if (json.isNull() || !json.isObject()) {
-    qDebug() << message;
     return "Invalid JSON string\n";
   }
   return selectCommand(json);
