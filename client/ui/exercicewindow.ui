@@ -52,6 +52,13 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
+           <widget class="QLabel" name="errorLabel">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QLineEdit" name="answerLineEdit">
             <property name="placeholderText">
              <string>Ответ</string>

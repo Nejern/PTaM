@@ -18,6 +18,7 @@ class ExerciceWindow : public QMainWindow {
 
  private slots:
   void onAnswerButtonClick();
+  void exerciseHandeler(QString response);
 
  private:
   Ui::ExerciceWindow *ui;
