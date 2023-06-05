@@ -87,6 +87,9 @@ class NetworkGraph {
     return visited[sink];
   }
 };
+#include <iterator>
+#include <qdebug.h>
+#include <qstringliteral.h>
 
 // построить минимальный каркас графа
 bool Excercises::task1(QString answer, QString exercise_data) {
@@ -212,10 +215,36 @@ bool Excercises::task3(QString answer, QString exercise_data) {
 }
 
 bool Excercises::task4(QString answer, QString exercise_data) {
-  if (answer == exercise_data) {
-    return true;
+  QStringList prueferCodeSplited = exercise_data.split(" ");
+  QList<int> prueferValues;
+  QList<int> vertexes;
+  QString prueferDecoded;
+
+  for (QString num : prueferCodeSplited){
+    int value = num.toInt();
+    prueferValues.append(value);
   }
-  return false;
+
+  for(int num = 1; num <= prueferValues.size() + 2; num++){
+    vertexes.append(num);
+  }
+
+  while(prueferValues.isEmpty() == false){
+    int vertex_1 = prueferValues[0];
+    int vertex_2;
+    for(int value: vertexes){
+      if (prueferValues.indexOf(value) == -1){
+        vertex_2 = value;
+        vertexes.removeAt(vertexes.indexOf(value));
+        break;
+      }
+    }
+    prueferValues.pop_front();
+    prueferDecoded += QString::number(vertex_1) + " " + QString::number(vertex_2) + ", ";
+  }
+  prueferDecoded += QString::number(vertexes[0]) + " " + QString::number(vertexes[1]);
+  qDebug() << prueferDecoded;
+  return prueferDecoded == answer;
 }
 
 bool Excercises::task5(QString answer, QString exercise_data) {

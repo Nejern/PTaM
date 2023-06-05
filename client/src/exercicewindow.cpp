@@ -4,6 +4,8 @@
 #include <QRandomGenerator>
 #include <QVector>
 #include <algorithm>
+#include <qstringliteral.h>
+#include <random>
 
 #include "ui_exercicewindow.h"
 
@@ -123,10 +125,34 @@ void ExerciceWindow::setExcercise() {
       // установка данных для задачи в ui
       ui->excerciseData->setText(formattedExcerciseData.trimmed());
     } break;
-    case 4:
-      ui->excerciseText->setText("4");
-      break;
-    case 5:
+    case 4: {
+      
+      std::random_device rd;
+      std::mt19937 gen(rd());
+      std::uniform_int_distribution<> dis(5, 15);
+
+      int vertexesNum = dis(gen);
+      QList<int> prueferCode;
+
+      for (int num = 1; num <= vertexesNum; num++){
+        prueferCode.append(num);
+      }
+      std::shuffle(prueferCode.begin(), prueferCode.end(), gen);
+      prueferCode.removeLast();
+      prueferCode.removeLast();
+
+      QString prueferCodeData;
+
+      for (int value : prueferCode){
+        prueferCodeData += QString::number(value) + " ";
+      }
+
+      prueferCodeData.chop(1);
+      excerciseRawData = prueferCodeData;
+      ui->excerciseText->setText("Декодируйте код Прюффера");
+      ui->excerciseData->setText(prueferCodeData.trimmed() + ", \n где идут номера вершин через пробел. \nОтвет запишите в формате \"x y, z w, ... \" ");
+    }break;
+    case 5: {
       ui->excerciseText->setText("Найдите максимальный поток в графе:");
       int numVertices = QRandomGenerator::global()->bounded(
           4, 7);  // Количество вершин в графе
@@ -175,7 +201,7 @@ void ExerciceWindow::setExcercise() {
 
       ui->excerciseData->setText(formattedData);
 
-      break;
+    }break;
   }
 }
 
