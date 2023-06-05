@@ -91,12 +91,16 @@ bool Excercises::task4(QString answer, QString exercise_data) {
   }
 
   for (int vertex_1 : prueferValues){
+    if (vertexes.isEmpty()){
+      break;
+    }
     int vertex_2 = vertexes.first();
     vertexes.removeAt(0);
     prueferDecoded += QString::number(vertex_1) + " " + QString::number(vertex_2) + ", ";
   }
-  prueferDecoded = prueferDecoded.left(-2);
-  
+
+
+  prueferDecoded = prueferDecoded.left(prueferDecoded.length()-2);
   qDebug() << prueferDecoded;
   return prueferDecoded == answer;
 }
