@@ -4,6 +4,9 @@
 #include <QDebug>
 #include <QMap>
 #include <QStack>
+#include <iterator>
+#include <qdebug.h>
+#include <qstringliteral.h>
 
 bool Excercises::task1(QString answer, QString exercise_data) {
   if (answer == exercise_data) {
@@ -84,23 +87,24 @@ bool Excercises::task4(QString answer, QString exercise_data) {
     prueferValues.append(value);
   }
 
-  for (int number = 0; number < prueferValues.size() + 2; number++){
-    if (!prueferValues.contains(number)){
-      vertexes.append(number);
-    }
+  for(int num = 1; num <= prueferValues.size() + 2; num++){
+    vertexes.append(num);
   }
 
-  for (int vertex_1 : prueferValues){
-    if (vertexes.isEmpty()){
-      break;
+  while(prueferValues.isEmpty() == false){
+    int vertex_1 = prueferValues[0];
+    int vertex_2;
+    for(int value: vertexes){
+      if (prueferValues.indexOf(value) == -1){
+        vertex_2 = value;
+        vertexes.removeAt(vertexes.indexOf(value));
+        break;
+      }
     }
-    int vertex_2 = vertexes.first();
-    vertexes.removeAt(0);
+    prueferValues.pop_front();
     prueferDecoded += QString::number(vertex_1) + " " + QString::number(vertex_2) + ", ";
   }
-
-
-  prueferDecoded = prueferDecoded.left(prueferDecoded.length()-2);
+  prueferDecoded += QString::number(vertexes[0]) + " " + QString::number(vertexes[1]);
   qDebug() << prueferDecoded;
   return prueferDecoded == answer;
 }

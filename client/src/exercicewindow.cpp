@@ -82,6 +82,7 @@ void ExerciceWindow::setExcercise() {
       ui->excerciseData->setText(formattedExcerciseData.trimmed());
     } break;
     case 4: {
+      
       std::random_device rd;
       std::mt19937 gen(rd());
       std::uniform_int_distribution<> dis(5, 15);
@@ -97,7 +98,6 @@ void ExerciceWindow::setExcercise() {
       prueferCode.removeLast();
 
       QString prueferCodeData;
-      prueferCodeData = QString::number(vertexesNum) + " ";
 
       for (int value : prueferCode){
         prueferCodeData += QString::number(value) + " ";
@@ -106,7 +106,7 @@ void ExerciceWindow::setExcercise() {
       prueferCodeData.chop(1);
       excerciseRawData = prueferCodeData;
       ui->excerciseText->setText("Декодируйте код Прюффера");
-      ui->excerciseData->setText(prueferCodeData.trimmed() + ", \n где первое число - количество вершин, а после идут номера вершин через пробел. \nОтвет запишите в формате \"x y, z w, ... \" ");
+      ui->excerciseData->setText(prueferCodeData.trimmed() + ", \n где идут номера вершин через пробел. \nОтвет запишите в формате \"x y, z w, ... \" ");
     }break;
     case 5: {
       ui->excerciseText->setText("5");
