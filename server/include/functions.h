@@ -37,6 +37,6 @@ class ServerFunctions {
    * @return Результат выполнения команды аутентификации.
    */
   static QByteArray loginUser(const QJsonObject &json);
-  static QByteArray getGrades();
+  static QByteArray getGrades(const QJsonObject &);
   static QByteArray checkExercise(const QJsonObject &json);
 };
