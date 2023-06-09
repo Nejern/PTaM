@@ -1,4 +1,5 @@
 #include "db.h"
+#include "excercises.h"
 #include "functions.h"
 #include "tcpserver.h"
 #include <QSignalSpy>
@@ -11,7 +12,7 @@ private slots:
   // MyTcpServer
   void testConstructor();
   void testSlotNewConnection();
-  //void testSlotServerRead();
+  // void testSlotServerRead();
   void testSlotClientDisconnected();
   // DB
   void testOpen();
@@ -19,6 +20,13 @@ private slots:
   void testGetData();
   void testMakeInsertQuery();
   void testGetLastInsertId();
+  // ServerFunctions
+  void testSelectCommand();
+  void testParse();
+  void testRegisterUser();
+  void testLoginUser();
+  void testGetGrades();
+  // void testCheckExercise();
 };
 
 // MyTcpServer
@@ -109,6 +117,55 @@ void Test::testGetLastInsertId() {
   QCOMPARE(lastId, data["id"].toInt());
   DB::getInstance().close();
 }
+
+// ServerFunctions
+void Test::testSelectCommand() {
+  QJsonObject obj;
+  obj["command"] = "invalidCommand";
+  QJsonDocument doc(obj);
+  QByteArray result = ServerFunctions::selectCommand(doc);
+  QCOMPARE(result, QByteArray("Invalid command\n"));
+}
+
+void Test::testParse() {
+  QString invalidJson = "{";
+  QByteArray result = ServerFunctions::parse(invalidJson);
+  QCOMPARE(result, QByteArray("Invalid JSON string\n"));
+}
+
+void Test::testRegisterUser() {
+  QJsonObject obj;
+  obj["login"] = "test";
+  obj["password"] = "password";
+  QByteArray result = ServerFunctions::registerUser(obj);
+  QCOMPARE(result, QByteArray("Registration failed\n"));
+}
+
+void Test::testLoginUser() {
+  QJsonObject obj;
+  obj["login"] = "test";
+  obj["password"] = "password";
+  QByteArray result = ServerFunctions::loginUser(obj);
+  QCOMPARE(result, QByteArray("Login failed\n"));
+}
+
+void Test::testGetGrades() {
+  QJsonObject obj;
+  obj["filter"] = "invalidFilter";
+  QByteArray result = ServerFunctions::getGrades(obj);
+  QCOMPARE(result, QByteArray("Invalid filter\n"));
+}
+
+/*
+void Test::testCheckExercise() {
+  QJsonObject obj;
+  obj["student_id"] = 0;
+  obj["exercise"] = 1;
+  obj["answer"] = "answer";
+  QByteArray result = ServerFunctions::checkExercise(obj);
+  QCOMPARE(result, QByteArray("TODO\n"));
+}
+*/
 
 QTEST_MAIN(Test)
 #include "test.moc"

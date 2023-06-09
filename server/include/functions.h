@@ -16,7 +16,6 @@ public:
    */
   static QByteArray parse(const QString &message);
 
-private:
   /**
    * @brief Выбирает команду из JSON и вызывает соответствующую функцию.
    * @param json JSON документ с командой и данными.
