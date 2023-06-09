@@ -1,8 +1,7 @@
+#include <QJsonArray>
 #include <db.h>
 #include <excercises.h>
 #include <functions.h>
-
-#include <QJsonArray>
 
 QByteArray ServerFunctions::selectCommand(const QJsonDocument &json) {
   const QJsonObject obj = json.object();
@@ -231,21 +230,21 @@ QByteArray ServerFunctions::checkExercise(const QJsonObject &json) {
   const QString exercise_data = json.value("exercise_data").toString();
   bool result = false;
   switch (excercise) {
-    case 1:
-      result = Excercises::task1(answer, exercise_data);
-      break;
-    case 2:
-      result = Excercises::task2(answer, exercise_data);
-      break;
-    case 3:
-      result = Excercises::task3(answer, exercise_data);
-      break;
-    case 4:
-      result = Excercises::task4(answer, exercise_data);
-      break;
-    case 5:
-      result = Excercises::task5(answer, exercise_data);
-      break;
+  case 1:
+    result = Excercises::task1(answer, exercise_data);
+    break;
+  case 2:
+    result = Excercises::task2(answer, exercise_data);
+    break;
+  case 3:
+    result = Excercises::task3(answer, exercise_data);
+    break;
+  case 4:
+    result = Excercises::task4(answer, exercise_data);
+    break;
+  case 5:
+    result = Excercises::task5(answer, exercise_data);
+    break;
   }
 
   const QMap<QString, QVariant> userdata{

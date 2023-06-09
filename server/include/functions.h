@@ -8,7 +8,7 @@
  * сервера.
  */
 class ServerFunctions {
- public:
+public:
   /**
    * @brief Разбирает входящее сообщение и вызывает соответствующую функцию.
    * @param message Входящее сообщение для разбора.
@@ -16,7 +16,7 @@ class ServerFunctions {
    */
   static QByteArray parse(const QString &message);
 
- private:
+private:
   /**
    * @brief Выбирает команду из JSON и вызывает соответствующую функцию.
    * @param json JSON документ с командой и данными.

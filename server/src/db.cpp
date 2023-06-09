@@ -118,42 +118,38 @@ int DB::getLastInsertId() {
   if (query.next()) {
     return query.value(0).toInt();
   }
-  return -1;  // Возвращаем -1 в случае ошибки или отсутствия вставки
+  return -1; // Возвращаем -1 в случае ошибки или отсутствия вставки
 }
 
 void DB::createTables() {
   QSqlQuery query(db);
   query.exec("PRAGMA foreign_keys = ON");
 
-  insertData(
-      "CREATE TABLE IF NOT EXISTS user ("
-      "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-      "login TEXT UNIQUE,"
-      "password TEXT,"
-      "role_id INTEGER"
-      ");");
+  insertData("CREATE TABLE IF NOT EXISTS user ("
+             "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+             "login TEXT UNIQUE,"
+             "password TEXT,"
+             "role_id INTEGER"
+             ");");
   ;
 
-  insertData(
-      "CREATE TABLE IF NOT EXISTS grade ("
-      "student_id INTEGER,"
-      "exercise INTEGER,"
-      "grade INTEGER"
-      ");");
+  insertData("CREATE TABLE IF NOT EXISTS grade ("
+             "student_id INTEGER,"
+             "exercise INTEGER,"
+             "grade INTEGER"
+             ");");
 
-  insertData(
-      "CREATE TABLE IF NOT EXISTS student ("
-      "user_id INTEGER,"
-      "firstname TEXT,"
-      "surname TEXT,"
-      "patronymic TEXT,"
-      "studygroup TEXT,"
-      "FOREIGN KEY(user_id) REFERENCES user(id)"
-      ");");
+  insertData("CREATE TABLE IF NOT EXISTS student ("
+             "user_id INTEGER,"
+             "firstname TEXT,"
+             "surname TEXT,"
+             "patronymic TEXT,"
+             "studygroup TEXT,"
+             "FOREIGN KEY(user_id) REFERENCES user(id)"
+             ");");
   // Администратор
-  insertData(
-      "INSERT INTO user (login, password, role_id) VALUES "
-      "('admin', 'admin', 0);");
+  insertData("INSERT INTO user (login, password, role_id) VALUES "
+             "('admin', 'admin', 0);");
 }
 
 void DB::dropTables() {

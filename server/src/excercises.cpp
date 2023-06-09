@@ -1,5 +1,4 @@
 #include "excercises.h"
-
 #include <QCoreApplication>
 #include <QDebug>
 #include <QMap>
@@ -12,7 +11,7 @@
 
 // класс для 5 задания
 class NetworkGraph {
- public:
+public:
   NetworkGraph(int vertices) {
     this->vertices = vertices;
     adjacencyMatrix =
@@ -57,13 +56,13 @@ class NetworkGraph {
     return maxFlow;
   }
 
- private:
+private:
   int vertices;
   QVector<QVector<int>> adjacencyMatrix;
 
   // Поиск пути в остаточной сети с помощью алгоритма поиска в ширину (BFS)
-  bool bfs(int source, int sink, QVector<int>& parent,
-           const QVector<QVector<int>>& residualGraph) {
+  bool bfs(int source, int sink, QVector<int> &parent,
+           const QVector<QVector<int>> &residualGraph) {
     QVector<bool> visited(vertices, false);
     QQueue<int> queue;
 
@@ -220,29 +219,31 @@ bool Excercises::task4(QString answer, QString exercise_data) {
   QList<int> vertexes;
   QString prueferDecoded;
 
-  for (QString num : prueferCodeSplited){
+  for (QString num : prueferCodeSplited) {
     int value = num.toInt();
     prueferValues.append(value);
   }
 
-  for(int num = 1; num <= prueferValues.size() + 2; num++){
+  for (int num = 1; num <= prueferValues.size() + 2; num++) {
     vertexes.append(num);
   }
 
-  while(prueferValues.isEmpty() == false){
+  while (prueferValues.isEmpty() == false) {
     int vertex_1 = prueferValues[0];
     int vertex_2;
-    for(int value: vertexes){
-      if (prueferValues.indexOf(value) == -1){
+    for (int value : vertexes) {
+      if (prueferValues.indexOf(value) == -1) {
         vertex_2 = value;
         vertexes.removeAt(vertexes.indexOf(value));
         break;
       }
     }
     prueferValues.pop_front();
-    prueferDecoded += QString::number(vertex_1) + " " + QString::number(vertex_2) + ", ";
+    prueferDecoded +=
+        QString::number(vertex_1) + " " + QString::number(vertex_2) + ", ";
   }
-  prueferDecoded += QString::number(vertexes[0]) + " " + QString::number(vertexes[1]);
+  prueferDecoded +=
+      QString::number(vertexes[0]) + " " + QString::number(vertexes[1]);
   qDebug() << prueferDecoded;
   return prueferDecoded == answer;
 }
