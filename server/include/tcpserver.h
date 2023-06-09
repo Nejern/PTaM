@@ -10,8 +10,7 @@
  * чтения и записи данных в сеть.
  */
 class MyTcpServer : public QTcpServer {
-
-public:
+ public:
   /**
    * @brief Конструктор класса.
    *
@@ -24,7 +23,7 @@ public:
    */
   ~MyTcpServer() override;
 
-public slots:
+ public slots:
   /**
    * @brief Слот для установки соединения с клиентом.
    *
@@ -50,9 +49,10 @@ public slots:
    */
   void slotServerRead();
 
-private:
-  QTcpServer *tcpServer; ///< Указатель на объект QTcpServer.
-  QVector<QTcpSocket *> tcpSockets; ///< Вектор указателей на объекты QTcpSocket
-                                    ///< для хранения подключенных клиентов.
-  bool server_status; ///< Статус сервера.
+ private:
+  QTcpServer *tcpServer;  ///< Указатель на объект QTcpServer.
+  QVector<QTcpSocket *>
+      tcpSockets;  ///< Вектор указателей на объекты QTcpSocket
+                   ///< для хранения подключенных клиентов.
+  bool server_status;  ///< Статус сервера.
 };
