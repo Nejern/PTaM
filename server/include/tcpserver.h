@@ -24,6 +24,8 @@ public:
    */
   ~MyTcpServer() override;
 
+  bool getServerStatus() const { return server_status; }
+
 public slots:
   /**
    * @brief Слот для установки соединения с клиентом.

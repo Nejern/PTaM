@@ -29,8 +29,11 @@ file(GLOB SOURCES
     ${SRC_DIR}/*.cpp
 )
 
+# Исключаем из сборки исходный файл с тестами
+list(REMOVE_ITEM SOURCES ${SRC_DIR}/test.cpp)
+
 # Поиск необходимых компонентов Qt
-find_package(Qt5 REQUIRED COMPONENTS Core Network Sql)
+find_package(Qt5 REQUIRED COMPONENTS Core Network Sql Test)
 set(CMAKE_AUTOMOC ON)
 
 # Проверка версии Qt
@@ -40,7 +43,17 @@ endif()
 
 # Создание исполняемого файла
 add_executable(${PROJECT_NAME} ${SOURCES})
-
-# Линковка библиотек Qt и папки include
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Network Qt5::Sql)
 target_include_directories(${PROJECT_NAME} PRIVATE ${INC_DIR})
+
+# Добавляем исполняемый файл для тестов
+file(GLOB TEST_SOURCES 
+    ${SRC_DIR}/*.cpp
+)
+# Исключаем из сборки исходный файл main.cpp
+list(REMOVE_ITEM TEST_SOURCES ${SRC_DIR}/main.cpp)
+
+add_executable(${PROJECT_NAME}Tests ${TEST_SOURCES})
+
+target_link_libraries(${PROJECT_NAME}Tests PRIVATE Qt5::Core Qt5::Network Qt5::Sql Qt5::Test)
+target_include_directories(${PROJECT_NAME}Tests PRIVATE ${INC_DIR})
