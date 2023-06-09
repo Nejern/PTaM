@@ -1,5 +1,4 @@
 #include "exercicestablewindow.h"
-
 #include "ui_exercicestablewindow.h"
 
 ExercicesTableWindow::ExercicesTableWindow(QWidget *parent)

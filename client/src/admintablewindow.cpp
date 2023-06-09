@@ -1,14 +1,12 @@
 #include "admintablewindow.h"
-
-#include <qdebug.h>
-#include <qnamespace.h>
-
+#include "ui_admintablewindow.h"
+#include <QDebug>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QStandardItemModel>
+#include <qnamespace.h>
 
-#include "ui_admintablewindow.h"
 AdminTableWindow::AdminTableWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::AdminTableWindow) {
   ui->setupUi(this);
@@ -58,7 +56,7 @@ void AdminTableWindow::createTable(QString response) {
 
   QJsonArray jsonArray = jsonDoc.array();
   int rowCount = jsonArray.size();
-  int columnCount = 6;  // Предполагается, что таблица будет иметь 6 столбцов
+  int columnCount = 6; // Предполагается, что таблица будет иметь 6 столбцов
 
   // Создание модели данных для таблицы
   QStandardItemModel *model =

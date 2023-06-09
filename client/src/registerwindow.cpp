@@ -1,10 +1,9 @@
 #include "registerwindow.h"
-
+#include "ui_registerwindow.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QString>
 
-#include "ui_registerwindow.h"
 RegisterWindow::RegisterWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::RegisterWindow) {
   ui->setupUi(this);

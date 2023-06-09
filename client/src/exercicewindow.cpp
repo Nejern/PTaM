@@ -1,13 +1,11 @@
 #include "exercicewindow.h"
-
+#include "ui_exercicewindow.h"
 #include <QPair>
 #include <QRandomGenerator>
 #include <QVector>
 #include <algorithm>
 #include <qstringliteral.h>
 #include <random>
-
-#include "ui_exercicewindow.h"
 
 ExerciceWindow::ExerciceWindow(QWidget *parent, int excerciseNumber)
     : QMainWindow(parent), ui(new Ui::ExerciceWindow) {
@@ -41,172 +39,175 @@ void ExerciceWindow::setExcercise() {
     int numNodes = QRandomGenerator::global()->bounded(4, 10);
     QString generatedData = QString::number(numNodes) + " ";
 
-      QList<QPair<int, int>> edges;
-      for (int i = 1; i < numNodes; ++i) {
-        int node1 = QRandomGenerator::global()->bounded(i);
-        int node2 = i;
-        edges.append(qMakePair(node1, node2));
-        generatedData +=
-            QString::number(node1) + " " + QString::number(node2) + " ";
+    QList<QPair<int, int>> edges;
+    for (int i = 1; i < numNodes; ++i) {
+      int node1 = QRandomGenerator::global()->bounded(i);
+      int node2 = i;
+      edges.append(qMakePair(node1, node2));
+      generatedData +=
+          QString::number(node1) + " " + QString::number(node2) + " ";
+    }
+
+    // Сохранение данных для задачи чтобы потом кинуть в сервер
+    excerciseRawData = generatedData.trimmed();
+    qDebug() << excerciseRawData;
+
+    // Форматирование данных для ui
+    QString formattedExcerciseData;
+    QStringList tokens = generatedData.split(' ');
+    if (!tokens.isEmpty()) {
+      int numNodes = tokens.takeFirst().toInt();
+      formattedExcerciseData += QString::number(numNodes) + " ";
+
+      while (tokens.size() >= 2) {
+        int node1 = tokens.takeFirst().toInt();
+        int node2 = tokens.takeFirst().toInt();
+        formattedExcerciseData += "(" + QString::number(node1) + ", " +
+                                  QString::number(node2) + "), ";
       }
 
-      // Сохранение данных для задачи чтобы потом кинуть в сервер
-      excerciseRawData = generatedData.trimmed();
-      qDebug() << excerciseRawData;
+      if (!formattedExcerciseData.isEmpty()) {
+        formattedExcerciseData.chop(2);
+      }
+    }
 
-      // Форматирование данных для ui
-      QString formattedExcerciseData;
-      QStringList tokens = generatedData.split(' ');
-      if (!tokens.isEmpty()) {
-        int numNodes = tokens.takeFirst().toInt();
-        formattedExcerciseData += QString::number(numNodes) + " ";
+    // Установка данных для задачи в ui
+    ui->excerciseData->setText(formattedExcerciseData.trimmed());
+  } break;
 
-        while (tokens.size() >= 2) {
-          int node1 = tokens.takeFirst().toInt();
-          int node2 = tokens.takeFirst().toInt();
-          formattedExcerciseData += "(" + QString::number(node1) + ", " +
-                                    QString::number(node2) + "), ";
-        }
+  case 2:
+    ui->excerciseText->setText("2");
+    break;
+  case 3: {
+    // Установка текста задачи
+    ui->excerciseText->setText("Составьте код прюффера для графа:");
 
-        if (!formattedExcerciseData.isEmpty()) {
-          formattedExcerciseData.chop(2);
-        }
+    // Генерация данных для задачи
+    int numNodes = QRandomGenerator::global()->bounded(4, 10);
+    QString generatedData = QString::number(numNodes) + " ";
+
+    QList<int> nodes;
+    for (int i = 0; i < numNodes; ++i) {
+      nodes.append(i);
+    }
+
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(nodes.begin(), nodes.end(), g);
+
+    for (int i = 1; i < numNodes; ++i) {
+      int parent = nodes.at(QRandomGenerator::global()->bounded(i));
+      int child = nodes.at(i);
+      generatedData +=
+          QString::number(parent) + " " + QString::number(child) + " ";
+    }
+
+    // Сохранение данных для задачи чтобы потом кинуть в сервер
+    excerciseRawData = generatedData.trimmed();
+    qDebug() << excerciseRawData;
+
+    // Форматирование данных для для ui
+    QString formattedExcerciseData;
+    QStringList tokens = generatedData.split(' ');
+    if (!tokens.isEmpty()) {
+      int numNodes = tokens.takeFirst().toInt();
+      formattedExcerciseData += QString::number(numNodes) + " ";
+
+      while (tokens.size() >= 2) {
+        int node1 = tokens.takeFirst().toInt();
+        int node2 = tokens.takeFirst().toInt();
+        formattedExcerciseData += "(" + QString::number(node1) + ", " +
+                                  QString::number(node2) + "), ";
       }
 
-      // Установка данных для задачи в ui
-      ui->excerciseData->setText(formattedExcerciseData.trimmed());
-    } break;
-
-    case 2:
-      ui->excerciseText->setText("2");
-      break;
-    case 3: {
-      // Установка текста задачи
-      ui->excerciseText->setText("Составьте код прюффера для графа:");
-
-      // Генерация данных для задачи
-      int numNodes = QRandomGenerator::global()->bounded(4, 10);
-      QString generatedData = QString::number(numNodes) + " ";
-
-      QList<int> nodes;
-      for (int i = 0; i < numNodes; ++i) {
-        nodes.append(i);
+      if (!formattedExcerciseData.isEmpty()) {
+        formattedExcerciseData.chop(2);
       }
+    }
 
-      std::random_device rd;
-      std::mt19937 g(rd());
-      std::shuffle(nodes.begin(), nodes.end(), g);
+    // установка данных для задачи в ui
+    ui->excerciseData->setText(formattedExcerciseData.trimmed());
+  } break;
+  case 4: {
 
-      for (int i = 1; i < numNodes; ++i) {
-        int parent = nodes.at(QRandomGenerator::global()->bounded(i));
-        int child = nodes.at(i);
-        generatedData +=
-            QString::number(parent) + " " + QString::number(child) + " ";
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(5, 15);
+
+    int vertexesNum = dis(gen);
+    QList<int> prueferCode;
+
+    for (int num = 1; num <= vertexesNum; num++) {
+      prueferCode.append(num);
+    }
+    std::shuffle(prueferCode.begin(), prueferCode.end(), gen);
+    prueferCode.removeLast();
+    prueferCode.removeLast();
+
+    QString prueferCodeData;
+
+    for (int value : prueferCode) {
+      prueferCodeData += QString::number(value) + " ";
+    }
+
+    prueferCodeData.chop(1);
+    excerciseRawData = prueferCodeData;
+    ui->excerciseText->setText("Декодируйте код Прюффера");
+    ui->excerciseData->setText(
+        prueferCodeData.trimmed() +
+        ", \n где идут номера вершин через пробел. \nОтвет запишите в формате "
+        "\"x y, z w, ... \" ");
+  } break;
+  case 5: {
+    ui->excerciseText->setText("Найдите максимальный поток в графе:");
+    int numVertices =
+        QRandomGenerator::global()->bounded(4, 7); // Количество вершин в графе
+    QVector<int> data;
+
+    // Генерация случайных ребер и их пропускных способностей
+    for (int from = 0; from < numVertices; ++from) {
+      for (int to = from + 1; to < numVertices; ++to) {
+        if (to != numVertices - 1 && from != 0 &&
+            QRandomGenerator::global()->bounded(0, 2) == 0)
+          continue; // 50%
+        int capacity = QRandomGenerator::global()->bounded(4, 10);
+        data.append(from);
+        data.append(to);
+        data.append(capacity);
       }
+    }
 
-      // Сохранение данных для задачи чтобы потом кинуть в сервер
-      excerciseRawData = generatedData.trimmed();
-      qDebug() << excerciseRawData;
+    // Формирование строки в требуемом формате
+    QString inputString;
+    inputString.append(QString::number(numVertices));
 
-      // Форматирование данных для для ui
-      QString formattedExcerciseData;
-      QStringList tokens = generatedData.split(' ');
-      if (!tokens.isEmpty()) {
-        int numNodes = tokens.takeFirst().toInt();
-        formattedExcerciseData += QString::number(numNodes) + " ";
+    for (int i = 0; i < data.size(); ++i) {
+      inputString.append(" ");
+      inputString.append(QString::number(data[i]));
+    }
 
-        while (tokens.size() >= 2) {
-          int node1 = tokens.takeFirst().toInt();
-          int node2 = tokens.takeFirst().toInt();
-          formattedExcerciseData += "(" + QString::number(node1) + ", " +
-                                    QString::number(node2) + "), ";
-        }
+    excerciseRawData = inputString;
 
-        if (!formattedExcerciseData.isEmpty()) {
-          formattedExcerciseData.chop(2);
-        }
+    QStringList tokens = excerciseRawData.split(' ');
+
+    QString formattedData;
+    formattedData = tokens[0] + " ";
+    for (int i = 1; i < tokens.size(); i += 3) {
+      QString from = tokens[i];
+      QString to = tokens[i + 1];
+      QString capacity = tokens[i + 2];
+
+      QString edge = "(" + from + ", " + to + ", " + capacity + ")";
+      formattedData.append(edge);
+
+      if (i != tokens.size() - 3) {
+        formattedData.append(" ");
       }
+    }
 
-      // установка данных для задачи в ui
-      ui->excerciseData->setText(formattedExcerciseData.trimmed());
-    } break;
-    case 4: {
-      
-      std::random_device rd;
-      std::mt19937 gen(rd());
-      std::uniform_int_distribution<> dis(5, 15);
+    ui->excerciseData->setText(formattedData);
 
-      int vertexesNum = dis(gen);
-      QList<int> prueferCode;
-
-      for (int num = 1; num <= vertexesNum; num++){
-        prueferCode.append(num);
-      }
-      std::shuffle(prueferCode.begin(), prueferCode.end(), gen);
-      prueferCode.removeLast();
-      prueferCode.removeLast();
-
-      QString prueferCodeData;
-
-      for (int value : prueferCode){
-        prueferCodeData += QString::number(value) + " ";
-      }
-
-      prueferCodeData.chop(1);
-      excerciseRawData = prueferCodeData;
-      ui->excerciseText->setText("Декодируйте код Прюффера");
-      ui->excerciseData->setText(prueferCodeData.trimmed() + ", \n где идут номера вершин через пробел. \nОтвет запишите в формате \"x y, z w, ... \" ");
-    }break;
-    case 5: {
-      ui->excerciseText->setText("Найдите максимальный поток в графе:");
-      int numVertices = QRandomGenerator::global()->bounded(
-          4, 7);  // Количество вершин в графе
-      QVector<int> data;
-
-      // Генерация случайных ребер и их пропускных способностей
-      for (int from = 0; from < numVertices; ++from) {
-        for (int to = from + 1; to < numVertices; ++to) {
-          if (to != numVertices - 1 && from != 0 &&
-              QRandomGenerator::global()->bounded(0, 2) == 0)
-            continue;  // 50%
-          int capacity = QRandomGenerator::global()->bounded(4, 10);
-          data.append(from);
-          data.append(to);
-          data.append(capacity);
-        }
-      }
-
-      // Формирование строки в требуемом формате
-      QString inputString;
-      inputString.append(QString::number(numVertices));
-
-      for (int i = 0; i < data.size(); ++i) {
-        inputString.append(" ");
-        inputString.append(QString::number(data[i]));
-      }
-
-      excerciseRawData = inputString;
-
-      QStringList tokens = excerciseRawData.split(' ');
-
-      QString formattedData;
-      formattedData = tokens[0] + " ";
-      for (int i = 1; i < tokens.size(); i += 3) {
-        QString from = tokens[i];
-        QString to = tokens[i + 1];
-        QString capacity = tokens[i + 2];
-
-        QString edge = "(" + from + ", " + to + ", " + capacity + ")";
-        formattedData.append(edge);
-
-        if (i != tokens.size() - 3) {
-          formattedData.append(" ");
-        }
-      }
-
-      ui->excerciseData->setText(formattedData);
-
-    }break;
+  } break;
   }
 }
 

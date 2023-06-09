@@ -9,8 +9,8 @@ class SingletonDestroyer;
 
 class Client : public QObject {
   Q_OBJECT
- public:
-  static Client* getInstance();
+public:
+  static Client *getInstance();
   void sendData(QString query);
   ~Client();
   void login(QString login, QString password);
@@ -20,27 +20,27 @@ class Client : public QObject {
   void checkExercise(int exercise, QString answer, QString exercise_data);
   void setId(int id);
   int getId();
- signals:
+signals:
   void handleMessage(QString message);
 
- private slots:
+private slots:
   void slotServerRead();
 
- private:
+private:
   int userId;
-  explicit Client(QObject* parent = nullptr);
-  static Client* p_instance;
+  explicit Client(QObject *parent = nullptr);
+  static Client *p_instance;
   static QScopedPointer<SingletonDestroyer> destroyer;
-  QTcpSocket* mTcpSocket;
+  QTcpSocket *mTcpSocket;
 };
 
 class SingletonDestroyer {
- public:
-  void initialize(Client* p) { p_instance = p; }
+public:
+  void initialize(Client *p) { p_instance = p; }
   ~SingletonDestroyer() { delete p_instance; }
 
- private:
-  Client* p_instance;
+private:
+  Client *p_instance;
 };
 
-#endif  // CLIENT_H
+#endif // CLIENT_H

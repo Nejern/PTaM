@@ -1,18 +1,17 @@
-
 #include "client.h"
-
 #include <QJsonDocument>
 #include <QJsonObject>
-Client* Client::p_instance = nullptr;
+
+Client *Client::p_instance = nullptr;
 QScopedPointer<SingletonDestroyer> Client::destroyer;
 
-Client::Client(QObject* parent) : QObject(parent) {
+Client::Client(QObject *parent) : QObject(parent) {
   mTcpSocket = new QTcpSocket(this);
   mTcpSocket->connectToHost("127.0.0.1", 33333);
   connect(mTcpSocket, &QTcpSocket::readyRead, this, &Client::slotServerRead);
 }
 
-Client* Client::getInstance() {
+Client *Client::getInstance() {
   if (!p_instance) {
     p_instance = new Client();
     destroyer.reset(new SingletonDestroyer());
@@ -82,7 +81,8 @@ void Client::getGrades(QString filter, bool direction) {
   sendData(query);
 }
 
-void Client::checkExercise(int exercise, QString answer, QString exercise_data) {
+void Client::checkExercise(int exercise, QString answer,
+                           QString exercise_data) {
   QJsonObject json;
   json["command"] = "checkExercise";
   json["exercise"] = exercise;

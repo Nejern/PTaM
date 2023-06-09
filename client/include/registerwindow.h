@@ -1,8 +1,8 @@
 #ifndef REGISTERWINDOW_H
 #define REGISTERWINDOW_H
-#include <QMainWindow>
 
 #include "client.h"
+#include <QMainWindow>
 
 namespace Ui {
 class RegisterWindow;
@@ -11,17 +11,17 @@ class RegisterWindow;
 class RegisterWindow : public QMainWindow {
   Q_OBJECT
 
- public:
+public:
   explicit RegisterWindow(QWidget *parent = nullptr);
   ~RegisterWindow();
 
- private slots:
+private slots:
   void onRegisterButtonClicked();
   void registerResponse(QString response);
 
- private:
+private:
   Ui::RegisterWindow *ui;
-  Client *client;  // Создание указателя типа Client
+  Client *client; // Создание указателя типа Client
 };
 
-#endif  // REGISTERWINDOW_H
+#endif // REGISTERWINDOW_H

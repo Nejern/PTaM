@@ -1,14 +1,13 @@
 #include "login.h"
-
+#include "client.h"
+#include "ui_login.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QString>
 
-#include "client.h"
-#include "ui_login.h"
 // Конструктор класса основного окна
 Login::Login(QWidget *parent) : QMainWindow(parent), ui(new Ui::Login) {
-  ui->setupUi(this);  // Инициализация интерфейса
+  ui->setupUi(this); // Инициализация интерфейса
   client = Client::getInstance();
   connect(ui->goToRegisterButton, SIGNAL(clicked()), this,
           SLOT(onGoToRegisterButtonsClicked()));
@@ -18,7 +17,7 @@ Login::Login(QWidget *parent) : QMainWindow(parent), ui(new Ui::Login) {
           SLOT(loginResponse(QString)));
 }
 
-Login::~Login() { delete ui; }  // Деструктор класса основного окна
+Login::~Login() { delete ui; } // Деструктор класса основного окна
 
 void Login::onGoToRegisterButtonsClicked() {
   registerWindow = new RegisterWindow(this);

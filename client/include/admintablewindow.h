@@ -1,10 +1,10 @@
 #ifndef ADMINTABLEWINDOW_H
 #define ADMINTABLEWINDOW_H
 
+#include "client.h"
 #include <QMainWindow>
 #include <QString>
 
-#include "client.h"
 namespace Ui {
 class AdminTableWindow;
 }
@@ -12,16 +12,16 @@ class AdminTableWindow;
 class AdminTableWindow : public QMainWindow {
   Q_OBJECT
 
- public:
+public:
   explicit AdminTableWindow(QWidget *parent = nullptr);
   ~AdminTableWindow();
 
- private slots:
+private slots:
   void on_filtersBox_currentIndexChanged(int index);
   void on_directionBox_currentIndexChanged(int index);
   void createTable(QString response);
 
- private:
+private:
   void init();
   Ui::AdminTableWindow *ui;
   Client *client;
@@ -36,4 +36,4 @@ class AdminTableWindow : public QMainWindow {
                                       {4, "grades"}};
 };
 
-#endif  // ADMINTABLEWINDOW_H
+#endif // ADMINTABLEWINDOW_H
