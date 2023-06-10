@@ -12,7 +12,7 @@ class ExerciceWindow;
 class ExerciceWindow : public QMainWindow {
   Q_OBJECT
 
- public:
+public:
   /*
    * @brief Конструктор класса ExerciceWindow.
    * @param parent указатель на родительский виджет.
@@ -25,7 +25,7 @@ class ExerciceWindow : public QMainWindow {
    */
   void setExcercise();
 
- private slots:
+private slots:
   /*
    * @brief Обработчик нажатия на кнопку "Ответить".
    */
@@ -37,11 +37,11 @@ class ExerciceWindow : public QMainWindow {
    */
   void exerciseHandeler(QString response);
 
- private:
-  Ui::ExerciceWindow *ui;    // Указатель на форму окна
-  int excerciseId;           // Номер упражнения
-  Client *client;            // Указатель на клиент
-  QString excerciseRawData;  // Данные упражнения
+private:
+  Ui::ExerciceWindow *ui;   /// Указатель на форму окна
+  int excerciseId;          /// Номер упражнения
+  Client *client;           /// Указатель на клиент
+  QString excerciseRawData; /// Данные упражнения
 };
 
-#endif  // EXERCICEWINDOW_H
+#endif // EXERCICEWINDOW_H

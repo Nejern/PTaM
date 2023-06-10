@@ -108,7 +108,7 @@
 {\info 
 {\title {\comment PTaM }PTaM}
 {\comment \'D1\'EE\'E7\'E4\'E0\'ED\'EE \'F1\'E8\'F1\'F2\'E5\'EC\'EE\'E9 doxygen 1.9.6.}
-{\creatim \yr2023\mo6\dy10\hr10\min26\sec56}
+{\creatim \yr2023\mo6\dy10\hr10\min57\sec2}
 }\pard\plain 
 \sectd\pgnlcrm
 {\footer \s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid {\chpgn}}
@@ -1268,7 +1268,7 @@ db.h\par \pard\plain
 6 {\cf21 #include <QSqlRecord>}\par
 7 \par
 11 {\cf17 class }DB \{\par
-12  {\cf17 public}:\par
+12 {\cf17 public}:\par
 17   {\cf17 static} DB &getInstance();\par
 18 \par
 19   {\cf20 // \'CF\'E5\'F0\'E5\'EC\'E5\'ED\'ED\'E0\'FF \'E4\'EB\'FF \'F5\'F0\'E0\'ED\'E5\'ED\'E8\'FF \'E1\'E0\'E7\'FB \'E4\'E0\'ED\'ED\'FB\'F5}\par
@@ -1284,8 +1284,8 @@ db.h\par \pard\plain
 45 \par
 51   {\cf17 static} QSqlQuery getQsqlData({\cf17 const} QString &request);\par
 52 \par
-58   {\cf17 static} {\cf18 bool} makeInsertQuery(\par
-59       {\cf17 const} QMap<QString, QMap<QString, QVariant>> &data);\par
+58   {\cf17 static} {\cf18 bool}\par
+59   makeInsertQuery({\cf17 const} QMap<QString, QMap<QString, QVariant>> &data);\par
 60 \par
 65   {\cf17 static} {\cf18 int} getLastInsertId();\par
 66 \par
@@ -1293,23 +1293,23 @@ db.h\par \pard\plain
 71 \par
 75   {\cf17 static} {\cf18 void} dropTables();\par
 76 \par
-77  {\cf17 protected}:\par
+77 {\cf17 protected}:\par
 78   {\cf20 // DB();}\par
 79   {\cf20 //~DB();}\par
 80 \par
-81  {\cf17 private}:\par
+81 {\cf17 private}:\par
 82   {\cf17 friend} {\cf17 class }DBDestroyer;\par
 83 \par
 87   {\cf17 static} {\cf18 void} open();\par
 88 \};\par
 89 \par
 93 {\cf17 class }DBDestroyer \{\par
-94  {\cf17 public}:\par
+94 {\cf17 public}:\par
 99   DBDestroyer(DB *p_instance);\par
 100 \par
 104   ~DBDestroyer();\par
 105 \par
-106  {\cf17 private}:\par
+106 {\cf17 private}:\par
 107   DB *p_instance;\par
 108 \};\par
 }
@@ -1329,7 +1329,7 @@ excercises.h\par \pard\plain
 3 {\cf21 #include <QString>}\par
 4 \par
 5 {\cf17 class }Excercises \{\par
-6  {\cf17 public}:\par
+6 {\cf17 public}:\par
 14   {\cf17 static} {\cf18 bool} task1(QString answer, QString exercise_data);\par
 15 \par
 22   {\cf17 static} {\cf18 bool} task2(QString answer, QString exercise_data);\par

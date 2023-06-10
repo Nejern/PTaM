@@ -3,7 +3,7 @@
 #include <QString>
 
 class Excercises {
- public:
+public:
   /**
    * @brief Проверяет правильность ответа на задание.
    * @param answer QString с ответом пользователя.

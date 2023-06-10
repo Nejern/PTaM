@@ -12,14 +12,14 @@ class ExercicesTableWindow;
 class ExercicesTableWindow : public QMainWindow {
   Q_OBJECT
 
- public:
+public:
   /**
    * @brief Конструктор класса ExercicesTableWindow.
    * @param parent указатель на родительский виджет.
    */
   explicit ExercicesTableWindow(QWidget *parent = nullptr);
   ~ExercicesTableWindow();
- private slots:
+private slots:
 
   /**
    * @brief Обработчик нажатия на первую кнопку "Решить".
@@ -46,9 +46,9 @@ class ExercicesTableWindow : public QMainWindow {
    */
   void onExerciseButton5clicked();
 
- private:
-  ExerciceWindow *exerciceWindow;  // Создание указателя на окно с упражнением
-  Ui::ExercicesTableWindow *ui;  // Указатель на форму окна
+private:
+  ExerciceWindow *exerciceWindow; /// Создание указателя на окно с упражнением
+  Ui::ExercicesTableWindow *ui; /// Указатель на форму окна
 };
 
-#endif  // EXERCICESTABLEWINDOW_H
+#endif // EXERCICESTABLEWINDOW_H

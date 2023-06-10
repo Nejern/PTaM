@@ -13,7 +13,7 @@
 \DoxyCodeLine{00009\ }
 \DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classClient}{Client}}\ :\ \textcolor{keyword}{public}\ QObject\ \{}
 \DoxyCodeLine{00011\ \ \ Q\_OBJECT}
-\DoxyCodeLine{00012\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00017\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classClient}{Client}}\ *\mbox{\hyperlink{classClient_a18ce2bfb1c0e899016543dd09ce7803a}{getInstance}}();}
 \DoxyCodeLine{00018\ }
 \DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a3f1e4b8f3ad958c9c0737d6d5658acea}{sendData}}(QString\ query);}
@@ -31,36 +31,32 @@
 \DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a5399a902d687bee18fc1ac739c26c563}{setId}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
 \DoxyCodeLine{00066\ }
 \DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classClient_abc4d8d86cc753596a08a90e359f5eb31}{getId}}();}
-\DoxyCodeLine{00072\ \ signals:}
+\DoxyCodeLine{00072\ signals:}
 \DoxyCodeLine{00073\ }
 \DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a7bbf021b18cd0998497795744ff555af}{handleMessage}}(QString\ message);}
 \DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00080\ \textcolor{keyword}{private}\ slots:}
 \DoxyCodeLine{00081\ }
 \DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{void}\ slotServerRead();}
 \DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{int}\ userId;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ id\ пользователя}}
-\DoxyCodeLine{00089\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classClient}{Client}}(QObject\ *parent\ =\ \textcolor{keyword}{nullptr});\ \ \textcolor{comment}{//\ Конструктор}}
-\DoxyCodeLine{00090\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classClient}{Client}}\ *p\_instance;\ \ \textcolor{comment}{//\ Экземпляр\ класса\ Client}}
+\DoxyCodeLine{00087\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{int}\ userId;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00089\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classClient}{Client}}(QObject\ *parent\ =\ \textcolor{keyword}{nullptr});\ }
+\DoxyCodeLine{00090\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classClient}{Client}}\ *p\_instance;\ }
 \DoxyCodeLine{00091\ \ \ \textcolor{keyword}{static}\ QScopedPointer<SingletonDestroyer>}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ destroyer;\ \ \textcolor{comment}{//\ Указатель\ на\ класс\ SingletonDestroyer}}
-\DoxyCodeLine{00093\ \ \ QTcpSocket\ *mTcpSocket;\ \ \textcolor{comment}{//\ Сокет}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ destroyer;\ }
+\DoxyCodeLine{00093\ \ \ QTcpSocket\ *mTcpSocket;\ }
 \DoxyCodeLine{00094\ \};}
 \DoxyCodeLine{00095\ }
 \DoxyCodeLine{00096\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSingletonDestroyer}{SingletonDestroyer}}\ \{}
-\DoxyCodeLine{00097\ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00098\ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{00099\ \textcolor{comment}{\ \ \ *\ @brief\ Конструктор\ класса\ SingletonDestroyer.}}
-\DoxyCodeLine{00100\ \textcolor{comment}{\ \ \ *\ @param\ p\ указатель\ на\ экземпляр\ класса\ Client.}}
-\DoxyCodeLine{00101\ \textcolor{comment}{\ \ \ */}}
-\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{void}\ initialize(\mbox{\hyperlink{classClient}{Client}}\ *p)\ \{\ p\_instance\ =\ p;\ \}}
+\DoxyCodeLine{00097\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSingletonDestroyer_a25deec9dd06c82781b9fc962ba9d8063}{initialize}}(\mbox{\hyperlink{classClient}{Client}}\ *p)\ \{\ p\_instance\ =\ p;\ \}}
 \DoxyCodeLine{00103\ \ \ \mbox{\hyperlink{classSingletonDestroyer}{\string~SingletonDestroyer}}()\ \{\ \textcolor{keyword}{delete}\ p\_instance;\ \}}
 \DoxyCodeLine{00104\ }
-\DoxyCodeLine{00105\ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00106\ \ \ \mbox{\hyperlink{classClient}{Client}}\ *p\_instance;\ \ \textcolor{comment}{//\ Указатель\ на\ экземпляр\ класса\ Client}}
+\DoxyCodeLine{00105\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00106\ \ \ \mbox{\hyperlink{classClient}{Client}}\ *p\_instance;\ }
 \DoxyCodeLine{00107\ \};}
 \DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ CLIENT\_H}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CLIENT\_H}}
 
 \end{DoxyCode}

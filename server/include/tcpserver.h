@@ -52,8 +52,8 @@ public slots:
   void slotServerRead();
 
 private:
-  QTcpServer *tcpServer; ///< Указатель на объект QTcpServer.
-  QVector<QTcpSocket *> tcpSockets; ///< Вектор указателей на объекты QTcpSocket
-                                    ///< для хранения подключенных клиентов.
-  bool server_status; ///< Статус сервера.
+  QTcpServer *tcpServer; /// Указатель на объект QTcpServer.
+  QVector<QTcpSocket *> tcpSockets; /// Вектор указателей на объекты QTcpSocket
+                                    /// для хранения подключенных клиентов.
+  bool server_status; /// Статус сервера.
 };
