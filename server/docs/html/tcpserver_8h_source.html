@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PTaM: Исходный файл /home/nejern/Documents/UNIV/SEM2/mospolytech-prog_tech/server/include/tcpserver.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PTaM
+   </div>
+   <div id="projectbrief">Технологии и методы программирования: Серверная часть</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">tcpserver.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;QTcpServer&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;QTcpSocket&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classMyTcpServer.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="classMyTcpServer.html">MyTcpServer</a> : <span class="keyword">public</span> QTcpServer {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classMyTcpServer.html#acf367c4695b4d160c7a2d25c2afaaec4">   19</a></span>  <span class="keyword">explicit</span> <a class="code hl_function" href="classMyTcpServer.html#acf367c4695b4d160c7a2d25c2afaaec4">MyTcpServer</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classMyTcpServer.html#a30c7699608a8afc67018b2f994e8f88e">   24</a></span>  <a class="code hl_function" href="classMyTcpServer.html#a30c7699608a8afc67018b2f994e8f88e">~MyTcpServer</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keywordtype">bool</span> getServerStatus()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> server_status; }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">public</span> slots:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classMyTcpServer.html#a0ba7316ffe1a26c57fabde9e74b6c8dc">   36</a></span>  <span class="keywordtype">void</span> <a class="code hl_slot" href="classMyTcpServer.html#a0ba7316ffe1a26c57fabde9e74b6c8dc">slotNewConnection</a>();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classMyTcpServer.html#a3e040c49dbefd65b9a58ab662fc9f7a2">   44</a></span>  <span class="keywordtype">void</span> <a class="code hl_slot" href="classMyTcpServer.html#a3e040c49dbefd65b9a58ab662fc9f7a2">slotClientDisconnected</a>();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classMyTcpServer.html#ab4a64d2eab985d723090963f5c8a2882">   52</a></span>  <span class="keywordtype">void</span> <a class="code hl_slot" href="classMyTcpServer.html#ab4a64d2eab985d723090963f5c8a2882">slotServerRead</a>();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  QTcpServer *tcpServer; </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  QVector&lt;QTcpSocket *&gt; tcpSockets; </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <span class="keywordtype">bool</span> server_status; </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
+<div class="ttc" id="aclassMyTcpServer_html"><div class="ttname"><a href="classMyTcpServer.html">MyTcpServer</a></div><div class="ttdoc">Класс для работы с TCP сервером.</div><div class="ttdef"><b>Definition:</b> tcpserver.h:12</div></div>
+<div class="ttc" id="aclassMyTcpServer_html_a0ba7316ffe1a26c57fabde9e74b6c8dc"><div class="ttname"><a href="classMyTcpServer.html#a0ba7316ffe1a26c57fabde9e74b6c8dc">MyTcpServer::slotNewConnection</a></div><div class="ttdeci">void slotNewConnection()</div><div class="ttdoc">Слот для установки соединения с клиентом.</div></div>
+<div class="ttc" id="aclassMyTcpServer_html_a30c7699608a8afc67018b2f994e8f88e"><div class="ttname"><a href="classMyTcpServer.html#a30c7699608a8afc67018b2f994e8f88e">MyTcpServer::~MyTcpServer</a></div><div class="ttdeci">~MyTcpServer() override</div><div class="ttdoc">Деструктор класса.</div></div>
+<div class="ttc" id="aclassMyTcpServer_html_a3e040c49dbefd65b9a58ab662fc9f7a2"><div class="ttname"><a href="classMyTcpServer.html#a3e040c49dbefd65b9a58ab662fc9f7a2">MyTcpServer::slotClientDisconnected</a></div><div class="ttdeci">void slotClientDisconnected()</div><div class="ttdoc">Слот для отключения клиента.</div></div>
+<div class="ttc" id="aclassMyTcpServer_html_ab4a64d2eab985d723090963f5c8a2882"><div class="ttname"><a href="classMyTcpServer.html#ab4a64d2eab985d723090963f5c8a2882">MyTcpServer::slotServerRead</a></div><div class="ttdeci">void slotServerRead()</div><div class="ttdoc">Слот для чтения данных от сервера.</div></div>
+<div class="ttc" id="aclassMyTcpServer_html_acf367c4695b4d160c7a2d25c2afaaec4"><div class="ttname"><a href="classMyTcpServer.html#acf367c4695b4d160c7a2d25c2afaaec4">MyTcpServer::MyTcpServer</a></div><div class="ttdeci">MyTcpServer(QObject *parent=nullptr)</div><div class="ttdoc">Конструктор класса.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>

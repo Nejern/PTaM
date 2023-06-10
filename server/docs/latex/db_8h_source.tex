@@ -1,0 +1,58 @@
+\hypertarget{db_8h_source}{}\doxysection{db.\+h}
+\label{db_8h_source}\index{/home/nejern/Documents/UNIV/SEM2/mospolytech-\/prog\_tech/server/include/db.h@{/home/nejern/Documents/UNIV/SEM2/mospolytech-\/prog\_tech/server/include/db.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <QSqlDatabase>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QSqlError>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QSqlQuery>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QSqlRecord>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDB}{DB}}\ \{}
+\DoxyCodeLine{00012\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classDB}{DB}}\ \&\mbox{\hyperlink{classDB_a13a6fb12100ec75410b08c61839a3772}{getInstance}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \textcolor{comment}{//\ Переменная\ для\ хранения\ базы\ данных}}
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{static}\ QSqlDatabase\ db;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDB_ae47ed01e87ff52954025be0b3967c1f5}{init}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDB_ac924521b26d6f2fe876bdd9482b88bd4}{close}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classDB_aa4e2d837a8e09b8bc705b9d1c0de9a99}{insertData}}(\textcolor{keyword}{const}\ QString\ \&queryString);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{static}\ QMap<QString,\ QVariant>\ \mbox{\hyperlink{classDB_a6ac438f78a39cd6867d148d78fe816bc}{getData}}(\textcolor{keyword}{const}\ QString\ \&request);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keyword}{static}\ QSqlQuery\ \mbox{\hyperlink{classDB_a8d69e88fcc3f7470963ec11186b85036}{getQsqlData}}(\textcolor{keyword}{const}\ QString\ \&request);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classDB_ac8372edf667819af1935b5269207b29a}{makeInsertQuery}}(}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \textcolor{keyword}{const}\ QMap<QString,\ QMap<QString,\ QVariant>>\ \&data);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDB_a2271842271295a1237c4db9bb340001b}{getLastInsertId}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDB_abd003b1b882cf1ac24213db3bee4eb37}{createTables}}();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDB_aa4cfdf57a4f173e6ccf3e6b52506c504}{dropTables}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00078\ \ \ \textcolor{comment}{//\ DB();}}
+\DoxyCodeLine{00079\ \ \ \textcolor{comment}{//\string~DB();}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00082\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDBDestroyer}{DBDestroyer}};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00087\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ open();}
+\DoxyCodeLine{00088\ \};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDBDestroyer}{DBDestroyer}}\ \{}
+\DoxyCodeLine{00094\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00099\ \ \ \mbox{\hyperlink{classDBDestroyer_a8fa43611596fbf8bc345b898a73bde21}{DBDestroyer}}(\mbox{\hyperlink{classDB}{DB}}\ *p\_instance);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00104\ \ \ \mbox{\hyperlink{classDBDestroyer_a3a32b4dc946a32e3c25e7c974d300fd3}{\string~DBDestroyer}}();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00107\ \ \ \mbox{\hyperlink{classDB}{DB}}\ *p\_instance;}
+\DoxyCodeLine{00108\ \};}
+
+\end{DoxyCode}

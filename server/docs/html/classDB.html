@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PTaM: Класс DB</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PTaM
+   </div>
+   <div id="projectbrief">Технологии и методы программирования: Серверная часть</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="#pub-static-attribs">Статические открытые данные</a> &#124;
+<a href="#friends">Друзья</a> &#124;
+<a href="classDB-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс DB</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс <a class="el" href="classDB.html" title="Класс DB предоставляет функции для работы с базой данных.">DB</a> предоставляет функции для работы с базой данных.  
+ <a href="classDB.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="db_8h_source.html">db.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:a13a6fb12100ec75410b08c61839a3772"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classDB.html">DB</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDB.html#a13a6fb12100ec75410b08c61839a3772">getInstance</a> ()</td></tr>
+<tr class="memdesc:a13a6fb12100ec75410b08c61839a3772"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает экземпляр класса <a class="el" href="classDB.html" title="Класс DB предоставляет функции для работы с базой данных.">DB</a> (singleton).  <br /></td></tr>
+<tr class="separator:a13a6fb12100ec75410b08c61839a3772"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae47ed01e87ff52954025be0b3967c1f5"><td class="memItemLeft" align="right" valign="top"><a id="ae47ed01e87ff52954025be0b3967c1f5" name="ae47ed01e87ff52954025be0b3967c1f5"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> ()</td></tr>
+<tr class="memdesc:ae47ed01e87ff52954025be0b3967c1f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализирует базу данных, открывает соединение и создает таблицы. <br /></td></tr>
+<tr class="separator:ae47ed01e87ff52954025be0b3967c1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac924521b26d6f2fe876bdd9482b88bd4"><td class="memItemLeft" align="right" valign="top"><a id="ac924521b26d6f2fe876bdd9482b88bd4" name="ac924521b26d6f2fe876bdd9482b88bd4"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>close</b> ()</td></tr>
+<tr class="memdesc:ac924521b26d6f2fe876bdd9482b88bd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Закрывает соединение с базой данных. <br /></td></tr>
+<tr class="separator:ac924521b26d6f2fe876bdd9482b88bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4e2d837a8e09b8bc705b9d1c0de9a99"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDB.html#aa4e2d837a8e09b8bc705b9d1c0de9a99">insertData</a> (const QString &amp;queryString)</td></tr>
+<tr class="memdesc:aa4e2d837a8e09b8bc705b9d1c0de9a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выполняет запрос на вставку данных в таблицу.  <br /></td></tr>
+<tr class="separator:aa4e2d837a8e09b8bc705b9d1c0de9a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ac438f78a39cd6867d148d78fe816bc"><td class="memItemLeft" align="right" valign="top">static QMap&lt; QString, QVariant &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDB.html#a6ac438f78a39cd6867d148d78fe816bc">getData</a> (const QString &amp;request)</td></tr>
+<tr class="memdesc:a6ac438f78a39cd6867d148d78fe816bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выполняет запрос и возвращает результаты в виде QMap.  <br /></td></tr>
+<tr class="separator:a6ac438f78a39cd6867d148d78fe816bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d69e88fcc3f7470963ec11186b85036"><td class="memItemLeft" align="right" valign="top">static QSqlQuery&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDB.html#a8d69e88fcc3f7470963ec11186b85036">getQsqlData</a> (const QString &amp;request)</td></tr>
+<tr class="memdesc:a8d69e88fcc3f7470963ec11186b85036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выполняет запрос и возвращает результаты в виде QSqlQuery.  <br /></td></tr>
+<tr class="separator:a8d69e88fcc3f7470963ec11186b85036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8372edf667819af1935b5269207b29a"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDB.html#ac8372edf667819af1935b5269207b29a">makeInsertQuery</a> (const QMap&lt; QString, QMap&lt; QString, QVariant &gt; &gt; &amp;data)</td></tr>
+<tr class="memdesc:ac8372edf667819af1935b5269207b29a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создает запрос на вставку данных в таблицу.  <br /></td></tr>
+<tr class="separator:ac8372edf667819af1935b5269207b29a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2271842271295a1237c4db9bb340001b"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDB.html#a2271842271295a1237c4db9bb340001b">getLastInsertId</a> ()</td></tr>
+<tr class="memdesc:a2271842271295a1237c4db9bb340001b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает какой id был вставлен последним.  <br /></td></tr>
+<tr class="separator:a2271842271295a1237c4db9bb340001b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd003b1b882cf1ac24213db3bee4eb37"><td class="memItemLeft" align="right" valign="top"><a id="abd003b1b882cf1ac24213db3bee4eb37" name="abd003b1b882cf1ac24213db3bee4eb37"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>createTables</b> ()</td></tr>
+<tr class="memdesc:abd003b1b882cf1ac24213db3bee4eb37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создает таблицы в базе данных. <br /></td></tr>
+<tr class="separator:abd003b1b882cf1ac24213db3bee4eb37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4cfdf57a4f173e6ccf3e6b52506c504"><td class="memItemLeft" align="right" valign="top"><a id="aa4cfdf57a4f173e6ccf3e6b52506c504" name="aa4cfdf57a4f173e6ccf3e6b52506c504"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>dropTables</b> ()</td></tr>
+<tr class="memdesc:aa4cfdf57a4f173e6ccf3e6b52506c504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаляет таблицы из базы данных. <br /></td></tr>
+<tr class="separator:aa4cfdf57a4f173e6ccf3e6b52506c504"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Статические открытые данные</h2></td></tr>
+<tr class="memitem:a16a3fe9cad1962aed793def0926289fd"><td class="memItemLeft" align="right" valign="top"><a id="a16a3fe9cad1962aed793def0926289fd" name="a16a3fe9cad1962aed793def0926289fd"></a>
+static QSqlDatabase&#160;</td><td class="memItemRight" valign="bottom"><b>db</b></td></tr>
+<tr class="separator:a16a3fe9cad1962aed793def0926289fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Друзья</h2></td></tr>
+<tr class="memitem:a8d3eb57cea052b3f13a3e331b0e77d72"><td class="memItemLeft" align="right" valign="top"><a id="a8d3eb57cea052b3f13a3e331b0e77d72" name="a8d3eb57cea052b3f13a3e331b0e77d72"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>DBDestroyer</b></td></tr>
+<tr class="separator:a8d3eb57cea052b3f13a3e331b0e77d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс <a class="el" href="classDB.html" title="Класс DB предоставляет функции для работы с базой данных.">DB</a> предоставляет функции для работы с базой данных. </p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="a6ac438f78a39cd6867d148d78fe816bc" name="a6ac438f78a39cd6867d148d78fe816bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ac438f78a39cd6867d148d78fe816bc">&#9670;&#160;</a></span>getData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static QMap&lt; QString, QVariant &gt; DB::getData </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>request</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Выполняет запрос и возвращает результаты в виде QMap. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td>Строка с SQL-запросом для получения данных. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Результаты запроса в виде QMap. </dd></dl>
+
+</div>
+</div>
+<a id="a13a6fb12100ec75410b08c61839a3772" name="a13a6fb12100ec75410b08c61839a3772"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13a6fb12100ec75410b08c61839a3772">&#9670;&#160;</a></span>getInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classDB.html">DB</a> &amp; DB::getInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает экземпляр класса <a class="el" href="classDB.html" title="Класс DB предоставляет функции для работы с базой данных.">DB</a> (singleton). </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Экземпляр класса <a class="el" href="classDB.html" title="Класс DB предоставляет функции для работы с базой данных.">DB</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a2271842271295a1237c4db9bb340001b" name="a2271842271295a1237c4db9bb340001b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2271842271295a1237c4db9bb340001b">&#9670;&#160;</a></span>getLastInsertId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int DB::getLastInsertId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает какой id был вставлен последним. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>id последней вставленной записи. </dd></dl>
+
+</div>
+</div>
+<a id="a8d69e88fcc3f7470963ec11186b85036" name="a8d69e88fcc3f7470963ec11186b85036"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d69e88fcc3f7470963ec11186b85036">&#9670;&#160;</a></span>getQsqlData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static QSqlQuery DB::getQsqlData </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>request</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Выполняет запрос и возвращает результаты в виде QSqlQuery. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td>Строка с SQL-запросом для получения данных. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Результаты запроса в виде QSqlQuery. </dd></dl>
+
+</div>
+</div>
+<a id="aa4e2d837a8e09b8bc705b9d1c0de9a99" name="aa4e2d837a8e09b8bc705b9d1c0de9a99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4e2d837a8e09b8bc705b9d1c0de9a99">&#9670;&#160;</a></span>insertData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool DB::insertData </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>queryString</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Выполняет запрос на вставку данных в таблицу. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queryString</td><td>Строка с SQL-запросом для вставки данных. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true, если запрос выполнен успешно, иначе false. </dd></dl>
+
+</div>
+</div>
+<a id="ac8372edf667819af1935b5269207b29a" name="ac8372edf667819af1935b5269207b29a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8372edf667819af1935b5269207b29a">&#9670;&#160;</a></span>makeInsertQuery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool DB::makeInsertQuery </td>
+          <td>(</td>
+          <td class="paramtype">const QMap&lt; QString, QMap&lt; QString, QVariant &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Создает запрос на вставку данных в таблицу. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>QMap с данными для вставки. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true, если запрос выполнен успешно, иначе false. </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>/home/nejern/Documents/UNIV/SEM2/mospolytech-prog_tech/server/include/<a class="el" href="db_8h_source.html">db.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>

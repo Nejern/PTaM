@@ -1,0 +1,49 @@
+\hypertarget{admintablewindow_8h_source}{}\doxysection{admintablewindow.\+h}
+\label{admintablewindow_8h_source}\index{/home/nejern/Documents/UNIV/SEM2/mospolytech-\/prog\_tech/client/include/admintablewindow.h@{/home/nejern/Documents/UNIV/SEM2/mospolytech-\/prog\_tech/client/include/admintablewindow.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ADMINTABLEWINDOW\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ADMINTABLEWINDOW\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QMainWindow>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}client.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }Ui\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAdminTableWindow}{AdminTableWindow}};}
+\DoxyCodeLine{00011\ \}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAdminTableWindow}{AdminTableWindow}}\ :\ \textcolor{keyword}{public}\ QMainWindow\ \{}
+\DoxyCodeLine{00014\ \ \ Q\_OBJECT}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classAdminTableWindow_ae7f7923fae8ec4da264732a90d4c6e01}{AdminTableWindow}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{classAdminTableWindow}{\string~AdminTableWindow}}();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{void}\ on\_filtersBox\_currentIndexChanged(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{void}\ on\_directionBox\_currentIndexChanged(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}\ createTable(QString\ response);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{void}\ init();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ Ui::AdminTableWindow\ *ui;\ \ \textcolor{comment}{//\ Указатель\ на\ объект\ интерфейса}}
+\DoxyCodeLine{00050\ \ \ \mbox{\hyperlink{classClient}{Client}}\ *client;\ \ \textcolor{comment}{//\ Указатель\ на\ объект\ клиента}}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{bool}\ filterDirection\ =\ \textcolor{keyword}{false};\ \ \textcolor{comment}{//\ Направление\ сортировки}}
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{int}\ filterIndex\ =\ 0;\ \ \ \ \ \ \ \textcolor{comment}{//\ Индекс\ выбранного\ фильтра}}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{bool}\ initialized\ =\ \textcolor{keyword}{false};\ \ \textcolor{comment}{//\ Флаг\ инициализации\ окна}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{const}\ QMap<int,\ QString>\ filters\ =\ \{\{0,\ \textcolor{stringliteral}{"{}default"{}}\},\ \ \textcolor{comment}{//\ Список\ фильтров}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{1,\ \textcolor{stringliteral}{"{}surname"{}}\},}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{2,\ \textcolor{stringliteral}{"{}studygroup"{}}\},}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{3,\ \textcolor{stringliteral}{"{}exercise"{}}\},}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{4,\ \textcolor{stringliteral}{"{}grades"{}}\}\};}
+\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ ADMINTABLEWINDOW\_H}}
+
+\end{DoxyCode}

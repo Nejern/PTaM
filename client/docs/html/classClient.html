@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PTaM: Класс Client</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PTaM
+   </div>
+   <div id="projectbrief">Технологии и методы программирования: Серверная часть</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#signals">Сигналы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="classClient-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс Client</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Граф наследования:Client:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classClient.png" alt=""/>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="signals" name="signals"></a>
+Сигналы</h2></td></tr>
+<tr class="memitem:a7bbf021b18cd0998497795744ff555af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#a7bbf021b18cd0998497795744ff555af">handleMessage</a> (QString message)</td></tr>
+<tr class="memdesc:a7bbf021b18cd0998497795744ff555af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сигнал, который вызывается при получении ответа от сервера.  <br /></td></tr>
+<tr class="separator:a7bbf021b18cd0998497795744ff555af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a3f1e4b8f3ad958c9c0737d6d5658acea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#a3f1e4b8f3ad958c9c0737d6d5658acea">sendData</a> (QString query)</td></tr>
+<tr class="memdesc:a3f1e4b8f3ad958c9c0737d6d5658acea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправляет запрос на сервер.  <br /></td></tr>
+<tr class="separator:a3f1e4b8f3ad958c9c0737d6d5658acea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79e8fd81b03ef683fa13161e3d020c52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#a79e8fd81b03ef683fa13161e3d020c52">login</a> (QString login, QString password)</td></tr>
+<tr class="memdesc:a79e8fd81b03ef683fa13161e3d020c52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправляет запрос на сервер для авторизации.  <br /></td></tr>
+<tr class="separator:a79e8fd81b03ef683fa13161e3d020c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20399ee95785bb091963c62d5bba83ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#a20399ee95785bb091963c62d5bba83ba">registerUser</a> (QString <a class="el" href="classClient.html#a79e8fd81b03ef683fa13161e3d020c52">login</a>, QString password, QString firstname, QString surname, QString patronymic, QString studygroup)</td></tr>
+<tr class="memdesc:a20399ee95785bb091963c62d5bba83ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправляет запрос на сервер для регистрации.  <br /></td></tr>
+<tr class="separator:a20399ee95785bb091963c62d5bba83ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a228036eab0f1e0ddf1da39b410a99dd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#a228036eab0f1e0ddf1da39b410a99dd4">getGrades</a> (QString filter, bool direction)</td></tr>
+<tr class="memdesc:a228036eab0f1e0ddf1da39b410a99dd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправляет запрос на сервер для получения оценок пользователей.  <br /></td></tr>
+<tr class="separator:a228036eab0f1e0ddf1da39b410a99dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae016eb387c7ecc3192a5c66a0ded7a80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#ae016eb387c7ecc3192a5c66a0ded7a80">checkExercise</a> (int exercise, QString answer, QString exercise_data)</td></tr>
+<tr class="memdesc:ae016eb387c7ecc3192a5c66a0ded7a80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправляет запрос на сервер для проверки ответа пользователя на упражнение.  <br /></td></tr>
+<tr class="separator:ae016eb387c7ecc3192a5c66a0ded7a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5399a902d687bee18fc1ac739c26c563"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#a5399a902d687bee18fc1ac739c26c563">setId</a> (int id)</td></tr>
+<tr class="memdesc:a5399a902d687bee18fc1ac739c26c563"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает id пользователя.  <br /></td></tr>
+<tr class="separator:a5399a902d687bee18fc1ac739c26c563"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc4d8d86cc753596a08a90e359f5eb31"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#abc4d8d86cc753596a08a90e359f5eb31">getId</a> ()</td></tr>
+<tr class="memdesc:abc4d8d86cc753596a08a90e359f5eb31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает id пользователя.  <br /></td></tr>
+<tr class="separator:abc4d8d86cc753596a08a90e359f5eb31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:a18ce2bfb1c0e899016543dd09ce7803a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classClient.html">Client</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#a18ce2bfb1c0e899016543dd09ce7803a">getInstance</a> ()</td></tr>
+<tr class="memdesc:a18ce2bfb1c0e899016543dd09ce7803a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает экземпляр класса <a class="el" href="classClient.html">Client</a> (singleton).  <br /></td></tr>
+<tr class="separator:a18ce2bfb1c0e899016543dd09ce7803a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Методы</h2>
+<a id="ae016eb387c7ecc3192a5c66a0ded7a80" name="ae016eb387c7ecc3192a5c66a0ded7a80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae016eb387c7ecc3192a5c66a0ded7a80">&#9670;&#160;</a></span>checkExercise()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Client::checkExercise </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>exercise</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>answer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>exercise_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отправляет запрос на сервер для проверки ответа пользователя на упражнение. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">exercise</td><td>номер упражнения. </td></tr>
+    <tr><td class="paramname">answer</td><td>ответ пользователя. </td></tr>
+    <tr><td class="paramname">exercise_data</td><td>данные упражнения. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a228036eab0f1e0ddf1da39b410a99dd4" name="a228036eab0f1e0ddf1da39b410a99dd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a228036eab0f1e0ddf1da39b410a99dd4">&#9670;&#160;</a></span>getGrades()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Client::getGrades </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>filter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отправляет запрос на сервер для получения оценок пользователей. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filter</td><td>тип сортировки. </td></tr>
+    <tr><td class="paramname">direction</td><td>направление сортировки. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abc4d8d86cc753596a08a90e359f5eb31" name="abc4d8d86cc753596a08a90e359f5eb31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc4d8d86cc753596a08a90e359f5eb31">&#9670;&#160;</a></span>getId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Client::getId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Возвращает id пользователя. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>id пользователя. </dd></dl>
+
+</div>
+</div>
+<a id="a18ce2bfb1c0e899016543dd09ce7803a" name="a18ce2bfb1c0e899016543dd09ce7803a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18ce2bfb1c0e899016543dd09ce7803a">&#9670;&#160;</a></span>getInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classClient.html">Client</a> * Client::getInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает экземпляр класса <a class="el" href="classClient.html">Client</a> (singleton). </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Экземпляр класса <a class="el" href="classClient.html">Client</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a7bbf021b18cd0998497795744ff555af" name="a7bbf021b18cd0998497795744ff555af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bbf021b18cd0998497795744ff555af">&#9670;&#160;</a></span>handleMessage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Client::handleMessage </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Сигнал, который вызывается при получении ответа от сервера. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>ответ сервера. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a79e8fd81b03ef683fa13161e3d020c52" name="a79e8fd81b03ef683fa13161e3d020c52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79e8fd81b03ef683fa13161e3d020c52">&#9670;&#160;</a></span>login()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Client::login </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>login</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>password</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отправляет запрос на сервер для авторизации. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">login</td><td>логин пользователя. </td></tr>
+    <tr><td class="paramname">password</td><td>пароль пользователя. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a20399ee95785bb091963c62d5bba83ba" name="a20399ee95785bb091963c62d5bba83ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20399ee95785bb091963c62d5bba83ba">&#9670;&#160;</a></span>registerUser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Client::registerUser </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>login</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>password</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>firstname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>surname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>patronymic</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>studygroup</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отправляет запрос на сервер для регистрации. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">login</td><td>логин пользователя. </td></tr>
+    <tr><td class="paramname">password</td><td>пароль пользователя. </td></tr>
+    <tr><td class="paramname">firstname</td><td>имя пользователя. </td></tr>
+    <tr><td class="paramname">surname</td><td>фамилия пользователя. </td></tr>
+    <tr><td class="paramname">patronymic</td><td>отчество пользователя. </td></tr>
+    <tr><td class="paramname">studygroup</td><td>учебная группа пользователя. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3f1e4b8f3ad958c9c0737d6d5658acea" name="a3f1e4b8f3ad958c9c0737d6d5658acea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f1e4b8f3ad958c9c0737d6d5658acea">&#9670;&#160;</a></span>sendData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Client::sendData </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>query</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отправляет запрос на сервер. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">query</td><td>запрос. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5399a902d687bee18fc1ac739c26c563" name="a5399a902d687bee18fc1ac739c26c563"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5399a902d687bee18fc1ac739c26c563">&#9670;&#160;</a></span>setId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Client::setId </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Устанавливает id пользователя. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>id пользователя. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>/home/nejern/Documents/UNIV/SEM2/mospolytech-prog_tech/client/include/<a class="el" href="client_8h_source.html">client.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>

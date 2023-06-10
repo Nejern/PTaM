@@ -1,0 +1,23 @@
+\hypertarget{functions_8h_source}{}\doxysection{functions.\+h}
+\label{functions_8h_source}\index{/home/nejern/Documents/UNIV/SEM2/mospolytech-\/prog\_tech/server/include/functions.h@{/home/nejern/Documents/UNIV/SEM2/mospolytech-\/prog\_tech/server/include/functions.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <QJsonDocument>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QJsonObject>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classServerFunctions}{ServerFunctions}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{static}\ QByteArray\ \mbox{\hyperlink{classServerFunctions_ac6abab9b1af075202272a6e563a829da}{parse}}(\textcolor{keyword}{const}\ QString\ \&message);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{static}\ QByteArray\ \mbox{\hyperlink{classServerFunctions_a43ac737ae97620cedbe1f8da51b5ebbc}{selectCommand}}(\textcolor{keyword}{const}\ QJsonDocument\ \&json);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{static}\ QByteArray\ \mbox{\hyperlink{classServerFunctions_a071d39bf1c0981d2789bc972cc25b40b}{registerUser}}(\textcolor{keyword}{const}\ QJsonObject\ \&json);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{static}\ QByteArray\ \mbox{\hyperlink{classServerFunctions_ab03704934ab914dcbbecd9728289a82a}{loginUser}}(\textcolor{keyword}{const}\ QJsonObject\ \&json);}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{static}\ QByteArray\ \mbox{\hyperlink{classServerFunctions_a04093137063fb6dabce420d8fd165109}{getGrades}}(\textcolor{keyword}{const}\ QJsonObject\ \&json);}
+\DoxyCodeLine{00051\ \ \ \textcolor{keyword}{static}\ QByteArray\ \mbox{\hyperlink{classServerFunctions_aef0bd694d3ff3040721bb082e4dd17a6}{checkExercise}}(\textcolor{keyword}{const}\ QJsonObject\ \&json);}
+\DoxyCodeLine{00052\ \};}
+
+\end{DoxyCode}
