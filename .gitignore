@@ -1,0 +1,12 @@
+# Build end bin dirs
+build
+bin
+
+# DB files
+*.sql
+
+# Clangd
+.cache
+
+# VScode
+.vscode

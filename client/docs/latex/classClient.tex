@@ -1,0 +1,192 @@
+\hypertarget{classClient}{}\doxysection{Класс Client}
+\label{classClient}\index{Client@{Client}}
+Граф наследования\+:Client\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classClient}
+\end{center}
+\end{figure}
+\doxysubsection*{Сигналы}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classClient_a7bbf021b18cd0998497795744ff555af}{handle\+Message}} (QString message)
+\begin{DoxyCompactList}\small\item\em Сигнал, который вызывается при получении ответа от сервера. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classClient_a3f1e4b8f3ad958c9c0737d6d5658acea}{send\+Data}} (QString query)
+\begin{DoxyCompactList}\small\item\em Отправляет запрос на сервер. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_a79e8fd81b03ef683fa13161e3d020c52}{login}} (QString login, QString password)
+\begin{DoxyCompactList}\small\item\em Отправляет запрос на сервер для авторизации. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_a20399ee95785bb091963c62d5bba83ba}{register\+User}} (QString \mbox{\hyperlink{classClient_a79e8fd81b03ef683fa13161e3d020c52}{login}}, QString password, QString firstname, QString surname, QString patronymic, QString studygroup)
+\begin{DoxyCompactList}\small\item\em Отправляет запрос на сервер для регистрации. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_a228036eab0f1e0ddf1da39b410a99dd4}{get\+Grades}} (QString filter, bool direction)
+\begin{DoxyCompactList}\small\item\em Отправляет запрос на сервер для получения оценок пользователей. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_ae016eb387c7ecc3192a5c66a0ded7a80}{check\+Exercise}} (int exercise, QString answer, QString exercise\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Отправляет запрос на сервер для проверки ответа пользователя на упражнение. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_a5399a902d687bee18fc1ac739c26c563}{set\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Устанавливает id пользователя. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classClient_abc4d8d86cc753596a08a90e359f5eb31}{get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает id пользователя. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classClient}{Client}} $\ast$ \mbox{\hyperlink{classClient_a18ce2bfb1c0e899016543dd09ce7803a}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает экземпляр класса \mbox{\hyperlink{classClient}{Client}} (singleton). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classClient_ae016eb387c7ecc3192a5c66a0ded7a80}\label{classClient_ae016eb387c7ecc3192a5c66a0ded7a80}} 
+\index{Client@{Client}!checkExercise@{checkExercise}}
+\index{checkExercise@{checkExercise}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{checkExercise()}{checkExercise()}}
+{\footnotesize\ttfamily void Client\+::check\+Exercise (\begin{DoxyParamCaption}\item[{int}]{exercise,  }\item[{QString}]{answer,  }\item[{QString}]{exercise\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Отправляет запрос на сервер для проверки ответа пользователя на упражнение. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em exercise} & номер упражнения. \\
+\hline
+{\em answer} & ответ пользователя. \\
+\hline
+{\em exercise\+\_\+data} & данные упражнения. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classClient_a228036eab0f1e0ddf1da39b410a99dd4}\label{classClient_a228036eab0f1e0ddf1da39b410a99dd4}} 
+\index{Client@{Client}!getGrades@{getGrades}}
+\index{getGrades@{getGrades}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{getGrades()}{getGrades()}}
+{\footnotesize\ttfamily void Client\+::get\+Grades (\begin{DoxyParamCaption}\item[{QString}]{filter,  }\item[{bool}]{direction }\end{DoxyParamCaption})}
+
+
+
+Отправляет запрос на сервер для получения оценок пользователей. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em filter} & тип сортировки. \\
+\hline
+{\em direction} & направление сортировки. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classClient_abc4d8d86cc753596a08a90e359f5eb31}\label{classClient_abc4d8d86cc753596a08a90e359f5eb31}} 
+\index{Client@{Client}!getId@{getId}}
+\index{getId@{getId}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily int Client\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Возвращает id пользователя. 
+
+\begin{DoxyReturn}{Возвращает}
+id пользователя. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClient_a18ce2bfb1c0e899016543dd09ce7803a}\label{classClient_a18ce2bfb1c0e899016543dd09ce7803a}} 
+\index{Client@{Client}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classClient}{Client}} $\ast$ Client\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Возвращает экземпляр класса \mbox{\hyperlink{classClient}{Client}} (singleton). 
+
+\begin{DoxyReturn}{Возвращает}
+Экземпляр класса \mbox{\hyperlink{classClient}{Client}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClient_a7bbf021b18cd0998497795744ff555af}\label{classClient_a7bbf021b18cd0998497795744ff555af}} 
+\index{Client@{Client}!handleMessage@{handleMessage}}
+\index{handleMessage@{handleMessage}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{handleMessage}{handleMessage}}
+{\footnotesize\ttfamily void Client\+::handle\+Message (\begin{DoxyParamCaption}\item[{QString}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Сигнал, который вызывается при получении ответа от сервера. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message} & ответ сервера. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classClient_a79e8fd81b03ef683fa13161e3d020c52}\label{classClient_a79e8fd81b03ef683fa13161e3d020c52}} 
+\index{Client@{Client}!login@{login}}
+\index{login@{login}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily void Client\+::login (\begin{DoxyParamCaption}\item[{QString}]{login,  }\item[{QString}]{password }\end{DoxyParamCaption})}
+
+
+
+Отправляет запрос на сервер для авторизации. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em login} & логин пользователя. \\
+\hline
+{\em password} & пароль пользователя. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classClient_a20399ee95785bb091963c62d5bba83ba}\label{classClient_a20399ee95785bb091963c62d5bba83ba}} 
+\index{Client@{Client}!registerUser@{registerUser}}
+\index{registerUser@{registerUser}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{registerUser()}{registerUser()}}
+{\footnotesize\ttfamily void Client\+::register\+User (\begin{DoxyParamCaption}\item[{QString}]{login,  }\item[{QString}]{password,  }\item[{QString}]{firstname,  }\item[{QString}]{surname,  }\item[{QString}]{patronymic,  }\item[{QString}]{studygroup }\end{DoxyParamCaption})}
+
+
+
+Отправляет запрос на сервер для регистрации. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em login} & логин пользователя. \\
+\hline
+{\em password} & пароль пользователя. \\
+\hline
+{\em firstname} & имя пользователя. \\
+\hline
+{\em surname} & фамилия пользователя. \\
+\hline
+{\em patronymic} & отчество пользователя. \\
+\hline
+{\em studygroup} & учебная группа пользователя. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classClient_a3f1e4b8f3ad958c9c0737d6d5658acea}\label{classClient_a3f1e4b8f3ad958c9c0737d6d5658acea}} 
+\index{Client@{Client}!sendData@{sendData}}
+\index{sendData@{sendData}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{sendData()}{sendData()}}
+{\footnotesize\ttfamily void Client\+::send\+Data (\begin{DoxyParamCaption}\item[{QString}]{query }\end{DoxyParamCaption})}
+
+
+
+Отправляет запрос на сервер. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em query} & запрос. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classClient_a5399a902d687bee18fc1ac739c26c563}\label{classClient_a5399a902d687bee18fc1ac739c26c563}} 
+\index{Client@{Client}!setId@{setId}}
+\index{setId@{setId}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}}
+{\footnotesize\ttfamily void Client\+::set\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Устанавливает id пользователя. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em id} & id пользователя. \\
+\hline
+\end{DoxyParams}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+/home/nejern/\+Documents/\+UNIV/\+SEM2/mospolytech-\/prog\+\_\+tech/client/include/client.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,145 @@
+\hypertarget{classServerFunctions}{}\doxysection{Класс Server\+Functions}
+\label{classServerFunctions}\index{ServerFunctions@{ServerFunctions}}
+
+
+Класс \mbox{\hyperlink{classServerFunctions}{Server\+Functions}} предоставляет функции для обработки команд сервера.  
+
+
+
+
+{\ttfamily \#include $<$functions.\+h$>$}
+
+\doxysubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static QByte\+Array \mbox{\hyperlink{classServerFunctions_ac6abab9b1af075202272a6e563a829da}{parse}} (const QString \&message)
+\begin{DoxyCompactList}\small\item\em Разбирает входящее сообщение и вызывает соответствующую функцию. \end{DoxyCompactList}\item 
+static QByte\+Array \mbox{\hyperlink{classServerFunctions_a43ac737ae97620cedbe1f8da51b5ebbc}{select\+Command}} (const QJson\+Document \&json)
+\begin{DoxyCompactList}\small\item\em Выбирает команду из JSON и вызывает соответствующую функцию. \end{DoxyCompactList}\item 
+static QByte\+Array \mbox{\hyperlink{classServerFunctions_a071d39bf1c0981d2789bc972cc25b40b}{register\+User}} (const QJson\+Object \&json)
+\begin{DoxyCompactList}\small\item\em Регистрирует нового пользователя на основе данных JSON. \end{DoxyCompactList}\item 
+static QByte\+Array \mbox{\hyperlink{classServerFunctions_ab03704934ab914dcbbecd9728289a82a}{login\+User}} (const QJson\+Object \&json)
+\begin{DoxyCompactList}\small\item\em Аутентифицирует пользователя на основе данных JSON. \end{DoxyCompactList}\item 
+static QByte\+Array \mbox{\hyperlink{classServerFunctions_a04093137063fb6dabce420d8fd165109}{get\+Grades}} (const QJson\+Object \&json)
+\begin{DoxyCompactList}\small\item\em Возвращает список оценок пользователей. \end{DoxyCompactList}\item 
+static QByte\+Array \mbox{\hyperlink{classServerFunctions_aef0bd694d3ff3040721bb082e4dd17a6}{check\+Exercise}} (const QJson\+Object \&json)
+\begin{DoxyCompactList}\small\item\em Проверяет правильность решения задания на основе данных JSON. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс \mbox{\hyperlink{classServerFunctions}{Server\+Functions}} предоставляет функции для обработки команд сервера. 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classServerFunctions_aef0bd694d3ff3040721bb082e4dd17a6}\label{classServerFunctions_aef0bd694d3ff3040721bb082e4dd17a6}} 
+\index{ServerFunctions@{ServerFunctions}!checkExercise@{checkExercise}}
+\index{checkExercise@{checkExercise}!ServerFunctions@{ServerFunctions}}
+\doxysubsubsection{\texorpdfstring{checkExercise()}{checkExercise()}}
+{\footnotesize\ttfamily static QByte\+Array Server\+Functions\+::check\+Exercise (\begin{DoxyParamCaption}\item[{const QJson\+Object \&}]{json }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Проверяет правильность решения задания на основе данных JSON. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em json} & JSON объект с данными о номере задания, данных задания, ответе пользователя на задание. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результат выполнения команды проверки задания. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classServerFunctions_a04093137063fb6dabce420d8fd165109}\label{classServerFunctions_a04093137063fb6dabce420d8fd165109}} 
+\index{ServerFunctions@{ServerFunctions}!getGrades@{getGrades}}
+\index{getGrades@{getGrades}!ServerFunctions@{ServerFunctions}}
+\doxysubsubsection{\texorpdfstring{getGrades()}{getGrades()}}
+{\footnotesize\ttfamily static QByte\+Array Server\+Functions\+::get\+Grades (\begin{DoxyParamCaption}\item[{const QJson\+Object \&}]{json }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Возвращает список оценок пользователей. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em json} & JSON объект с данными применяемой сортировки. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результат выполнения команды получения оценок пользователей. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classServerFunctions_ab03704934ab914dcbbecd9728289a82a}\label{classServerFunctions_ab03704934ab914dcbbecd9728289a82a}} 
+\index{ServerFunctions@{ServerFunctions}!loginUser@{loginUser}}
+\index{loginUser@{loginUser}!ServerFunctions@{ServerFunctions}}
+\doxysubsubsection{\texorpdfstring{loginUser()}{loginUser()}}
+{\footnotesize\ttfamily static QByte\+Array Server\+Functions\+::login\+User (\begin{DoxyParamCaption}\item[{const QJson\+Object \&}]{json }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Аутентифицирует пользователя на основе данных JSON. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em json} & JSON объект с данными пользователя для входа. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результат выполнения команды аутентификации. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classServerFunctions_ac6abab9b1af075202272a6e563a829da}\label{classServerFunctions_ac6abab9b1af075202272a6e563a829da}} 
+\index{ServerFunctions@{ServerFunctions}!parse@{parse}}
+\index{parse@{parse}!ServerFunctions@{ServerFunctions}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily static QByte\+Array Server\+Functions\+::parse (\begin{DoxyParamCaption}\item[{const QString \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Разбирает входящее сообщение и вызывает соответствующую функцию. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message} & Входящее сообщение для разбора. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результат выполнения команды. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classServerFunctions_a071d39bf1c0981d2789bc972cc25b40b}\label{classServerFunctions_a071d39bf1c0981d2789bc972cc25b40b}} 
+\index{ServerFunctions@{ServerFunctions}!registerUser@{registerUser}}
+\index{registerUser@{registerUser}!ServerFunctions@{ServerFunctions}}
+\doxysubsubsection{\texorpdfstring{registerUser()}{registerUser()}}
+{\footnotesize\ttfamily static QByte\+Array Server\+Functions\+::register\+User (\begin{DoxyParamCaption}\item[{const QJson\+Object \&}]{json }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Регистрирует нового пользователя на основе данных JSON. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em json} & JSON объект с данными нового пользователя. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результат выполнения команды регистрации. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classServerFunctions_a43ac737ae97620cedbe1f8da51b5ebbc}\label{classServerFunctions_a43ac737ae97620cedbe1f8da51b5ebbc}} 
+\index{ServerFunctions@{ServerFunctions}!selectCommand@{selectCommand}}
+\index{selectCommand@{selectCommand}!ServerFunctions@{ServerFunctions}}
+\doxysubsubsection{\texorpdfstring{selectCommand()}{selectCommand()}}
+{\footnotesize\ttfamily static QByte\+Array Server\+Functions\+::select\+Command (\begin{DoxyParamCaption}\item[{const QJson\+Document \&}]{json }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Выбирает команду из JSON и вызывает соответствующую функцию. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em json} & JSON документ с командой и данными. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результат выполнения команды. 
+\end{DoxyReturn}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+/home/nejern/\+Documents/\+UNIV/\+SEM2/mospolytech-\/prog\+\_\+tech/server/include/functions.\+h\end{DoxyCompactItemize}

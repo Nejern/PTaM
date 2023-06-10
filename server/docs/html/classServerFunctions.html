@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PTaM: Класс ServerFunctions</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PTaM
+   </div>
+   <div id="projectbrief">Технологии и методы программирования: Серверная часть</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="classServerFunctions-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс ServerFunctions</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс <a class="el" href="classServerFunctions.html" title="Класс ServerFunctions предоставляет функции для обработки команд сервера.">ServerFunctions</a> предоставляет функции для обработки команд сервера.  
+ <a href="classServerFunctions.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="functions_8h_source.html">functions.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:ac6abab9b1af075202272a6e563a829da"><td class="memItemLeft" align="right" valign="top">static QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerFunctions.html#ac6abab9b1af075202272a6e563a829da">parse</a> (const QString &amp;message)</td></tr>
+<tr class="memdesc:ac6abab9b1af075202272a6e563a829da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Разбирает входящее сообщение и вызывает соответствующую функцию.  <br /></td></tr>
+<tr class="separator:ac6abab9b1af075202272a6e563a829da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43ac737ae97620cedbe1f8da51b5ebbc"><td class="memItemLeft" align="right" valign="top">static QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerFunctions.html#a43ac737ae97620cedbe1f8da51b5ebbc">selectCommand</a> (const QJsonDocument &amp;json)</td></tr>
+<tr class="memdesc:a43ac737ae97620cedbe1f8da51b5ebbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выбирает команду из JSON и вызывает соответствующую функцию.  <br /></td></tr>
+<tr class="separator:a43ac737ae97620cedbe1f8da51b5ebbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a071d39bf1c0981d2789bc972cc25b40b"><td class="memItemLeft" align="right" valign="top">static QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerFunctions.html#a071d39bf1c0981d2789bc972cc25b40b">registerUser</a> (const QJsonObject &amp;json)</td></tr>
+<tr class="memdesc:a071d39bf1c0981d2789bc972cc25b40b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрирует нового пользователя на основе данных JSON.  <br /></td></tr>
+<tr class="separator:a071d39bf1c0981d2789bc972cc25b40b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab03704934ab914dcbbecd9728289a82a"><td class="memItemLeft" align="right" valign="top">static QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerFunctions.html#ab03704934ab914dcbbecd9728289a82a">loginUser</a> (const QJsonObject &amp;json)</td></tr>
+<tr class="memdesc:ab03704934ab914dcbbecd9728289a82a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Аутентифицирует пользователя на основе данных JSON.  <br /></td></tr>
+<tr class="separator:ab03704934ab914dcbbecd9728289a82a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04093137063fb6dabce420d8fd165109"><td class="memItemLeft" align="right" valign="top">static QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerFunctions.html#a04093137063fb6dabce420d8fd165109">getGrades</a> (const QJsonObject &amp;json)</td></tr>
+<tr class="memdesc:a04093137063fb6dabce420d8fd165109"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает список оценок пользователей.  <br /></td></tr>
+<tr class="separator:a04093137063fb6dabce420d8fd165109"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef0bd694d3ff3040721bb082e4dd17a6"><td class="memItemLeft" align="right" valign="top">static QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServerFunctions.html#aef0bd694d3ff3040721bb082e4dd17a6">checkExercise</a> (const QJsonObject &amp;json)</td></tr>
+<tr class="memdesc:aef0bd694d3ff3040721bb082e4dd17a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет правильность решения задания на основе данных JSON.  <br /></td></tr>
+<tr class="separator:aef0bd694d3ff3040721bb082e4dd17a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс <a class="el" href="classServerFunctions.html" title="Класс ServerFunctions предоставляет функции для обработки команд сервера.">ServerFunctions</a> предоставляет функции для обработки команд сервера. </p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="aef0bd694d3ff3040721bb082e4dd17a6" name="aef0bd694d3ff3040721bb082e4dd17a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef0bd694d3ff3040721bb082e4dd17a6">&#9670;&#160;</a></span>checkExercise()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static QByteArray ServerFunctions::checkExercise </td>
+          <td>(</td>
+          <td class="paramtype">const QJsonObject &amp;&#160;</td>
+          <td class="paramname"><em>json</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверяет правильность решения задания на основе данных JSON. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">json</td><td>JSON объект с данными о номере задания, данных задания, ответе пользователя на задание. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Результат выполнения команды проверки задания. </dd></dl>
+
+</div>
+</div>
+<a id="a04093137063fb6dabce420d8fd165109" name="a04093137063fb6dabce420d8fd165109"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04093137063fb6dabce420d8fd165109">&#9670;&#160;</a></span>getGrades()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static QByteArray ServerFunctions::getGrades </td>
+          <td>(</td>
+          <td class="paramtype">const QJsonObject &amp;&#160;</td>
+          <td class="paramname"><em>json</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает список оценок пользователей. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">json</td><td>JSON объект с данными применяемой сортировки. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Результат выполнения команды получения оценок пользователей. </dd></dl>
+
+</div>
+</div>
+<a id="ab03704934ab914dcbbecd9728289a82a" name="ab03704934ab914dcbbecd9728289a82a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab03704934ab914dcbbecd9728289a82a">&#9670;&#160;</a></span>loginUser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static QByteArray ServerFunctions::loginUser </td>
+          <td>(</td>
+          <td class="paramtype">const QJsonObject &amp;&#160;</td>
+          <td class="paramname"><em>json</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Аутентифицирует пользователя на основе данных JSON. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">json</td><td>JSON объект с данными пользователя для входа. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Результат выполнения команды аутентификации. </dd></dl>
+
+</div>
+</div>
+<a id="ac6abab9b1af075202272a6e563a829da" name="ac6abab9b1af075202272a6e563a829da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6abab9b1af075202272a6e563a829da">&#9670;&#160;</a></span>parse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static QByteArray ServerFunctions::parse </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Разбирает входящее сообщение и вызывает соответствующую функцию. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>Входящее сообщение для разбора. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Результат выполнения команды. </dd></dl>
+
+</div>
+</div>
+<a id="a071d39bf1c0981d2789bc972cc25b40b" name="a071d39bf1c0981d2789bc972cc25b40b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a071d39bf1c0981d2789bc972cc25b40b">&#9670;&#160;</a></span>registerUser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static QByteArray ServerFunctions::registerUser </td>
+          <td>(</td>
+          <td class="paramtype">const QJsonObject &amp;&#160;</td>
+          <td class="paramname"><em>json</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Регистрирует нового пользователя на основе данных JSON. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">json</td><td>JSON объект с данными нового пользователя. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Результат выполнения команды регистрации. </dd></dl>
+
+</div>
+</div>
+<a id="a43ac737ae97620cedbe1f8da51b5ebbc" name="a43ac737ae97620cedbe1f8da51b5ebbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43ac737ae97620cedbe1f8da51b5ebbc">&#9670;&#160;</a></span>selectCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static QByteArray ServerFunctions::selectCommand </td>
+          <td>(</td>
+          <td class="paramtype">const QJsonDocument &amp;&#160;</td>
+          <td class="paramname"><em>json</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Выбирает команду из JSON и вызывает соответствующую функцию. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">json</td><td>JSON документ с командой и данными. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Результат выполнения команды. </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>/home/nejern/Documents/UNIV/SEM2/mospolytech-prog_tech/server/include/<a class="el" href="functions_8h_source.html">functions.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>

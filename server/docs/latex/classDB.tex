@@ -1,0 +1,159 @@
+\hypertarget{classDB}{}\doxysection{Класс DB}
+\label{classDB}\index{DB@{DB}}
+
+
+Класс \mbox{\hyperlink{classDB}{DB}} предоставляет функции для работы с базой данных.  
+
+
+
+
+{\ttfamily \#include $<$db.\+h$>$}
+
+\doxysubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classDB}{DB}} \& \mbox{\hyperlink{classDB_a13a6fb12100ec75410b08c61839a3772}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает экземпляр класса \mbox{\hyperlink{classDB}{DB}} (singleton). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDB_ae47ed01e87ff52954025be0b3967c1f5}\label{classDB_ae47ed01e87ff52954025be0b3967c1f5}} 
+static void {\bfseries init} ()
+\begin{DoxyCompactList}\small\item\em Инициализирует базу данных, открывает соединение и создает таблицы. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDB_ac924521b26d6f2fe876bdd9482b88bd4}\label{classDB_ac924521b26d6f2fe876bdd9482b88bd4}} 
+static void {\bfseries close} ()
+\begin{DoxyCompactList}\small\item\em Закрывает соединение с базой данных. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classDB_aa4e2d837a8e09b8bc705b9d1c0de9a99}{insert\+Data}} (const QString \&query\+String)
+\begin{DoxyCompactList}\small\item\em Выполняет запрос на вставку данных в таблицу. \end{DoxyCompactList}\item 
+static QMap$<$ QString, QVariant $>$ \mbox{\hyperlink{classDB_a6ac438f78a39cd6867d148d78fe816bc}{get\+Data}} (const QString \&request)
+\begin{DoxyCompactList}\small\item\em Выполняет запрос и возвращает результаты в виде QMap. \end{DoxyCompactList}\item 
+static QSql\+Query \mbox{\hyperlink{classDB_a8d69e88fcc3f7470963ec11186b85036}{get\+Qsql\+Data}} (const QString \&request)
+\begin{DoxyCompactList}\small\item\em Выполняет запрос и возвращает результаты в виде QSql\+Query. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classDB_ac8372edf667819af1935b5269207b29a}{make\+Insert\+Query}} (const QMap$<$ QString, QMap$<$ QString, QVariant $>$ $>$ \&data)
+\begin{DoxyCompactList}\small\item\em Создает запрос на вставку данных в таблицу. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classDB_a2271842271295a1237c4db9bb340001b}{get\+Last\+Insert\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Получает какой id был вставлен последним. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDB_abd003b1b882cf1ac24213db3bee4eb37}\label{classDB_abd003b1b882cf1ac24213db3bee4eb37}} 
+static void {\bfseries create\+Tables} ()
+\begin{DoxyCompactList}\small\item\em Создает таблицы в базе данных. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDB_aa4cfdf57a4f173e6ccf3e6b52506c504}\label{classDB_aa4cfdf57a4f173e6ccf3e6b52506c504}} 
+static void {\bfseries drop\+Tables} ()
+\begin{DoxyCompactList}\small\item\em Удаляет таблицы из базы данных. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Статические открытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDB_a16a3fe9cad1962aed793def0926289fd}\label{classDB_a16a3fe9cad1962aed793def0926289fd}} 
+static QSql\+Database {\bfseries db}
+\end{DoxyCompactItemize}
+\doxysubsection*{Друзья}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDB_a8d3eb57cea052b3f13a3e331b0e77d72}\label{classDB_a8d3eb57cea052b3f13a3e331b0e77d72}} 
+class {\bfseries DBDestroyer}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс \mbox{\hyperlink{classDB}{DB}} предоставляет функции для работы с базой данных. 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classDB_a6ac438f78a39cd6867d148d78fe816bc}\label{classDB_a6ac438f78a39cd6867d148d78fe816bc}} 
+\index{DB@{DB}!getData@{getData}}
+\index{getData@{getData}!DB@{DB}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily static QMap$<$ QString, QVariant $>$ DB\+::get\+Data (\begin{DoxyParamCaption}\item[{const QString \&}]{request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Выполняет запрос и возвращает результаты в виде QMap. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em request} & Строка с SQL-\/запросом для получения данных. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результаты запроса в виде QMap. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDB_a13a6fb12100ec75410b08c61839a3772}\label{classDB_a13a6fb12100ec75410b08c61839a3772}} 
+\index{DB@{DB}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!DB@{DB}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classDB}{DB}} \& DB\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Возвращает экземпляр класса \mbox{\hyperlink{classDB}{DB}} (singleton). 
+
+\begin{DoxyReturn}{Возвращает}
+Экземпляр класса \mbox{\hyperlink{classDB}{DB}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDB_a2271842271295a1237c4db9bb340001b}\label{classDB_a2271842271295a1237c4db9bb340001b}} 
+\index{DB@{DB}!getLastInsertId@{getLastInsertId}}
+\index{getLastInsertId@{getLastInsertId}!DB@{DB}}
+\doxysubsubsection{\texorpdfstring{getLastInsertId()}{getLastInsertId()}}
+{\footnotesize\ttfamily static int DB\+::get\+Last\+Insert\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Получает какой id был вставлен последним. 
+
+\begin{DoxyReturn}{Возвращает}
+id последней вставленной записи. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDB_a8d69e88fcc3f7470963ec11186b85036}\label{classDB_a8d69e88fcc3f7470963ec11186b85036}} 
+\index{DB@{DB}!getQsqlData@{getQsqlData}}
+\index{getQsqlData@{getQsqlData}!DB@{DB}}
+\doxysubsubsection{\texorpdfstring{getQsqlData()}{getQsqlData()}}
+{\footnotesize\ttfamily static QSql\+Query DB\+::get\+Qsql\+Data (\begin{DoxyParamCaption}\item[{const QString \&}]{request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Выполняет запрос и возвращает результаты в виде QSql\+Query. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em request} & Строка с SQL-\/запросом для получения данных. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результаты запроса в виде QSql\+Query. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDB_aa4e2d837a8e09b8bc705b9d1c0de9a99}\label{classDB_aa4e2d837a8e09b8bc705b9d1c0de9a99}} 
+\index{DB@{DB}!insertData@{insertData}}
+\index{insertData@{insertData}!DB@{DB}}
+\doxysubsubsection{\texorpdfstring{insertData()}{insertData()}}
+{\footnotesize\ttfamily static bool DB\+::insert\+Data (\begin{DoxyParamCaption}\item[{const QString \&}]{query\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Выполняет запрос на вставку данных в таблицу. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em query\+String} & Строка с SQL-\/запросом для вставки данных. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если запрос выполнен успешно, иначе false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDB_ac8372edf667819af1935b5269207b29a}\label{classDB_ac8372edf667819af1935b5269207b29a}} 
+\index{DB@{DB}!makeInsertQuery@{makeInsertQuery}}
+\index{makeInsertQuery@{makeInsertQuery}!DB@{DB}}
+\doxysubsubsection{\texorpdfstring{makeInsertQuery()}{makeInsertQuery()}}
+{\footnotesize\ttfamily static bool DB\+::make\+Insert\+Query (\begin{DoxyParamCaption}\item[{const QMap$<$ QString, QMap$<$ QString, QVariant $>$ $>$ \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Создает запрос на вставку данных в таблицу. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em data} & QMap с данными для вставки. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если запрос выполнен успешно, иначе false. 
+\end{DoxyReturn}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+/home/nejern/\+Documents/\+UNIV/\+SEM2/mospolytech-\/prog\+\_\+tech/server/include/db.\+h\end{DoxyCompactItemize}
