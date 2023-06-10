@@ -9,7 +9,7 @@
  * @brief Класс DB предоставляет функции для работы с базой данных.
  */
 class DB {
-public:
+ public:
   /**
    * @brief Возвращает экземпляр класса DB (singleton).
    * @return Экземпляр класса DB.
@@ -43,6 +43,11 @@ public:
    */
   static QMap<QString, QVariant> getData(const QString &request);
 
+  /**
+   * @brief Выполняет запрос и возвращает результаты в виде QSqlQuery.
+   * @param request Строка с SQL-запросом для получения данных.
+   * @return Результаты запроса в виде QSqlQuery.
+   */
   static QSqlQuery getQsqlData(const QString &request);
 
   /**
@@ -50,9 +55,13 @@ public:
    * @param data QMap с данными для вставки.
    * @return true, если запрос выполнен успешно, иначе false.
    */
-  static bool
-  makeInsertQuery(const QMap<QString, QMap<QString, QVariant>> &data);
+  static bool makeInsertQuery(
+      const QMap<QString, QMap<QString, QVariant>> &data);
 
+  /**
+   * @brief Получает какой id был вставлен последним.
+   * @return id последней вставленной записи.
+   */
   static int getLastInsertId();
 
   /**
@@ -65,11 +74,11 @@ public:
    */
   static void dropTables();
 
-protected:
+ protected:
   // DB();
   //~DB();
 
-private:
+ private:
   friend class DBDestroyer;
 
   /**
@@ -82,7 +91,7 @@ private:
  * @brief Класс DBDestroyer управляет удалением экземпляра класса DB.
  */
 class DBDestroyer {
-public:
+ public:
   /**
    * @brief Конструктор класса DBDestroyer.
    * @param p_instance Указатель на экземпляр класса DB.
@@ -94,6 +103,6 @@ public:
    */
   ~DBDestroyer();
 
-private:
+ private:
   DB *p_instance;
 };

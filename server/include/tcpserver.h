@@ -10,7 +10,6 @@
  * чтения и записи данных в сеть.
  */
 class MyTcpServer : public QTcpServer {
-
 public:
   /**
    * @brief Конструктор класса.

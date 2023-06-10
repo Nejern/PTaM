@@ -36,6 +36,17 @@ public:
    * @return Результат выполнения команды аутентификации.
    */
   static QByteArray loginUser(const QJsonObject &json);
-  static QByteArray getGrades(const QJsonObject &);
+  /**
+   * @brief Возвращает список оценок пользователей.
+   * @param json JSON объект с данными применяемой сортировки.
+   * @return Результат выполнения команды получения оценок пользователей.
+   */
+  static QByteArray getGrades(const QJsonObject &json);
+  /**
+   * @brief Проверяет правильность решения задания на основе данных JSON.
+   * @param json JSON объект с данными о номере задания, данных задания, ответе
+   * пользователя на задание.
+   * @return Результат выполнения команды проверки задания.
+   */
   static QByteArray checkExercise(const QJsonObject &json);
 };
