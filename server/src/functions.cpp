@@ -1,7 +1,7 @@
+#include "functions.h"
+#include "db.h"
+#include "excercises.h"
 #include <QJsonArray>
-#include <db.h>
-#include <excercises.h>
-#include <functions.h>
 
 QByteArray ServerFunctions::selectCommand(const QJsonDocument &json) {
   const QJsonObject obj = json.object();
