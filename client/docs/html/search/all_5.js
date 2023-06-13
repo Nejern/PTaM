@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['login_0',['Login',['../classLogin.html',1,'']]],
-  ['login_1',['login',['../classClient.html#a79e8fd81b03ef683fa13161e3d020c52',1,'Client']]]
+  ['initialize_0',['initialize',['../classSingletonDestroyer.html#a25deec9dd06c82781b9fc962ba9d8063',1,'SingletonDestroyer']]]
 ];

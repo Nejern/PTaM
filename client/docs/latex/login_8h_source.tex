@@ -15,45 +15,30 @@
 \DoxyCodeLine{00011\ \}}
 \DoxyCodeLine{00012\ QT\_END\_NAMESPACE}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{comment}{//\ Класс\ основного\ окна}}
 \DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLogin}{Login}}\ :\ \textcolor{keyword}{public}\ QMainWindow\ \{}
 \DoxyCodeLine{00016\ \ \ Q\_OBJECT}
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00019\ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ *\ @brief\ Конструктор\ класса\ Login.}}
-\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ *\ @param\ parent\ указатель\ на\ родительский\ виджет.}}
-\DoxyCodeLine{00022\ \textcolor{comment}{\ \ \ */}}
-\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{classLogin}{Login}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});\ \ \textcolor{comment}{//\ Конструктор\ класса}}
-\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{classLogin}{\string~Login}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Деструктор\ класса}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{classLogin_a5d0ad68bb85df1299c7513e476211c98}{Login}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});\ \textcolor{comment}{//\ Конструктор\ класса}}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{classLogin}{\string~Login}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Деструктор\ класса}}
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00026\ \textcolor{keyword}{private}\ slots:}
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ *\ @brief\ Обработчик\ нажатия\ кнопки\ "{}Войти"{}.}}
-\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ */}}
-\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{void}\ onLogInbuttonClicked();\ \ \textcolor{comment}{//\ Обработчик\ нажатия\ кнопки\ "{}Войти"{}}}
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{void}\ onLogInbuttonClicked();\ \textcolor{comment}{//\ Обработчик\ нажатия\ кнопки\ "{}Войти"{}}}
 \DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{00034\ \textcolor{comment}{\ \ \ *\ @brief\ Обработчик\ нажатия\ кнопки\ "{}Зарегистрироваться"{}.}}
-\DoxyCodeLine{00035\ \textcolor{comment}{\ \ \ */}}
-\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{void}\ onGoToRegisterButtonsClicked();\ \ \textcolor{comment}{//\ Обработчик\ нажатия\ кнопки}}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ "{}Зарегистрироваться"{}}}
-\DoxyCodeLine{00038\ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{00039\ \textcolor{comment}{\ \ \ *\ @brief\ Обработчик\ ответа\ сервера\ на\ запрос\ авторизации.}}
-\DoxyCodeLine{00040\ \textcolor{comment}{\ \ \ *\ @param\ response\ ответ\ сервера.}}
-\DoxyCodeLine{00041\ \textcolor{comment}{\ \ \ */}}
-\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ loginResponse(QString\ response);\ \ \textcolor{comment}{//\ Обработчик\ ответа\ сервера\ на\ запрос}}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ авторизации}}
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{void}\ onGoToRegisterButtonsClicked();\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ loginResponse(}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ QString\ response);\ }
 \DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{classRegisterWindow}{RegisterWindow}}\ *registerWindow;\ \ \textcolor{comment}{//\ Создание\ объекта\ окна\ регистрации}}
+\DoxyCodeLine{00045\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{classRegisterWindow}{RegisterWindow}}\ *registerWindow;\ }
 \DoxyCodeLine{00047\ \ \ \mbox{\hyperlink{classExercicesTableWindow}{ExercicesTableWindow}}}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ *exercicesTableWindow;\ \ \textcolor{comment}{//\ Создание\ объекта\ окна\ таблицы\ упражнений}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ *exercicesTableWindow;\ }
 \DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{classAdminTableWindow}{AdminTableWindow}}}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ *adminTableWindow;\ \ \textcolor{comment}{//\ Создание\ объекта\ окна\ таблицы\ администратора}}
-\DoxyCodeLine{00051\ \ \ Ui::Login\ *ui;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Создание\ указателя\ типа\ Login}}
-\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{classClient}{Client}}\ *client;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Создание\ указателя\ типа\ Client}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ *adminTableWindow;\ }
+\DoxyCodeLine{00051\ \ \ Ui::Login\ *ui;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{classClient}{Client}}\ *client;\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00053\ \};}
 
 \end{DoxyCode}

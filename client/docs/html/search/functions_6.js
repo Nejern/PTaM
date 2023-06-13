@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['registeruser_0',['registerUser',['../classClient.html#a20399ee95785bb091963c62d5bba83ba',1,'Client']]],
-  ['registerwindow_1',['RegisterWindow',['../classRegisterWindow.html#a0afbe90533f73fb296bfd483c3738baf',1,'RegisterWindow']]]
+  ['login_0',['login',['../classClient.html#a79e8fd81b03ef683fa13161e3d020c52',1,'Client']]],
+  ['login_1',['Login',['../classLogin.html#a5d0ad68bb85df1299c7513e476211c98',1,'Login']]]
 ];

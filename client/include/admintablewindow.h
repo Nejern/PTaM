@@ -13,7 +13,7 @@ class AdminTableWindow;
 class AdminTableWindow : public QMainWindow {
   Q_OBJECT
 
- public:
+public:
   /**
    * @brief Конструктор класса AdminTableWindow.
    * @param parent указатель на родительский виджет.
@@ -21,7 +21,7 @@ class AdminTableWindow : public QMainWindow {
   explicit AdminTableWindow(QWidget *parent = nullptr);
   ~AdminTableWindow();
 
- private slots:
+private slots:
   /**
    * @brief Слот, вызываемый при изменении фильтра.
    * @param index индекс выбранного элемента.
@@ -40,23 +40,24 @@ class AdminTableWindow : public QMainWindow {
    */
   void createTable(QString response);
 
- private:
+private:
   /**
    * @brief Инициализация окна.
    */
   void init();
 
-  Ui::AdminTableWindow *ui;  // Указатель на объект интерфейса
-  Client *client;  // Указатель на объект клиента
-  bool filterDirection = false;  // Направление сортировки
-  int filterIndex = 0;       // Индекс выбранного фильтра
-  bool initialized = false;  // Флаг инициализации окна
+  Ui::AdminTableWindow *ui; /// Указатель на объект интерфейса
+  Client *client; /// Указатель на объект клиента
+  bool filterDirection = false; /// Направление сортировки
+  int filterIndex = 0;      /// Индекс выбранного фильтра
+  bool initialized = false; /// Флаг инициализации окна
 
-  const QMap<int, QString> filters = {{0, "default"},  // Список фильтров
+  /// Список фильтров
+  const QMap<int, QString> filters = {{0, "default"},
                                       {1, "surname"},
                                       {2, "studygroup"},
                                       {3, "exercise"},
                                       {4, "grades"}};
 };
 
-#endif  // ADMINTABLEWINDOW_H
+#endif // ADMINTABLEWINDOW_H

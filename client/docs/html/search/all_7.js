@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['senddata_0',['sendData',['../classClient.html#a3f1e4b8f3ad958c9c0737d6d5658acea',1,'Client']]],
-  ['setid_1',['setId',['../classClient.html#a5399a902d687bee18fc1ac739c26c563',1,'Client']]],
-  ['singletondestroyer_2',['SingletonDestroyer',['../classSingletonDestroyer.html',1,'']]]
+  ['registeruser_0',['registerUser',['../classClient.html#a20399ee95785bb091963c62d5bba83ba',1,'Client']]],
+  ['registerwindow_1',['RegisterWindow',['../classRegisterWindow.html',1,'RegisterWindow'],['../classRegisterWindow.html#a0afbe90533f73fb296bfd483c3738baf',1,'RegisterWindow::RegisterWindow()']]]
 ];

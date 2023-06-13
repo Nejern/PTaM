@@ -9,7 +9,7 @@ class SingletonDestroyer;
 
 class Client : public QObject {
   Q_OBJECT
- public:
+public:
   /**
    * @brief Возвращает экземпляр класса Client (singleton).
    * @return Экземпляр класса Client.
@@ -69,7 +69,7 @@ class Client : public QObject {
    * @return id пользователя.
    */
   int getId();
- signals:
+signals:
 
   /**
    * @brief Сигнал, который вызывается при получении ответа от сервера.
@@ -77,33 +77,33 @@ class Client : public QObject {
    */
   void handleMessage(QString message);
 
- private slots:
+private slots:
 
   /**
    * @brief Слот, который вызывается при получении данных от сервера.
    */
   void slotServerRead();
 
- private:
-  int userId;                                  // id пользователя
-  explicit Client(QObject *parent = nullptr);  // Конструктор
-  static Client *p_instance;  // Экземпляр класса Client
+private:
+  int userId;                                 /// id пользователя
+  explicit Client(QObject *parent = nullptr); /// Конструктор
+  static Client *p_instance; /// Экземпляр класса Client
   static QScopedPointer<SingletonDestroyer>
-      destroyer;  // Указатель на класс SingletonDestroyer
-  QTcpSocket *mTcpSocket;  // Сокет
+      destroyer; /// Указатель на класс SingletonDestroyer
+  QTcpSocket *mTcpSocket; /// Сокет
 };
 
 class SingletonDestroyer {
- public:
-  /*
+public:
+  /**
    * @brief Конструктор класса SingletonDestroyer.
    * @param p указатель на экземпляр класса Client.
    */
   void initialize(Client *p) { p_instance = p; }
   ~SingletonDestroyer() { delete p_instance; }
 
- private:
-  Client *p_instance;  // Указатель на экземпляр класса Client
+private:
+  Client *p_instance; /// Указатель на экземпляр класса Client
 };
 
-#endif  // CLIENT_H
+#endif // CLIENT_H
